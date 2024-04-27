@@ -1,7 +1,7 @@
 import os
 import dj_database_url
-if os.path.isfile('env.py'):
-    import env
+if os.path.isfile('local_env.py'):
+    import local_env
 from pathlib import Path
 from storages.backends.s3boto3 import S3Boto3Storage
 

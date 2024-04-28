@@ -12,7 +12,7 @@
         <div class="card-body text-center">
             <img src="{{ product.image_url }}" class="img-fluid img-thumbnail rounded-2" alt="Product Image" style="height: 200px; object-fit: cover;">
             
-            <p><a href="#" class="text-dark card-title small">{{ product.title }}</a></p>
+            <p><a href="{% url 'product_detail' product.id %}" class="text-dark card-title small">{{ product.title }}</a></p>
 
             <p class="card-text">{% if product.old_price  %}<del class="text-danger small">${{ product.old_price }} </del>{% endif %}${{ product.price }}</p>
         </div>

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <!-- Add any header content here if needed -->
+{% endblock %}
+
+{% block content %}
+<div>
+    {% for product in object_list %}
+    <div class="card mb-3">
+        <div class="card-body">
+            <div class="card-header" style="background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.9), rgba(236, 234, 234, 0.8));">
+                
+                <a href="#">
+                    <img src="{{ product.image }}" class="img-fluid img-thumbnail rounded-circle" alt="Product Image" style="width: 150px; height: 150px; object-fit: cover;">
+                </a>
+                <a href="#">
+                    <img src="{{ product.image_url }}" class="img-fluid img-thumbnail rounded-circle" alt="Product Image" style="width: 150px; height: 150px; object-fit: cover;">
+                </a>
+                <a href="#">
+                    <img src="{{ product.image_2_url }}" class="img-fluid img-thumbnail rounded-circle" alt="Product Image" style="width: 150px; height: 150px; object-fit: cover;">
+                </a>
+            </div>
+            <h5 class="card-title"><a href="#" class="text-dark">{{ product.title }}</a></h5>
+            <p class="card-text">{{ product.price }}</p>
+        </div>
+    </div>
+    {% if forloop.counter|divisibleby:2 %}
+    <div class="w-100"></div>
+    {% endif %}
+    {% empty %}
+        <p>No products found.</p>
+    {% endfor %}
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li class="page-item"><a href="?page={{ page_obj.previous_page_number }}" class="page-link text-dark bg-info">&laquo; PREV </a></li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li class="page-item"><a href="?page={{ page_obj.next_page_number }}" class="page-link text-dark bg-info"> NEXT &raquo;</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+</div>
+{% endblock %}

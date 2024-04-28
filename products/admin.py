@@ -1,9 +1,12 @@
 from django.contrib import admin
 from .models import Product, Category
 
+
 # Register your models here.
 
 class ProductAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('title',)}
+    search_fields = ['title', 'brand']
     list_display = (
         'sku',
         'title',
@@ -11,8 +14,10 @@ class ProductAdmin(admin.ModelAdmin):
         'price',
         'image',
         'vendor',
+        'product_brand',
         'status',
     )
+    summernote_fields = ('description')
 
     ordering = ('sku',)
 

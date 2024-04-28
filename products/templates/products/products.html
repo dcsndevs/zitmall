@@ -1,4 +1,4 @@
-
+{% extends "base.html" %}
 {% load static %}
 
 {% block page_header %}
@@ -9,7 +9,7 @@
    
     <div class="my-5">
         <h4>
-            <a href="#">All Products</a>
+            <a href="{% url 'all-products' %}">All Products</a>
         </h4>
     </div>
 

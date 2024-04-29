@@ -1,0 +1,13 @@
+.top-down-button {
+    height: 40px;
+    width: 40px;
+    position: fixed;
+    bottom: 8px;
+    right: 8px;
+}
+
+.top-down-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
+}

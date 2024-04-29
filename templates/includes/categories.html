@@ -1,0 +1,176 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        
+        <button class="navbar-toggler text-center" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span>Categories</span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle dropdown-bs-toggle" href="#" id="electronicsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Electronics
+            </a>
+            <div class="dropdown-menu" aria-labelledby="electronicsDropdown">
+                <a class="dropdown-item" href="{% url 'products' %}?category=air_conditioner">Air Conditioner</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=airpod">Airpod</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=apple_ipad">Apple Ipad</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=dvd_player">DVD Player</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=electric_hotplate">Electric Hotplate</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=electric_jug">Electric Jug</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=generator">Generator</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=home_theater">Home Theater</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=home_theatre">Home Theatre</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=iphone">Iphone</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=iphone_6s_plus">Iphone 6S Plus</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=iphone_xs">Iphone Xs</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=iphone_xs_max">Iphone Xs Max</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=laptop">Laptop</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=mobile_phone">Mobile Phone</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=smart_tv">Smart TV</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=smart_watch">Smart Watch</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=solar_panel">Solar Panel</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=sound_bar">Sound Bar</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=sound_speaker">Sound Speaker</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=sound_system">Sound System</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=television">Television</a>
+                <a class="dropdown-item" href="{% url 'products' %}?category=wallpaper_tv">Wallpaper TV</a>
+            </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle dropdown-bs-toggle" href="#" id="kitchenDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Kitchen Appliances
+                </a>
+                <div class="dropdown-menu" aria-labelledby="kitchenDropdown">
+                    <a class="dropdown-item" href="{% url 'products' %}?category=blender">Blender</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=cooker">Cooker</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=food_processor">Food Processor</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=kettle">Kettle</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=microwave">Microwave</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=microwave_oven">Microwave Oven</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=oven">Oven</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=pressure_cooker">Pressure Cooker</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=rice_cooker">Rice Cooker</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=toaster">Toaster</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=yam_pounder">Yam Pounder</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle dropdown-bs-toggle" href="#" id="HomeDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Home Appliances
+                </a>
+                <div class="dropdown-menu" aria-labelledby="HomeDropdown">
+                    <a class="dropdown-item" href="{% url 'products' %}?category=air_cooler">Air Cooler</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=chest_freezer">Chest Freezer</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=cooler">Cooler</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=dispenser">Dispenser</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=fan">Fan</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=freezer">Freezer</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=fridge">Fridge</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=gas_cooker">Gas Cooker</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=refrigerator">Refrigerator</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=rechargeable_fan">Rechargeable Fan</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=stove">Stove</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=tower_fan">Tower Fan</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=top_mount_refrigerators">TOP MOUNT Refrigerators</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=washing_machine">Washing Machine</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=water_dispenser">Water Dispenser</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=water_heater">Water Heater</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=water_kettle">Water Kettle</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle dropdown-bs-toggle" href="#" id="ElectricalAplliancesDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Electrical Appliances
+                </a>
+                <div class="dropdown-menu" aria-labelledby="ElectricalAplliancesDropdown">
+                    <a class="dropdown-item" href="{% url 'products' %}?category=ceiling_fan">Ceiling Fan</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=electric_fan">Electric Fan</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=standing_fan">Standing Fan</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=wall_fan">Wall Fan</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=extension">Extension</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=inverter">Inverter</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=inverter_battery">Inverter Battery</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=iron">Iron</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=regulator">Regulator</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=stabilizer">Stabilizer</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=voltage_protector">Voltage Protector</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle dropdown-bs-toggle" href="#" id="EntertainmentDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Entertainment
+                </a>
+                <div class="dropdown-menu" aria-labelledby="EntertainmentDropdown">
+                    <a class="dropdown-item" href="{% url 'products' %}?category=dvd_player">DVD Player</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=home_theater">Home Theater</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=home_theatre">Home Theatre</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=smart_tv">Smart TV</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=sound_bar">Sound Bar</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=sound_speaker">Sound Speaker</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=sound_system">Sound System</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=television">Television</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle dropdown-bs-toggle" href="#" id="GadgetsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Gadgets
+                </a>
+                <div class="dropdown-menu" aria-labelledby="GadgetsDropdown">
+                    <a class="dropdown-item" href="{% url 'products' %}?category=airpod">Airpod</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=apple_ipad">Apple Ipad</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=iphone">Iphone</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=iphone_6s_plus">Iphone 6S Plus</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=iphone_xs">Iphone Xs</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=iphone_xs_max">Iphone Xs Max</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=laptop">Laptop</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=mobile_phone">Mobile Phone</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=smart_watch">Smart Watch</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle dropdown-bs-toggle" href="#" id="KitchenEssentialsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Kitchen Essentials
+                </a>
+                <div class="dropdown-menu" aria-labelledby="KitchenEssentialsDropdown">
+                    <a class="dropdown-item" href="{% url 'products' %}?category=blender">Blender</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=cooker">Cooker</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=food_processor">Food Processor</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=kettle">Kettle</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=microwave">Microwave</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=microwave_oven">Microwave Oven</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=oven">Oven</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=pressure_cooker">Pressure Cooker</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=rice_cooker">Rice Cooker</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=toaster">Toaster</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=yam_pounder">Yam Pounder</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle dropdown-bs-toggle" href="#" id="HomeComfortDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Home Comfort
+                </a>
+                <div class="dropdown-menu" aria-labelledby="HomeComfortDropdown">
+                    <a class="dropdown-item" href="{% url 'products' %}?category=air_cooler">Air Cooler</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=ceiling_fan">Ceiling Fan</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=electric_fan">Electric Fan</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=tower_fan">Tower Fan</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=rechargeable_fan">Rechargeable Fan</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=standing_fan">Standing Fan</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=wall_fan">Wall Fan</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle dropdown-bs-toggle" href="#" id="PowerDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Power
+                </a>
+                <div class="dropdown-menu" aria-labelledby="PowerDropdown">
+                    <a class="dropdown-item" href="{% url 'products' %}?category=air_conditioner">Air Conditioner</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=generator">Generator</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=installation_kit">Installation Kit</a>
+                    <a class="dropdown-item" href="{% url 'products' %}?category=solar_panel">Solar Panel</a>
+                </div>
+            </li>
+        </ul>
+        </div>
+    </div>
+</nav>

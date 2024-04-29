@@ -91,27 +91,9 @@
                     </div>
                 </div>
             </nav>
-            <nav class="navbar navbar-expand-sm navbar-primary py-2 bg-white base-nav">
-                <ul class="navbar-nav">
-                                                
-                    <li class="">
-                    <a class="nav-link {% if request.path == member_area_url %}active" aria-current="page{% endif %}" href="{% url 'products' %}" aria-label="member-area">- Washing machines</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'account_logout' %}" aria-label="logout">- Generators</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'account_logout' %}" aria-label="logout">- Refrigerators</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == registration_url %}active" aria-current="page{% endif %}" href="{% url 'account_signup' %}" aria-label="signup">- Television</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == logout_url %}active" aria-current="page{% endif %}" href="{% url 'account_login' %}" aria-label="login">- Sound System</a>
-                    </li>
-                    
-                </ul>
-            </nav>
+            {% include 'includes/categories.html' %}
+            <!-- <nav class="navbar navbar-expand-sm navbar-primary py-2 bg-white base-nav"> -->
+            
             <!-- displaying Django messages -->
             <div class="bg-dark py-0 my-0">
                 <div class="container">

@@ -38,9 +38,9 @@
     <title>Zit Mall{% block extra_title %}{% endblock %}</title>
   </head>
   <body>
-    <header class="header">
+    <header class="">
             <nav class="navbar navbar-expand-sm navbar-danger py-2 bg-light base-nav">
-                <div class="container mx-auto">
+                <div class="container-fluid mx-auto">
                     <h1><a href="{% url 'home' %}" aria-label="home-page" class="text-dark navbar-brand {% if request.path == home_url %}active" aria-current="page{% endif %}"><span class="text-dark">Zit</span> Mall</a></h1>
                     <form method="GET" action="{% url 'products' %}" role="search">
                         <input class="form-control" type="search" name="q" placeholder="What are you looking for?" aria-label="Search">
@@ -55,13 +55,20 @@
                             <i class="bi bi-person"></i>
                         </button>
                     
-                        <button
-                            class="navbar-toggler"
-                            type="button"
-                            aria-label="shopping-bag">
-                            <i class="bi bi-cart4"><sup class="small text-primary">2</sup></i>
-                            <small> $50</small>
-                        </button>
+                        <a href="{% url 'view_cart' %}" class="text-decoration-none navbar-toggler" aria-label="shopping-bag">
+                            <button type="button" class="btn btn-link">
+                                <i class="bi bi-cart4"><sup class="small text-primary">
+                                    {% if product_count == 0 %}{% else %}{{ product_count }}{% endif %}                                    
+                                </sup></i>
+                                <small>
+                                    {% if grand_total %}
+                                        ${{ grand_total|floatformat:2 }}
+                                    {% else %}
+                                        $0.00
+                                    {% endif %}
+                                </small>
+                            </button>
+                        </a>
                     </div>
                         
                     <div class="collapse navbar-collapse" id="navprofilemenu">
@@ -75,7 +82,9 @@
                                     <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'account_logout' %}" aria-label="logout"><i class="bi-key"></i> Logout</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'account_logout' %}" aria-label="logout"><small>$50 </small> <i class="bi-cart4"><sup class="small text-primary">2</sup></i></a>
+                                    <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'view_cart' %}" aria-label="logout">
+                                        <i class="bi-cart4"><sup class="small text-primary">{% if product_count == 0 %}{% else %}{{ product_count }}{% endif %}</sup></i>
+                                        <small>{% if grand_total %}${{ grand_total|floatformat:2 }}{% else %}$0.00{% endif %}</small></a>
                                 </li>
                                 {% else %}
                                 <li class="nav-item">

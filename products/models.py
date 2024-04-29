@@ -32,7 +32,7 @@ class Product(models.Model):
     quantity = models.IntegerField(default=0)
     
     sku = models.CharField(max_length=50, null=True, blank=True)
-    title = models.CharField(max_length=1000, unique=True)
+    title = models.CharField(max_length=1000)
     description = models.TextField()
     has_sizes = models.BooleanField(default=False, null=True, blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=0)

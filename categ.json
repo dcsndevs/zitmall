@@ -1,0 +1,618 @@
+[
+    {
+        "pk": 1,
+        "model": "products.category",
+        "fields": {
+            "name": "ac_bracket",
+            "friendly_name": "Ac Bracket"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.category",
+        "fields": {
+            "name": "air_conditioners",
+            "friendly_name": "Air Conditioners"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.category",
+        "fields": {
+            "name": "air_conditioner",
+            "friendly_name": "Air Conditioner"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.category",
+        "fields": {
+            "name": "air_conditioners",
+            "friendly_name": "Air Conditioners"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.category",
+        "fields": {
+            "name": "air_cooler",
+            "friendly_name": "Air Cooler"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.category",
+        "fields": {
+            "name": "airpod",
+            "friendly_name": "Airpod"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "products.category",
+        "fields": {
+            "name": "apple_ipad",
+            "friendly_name": "Apple Ipad"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "products.category",
+        "fields": {
+            "name": "blender",
+            "friendly_name": "Blender"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "products.category",
+        "fields": {
+            "name": "ceiling_fan",
+            "friendly_name": "Ceiling Fan"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "products.category",
+        "fields": {
+            "name": "celling_fan",
+            "friendly_name": "Celling Fan"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "products.category",
+        "fields": {
+            "name": "chest_freezer",
+            "friendly_name": "Chest Freezer"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "products.category",
+        "fields": {
+            "name": "chiller",
+            "friendly_name": "Chiller"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "products.category",
+        "fields": {
+            "name": "cooker",
+            "friendly_name": "Cooker"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "products.category",
+        "fields": {
+            "name": "cooler",
+            "friendly_name": "Cooler"
+        }
+    },
+    {
+        "pk": 15,
+        "model": "products.category",
+        "fields": {
+            "name": "dispenser",
+            "friendly_name": "Dispenser"
+        }
+    },
+    {
+        "pk": 16,
+        "model": "products.category",
+        "fields": {
+            "name": "dvd_player",
+            "friendly_name": "Dvd Player"
+        }
+    },
+    {
+        "pk": 17,
+        "model": "products.category",
+        "fields": {
+            "name": "electric_hotplate",
+            "friendly_name": "Electric Hotplate"
+        }
+    },
+    {
+        "pk": 18,
+        "model": "products.category",
+        "fields": {
+            "name": "electric_jug",
+            "friendly_name": "Electric Jug"
+        }
+    },
+    {
+        "pk": 19,
+        "model": "products.category",
+        "fields": {
+            "name": "extension",
+            "friendly_name": "Extension"
+        }
+    },
+    {
+        "pk": 20,
+        "model": "products.category",
+        "fields": {
+            "name": "fan",
+            "friendly_name": "Fan"
+        }
+    },
+    {
+        "pk": 21,
+        "model": "products.category",
+        "fields": {
+            "name": "food_processor",
+            "friendly_name": "Food Processor"
+        }
+    },
+    {
+        "pk": 22,
+        "model": "products.category",
+        "fields": {
+            "name": "freezer",
+            "friendly_name": "Freezer"
+        }
+    },
+    {
+        "pk": 23,
+        "model": "products.category",
+        "fields": {
+            "name": "fridge",
+            "friendly_name": "Fridge"
+        }
+    },
+    {
+        "pk": 24,
+        "model": "products.category",
+        "fields": {
+            "name": "gas_cooker",
+            "friendly_name": "Gas Cooker"
+        }
+    },
+    {
+        "pk": 25,
+        "model": "products.category",
+        "fields": {
+            "name": "generator",
+            "friendly_name": "Generator"
+        }
+    },
+    {
+        "pk": 26,
+        "model": "products.category",
+        "fields": {
+            "name": "home_theater",
+            "friendly_name": "Home Theater"
+        }
+    },
+    {
+        "pk": 27,
+        "model": "products.category",
+        "fields": {
+            "name": "home_theatre",
+            "friendly_name": "Home Theatre"
+        }
+    },
+    {
+        "pk": 28,
+        "model": "products.category",
+        "fields": {
+            "name": "hood",
+            "friendly_name": "Hood"
+        }
+    },
+    {
+        "pk": 29,
+        "model": "products.category",
+        "fields": {
+            "name": "installation_kit",
+            "friendly_name": "Installation Kit"
+        }
+    },
+    {
+        "pk": 30,
+        "model": "products.category",
+        "fields": {
+            "name": "inverter",
+            "friendly_name": "Inverter"
+        }
+    },
+    {
+        "pk": 31,
+        "model": "products.category",
+        "fields": {
+            "name": "inverter_battery",
+            "friendly_name": "Inverter Battery"
+        }
+    },
+    {
+        "pk": 32,
+        "model": "products.category",
+        "fields": {
+            "name": "iphone",
+            "friendly_name": "Iphone"
+        }
+    },
+    {
+        "pk": 33,
+        "model": "products.category",
+        "fields": {
+            "name": "iphone_6s_plus",
+            "friendly_name": "Iphone 6S Plus"
+        }
+    },
+    {
+        "pk": 34,
+        "model": "products.category",
+        "fields": {
+            "name": "iphone_xs",
+            "friendly_name": "Iphone Xs"
+        }
+    },
+    {
+        "pk": 35,
+        "model": "products.category",
+        "fields": {
+            "name": "iphone_xs_max",
+            "friendly_name": "Iphone Xs Max"
+        }
+    },
+    {
+        "pk": 36,
+        "model": "products.category",
+        "fields": {
+            "name": "iron",
+            "friendly_name": "Iron"
+        }
+    },
+    {
+        "pk": 37,
+        "model": "products.category",
+        "fields": {
+            "name": "juice_extractor",
+            "friendly_name": "Juice Extractor"
+        }
+    },
+    {
+        "pk": 38,
+        "model": "products.category",
+        "fields": {
+            "name": "kettle",
+            "friendly_name": "Kettle"
+        }
+    },
+    {
+        "pk": 39,
+        "model": "products.category",
+        "fields": {
+            "name": "laptop",
+            "friendly_name": "Laptop"
+        }
+    },
+    {
+        "pk": 40,
+        "model": "products.category",
+        "fields": {
+            "name": "microwave",
+            "friendly_name": "Microwave"
+        }
+    },
+    {
+        "pk": 41,
+        "model": "products.category",
+        "fields": {
+            "name": "microwave_oven",
+            "friendly_name": "Microwave Oven"
+        }
+    },
+    {
+        "pk": 42,
+        "model": "products.category",
+        "fields": {
+            "name": "mobile_phone",
+            "friendly_name": "Mobile Phone"
+        }
+    },
+    {
+        "pk": 43,
+        "model": "products.category",
+        "fields": {
+            "name": "oven",
+            "friendly_name": "Oven"
+        }
+    },
+    {
+        "pk": 44,
+        "model": "products.category",
+        "fields": {
+            "name": "phone",
+            "friendly_name": "Phone"
+        }
+    },
+    {
+        "pk": 45,
+        "model": "products.category",
+        "fields": {
+            "name": "pressure_cooker",
+            "friendly_name": "Pressure Cooker"
+        }
+    },
+    {
+        "pk": 46,
+        "model": "products.category",
+        "fields": {
+            "name": "pressure_pot",
+            "friendly_name": "Pressure Pot"
+        }
+    },
+    {
+        "pk": 47,
+        "model": "products.category",
+        "fields": {
+            "name": "range_hood",
+            "friendly_name": "Range Hood"
+        }
+    },
+    {
+        "pk": 48,
+        "model": "products.category",
+        "fields": {
+            "name": "rechargeable_fan",
+            "friendly_name": "Rechargeable Fan"
+        }
+    },
+    {
+        "pk": 49,
+        "model": "products.category",
+        "fields": {
+            "name": "refrigerator",
+            "friendly_name": "Refrigerator"
+        }
+    },
+    {
+        "pk": 50,
+        "model": "products.category",
+        "fields": {
+            "name": "regulator",
+            "friendly_name": "Regulator"
+        }
+    },
+    {
+        "pk": 51,
+        "model": "products.category",
+        "fields": {
+            "name": "rice_cooker",
+            "friendly_name": "Rice Cooker"
+        }
+    },
+    {
+        "pk": 52,
+        "model": "products.category",
+        "fields": {
+            "name": "smart_tv",
+            "friendly_name": "Smart Tv"
+        }
+    },
+    {
+        "pk": 53,
+        "model": "products.category",
+        "fields": {
+            "name": "smart_watch",
+            "friendly_name": "Smart Watch"
+        }
+    },
+    {
+        "pk": 54,
+        "model": "products.category",
+        "fields": {
+            "name": "solar_battery",
+            "friendly_name": "Solar Battery"
+        }
+    },
+    {
+        "pk": 55,
+        "model": "products.category",
+        "fields": {
+            "name": "solar_panel",
+            "friendly_name": "Solar Panel"
+        }
+    },
+    {
+        "pk": 56,
+        "model": "products.category",
+        "fields": {
+            "name": "sound_bar",
+            "friendly_name": "Sound Bar"
+        }
+    },
+    {
+        "pk": 57,
+        "model": "products.category",
+        "fields": {
+            "name": "sound_speaker",
+            "friendly_name": "Sound Speaker"
+        }
+    },
+    {
+        "pk": 58,
+        "model": "products.category",
+        "fields": {
+            "name": "sound_system",
+            "friendly_name": "Sound System"
+        }
+    },
+    {
+        "pk": 59,
+        "model": "products.category",
+        "fields": {
+            "name": "speaker",
+            "friendly_name": "Speaker"
+        }
+    },
+    {
+        "pk": 60,
+        "model": "products.category",
+        "fields": {
+            "name": "stabilizer",
+            "friendly_name": "Stabilizer"
+        }
+    },
+    {
+        "pk": 61,
+        "model": "products.category",
+        "fields": {
+            "name": "stablizer",
+            "friendly_name": "Stablizer"
+        }
+    },
+    {
+        "pk": 62,
+        "model": "products.category",
+        "fields": {
+            "name": "standing_fan",
+            "friendly_name": "Standing Fan"
+        }
+    },
+    {
+        "pk": 63,
+        "model": "products.category",
+        "fields": {
+            "name": "standing_gas_cooker",
+            "friendly_name": "Standing Gas Cooker"
+        }
+    },
+    {
+        "pk": 64,
+        "model": "products.category",
+        "fields": {
+            "name": "stove",
+            "friendly_name": "Stove"
+        }
+    },
+    {
+        "pk": 65,
+        "model": "products.category",
+        "fields": {
+            "name": "television",
+            "friendly_name": "Television"
+        }
+    },
+    {
+        "pk": 66,
+        "model": "products.category",
+        "fields": {
+            "name": "toaster",
+            "friendly_name": "Toaster"
+        }
+    },
+    {
+        "pk": 67,
+        "model": "products.category",
+        "fields": {
+            "name": "top_mount_refrigerators",
+            "friendly_name": "Top Mount Refrigerators"
+        }
+    },
+    {
+        "pk": 68,
+        "model": "products.category",
+        "fields": {
+            "name": "tower_fan",
+            "friendly_name": "Tower Fan"
+        }
+    },
+    {
+        "pk": 69,
+        "model": "products.category",
+        "fields": {
+            "name": "voltage_protector",
+            "friendly_name": "Voltage Protector"
+        }
+    },
+    {
+        "pk": 70,
+        "model": "products.category",
+        "fields": {
+            "name": "wall_bracket",
+            "friendly_name": "Wall Bracket"
+        }
+    },
+    {
+        "pk": 71,
+        "model": "products.category",
+        "fields": {
+            "name": "wall_fan",
+            "friendly_name": "Wall Fan"
+        }
+    },
+    {
+        "pk": 72,
+        "model": "products.category",
+        "fields": {
+            "name": "wallpaper_tv",
+            "friendly_name": "Wallpaper Tv"
+        }
+    },
+    {
+        "pk": 73,
+        "model": "products.category",
+        "fields": {
+            "name": "washing_machine",
+            "friendly_name": "Washing Machine"
+        }
+    },
+    {
+        "pk": 74,
+        "model": "products.category",
+        "fields": {
+            "name": "water_dispenser",
+            "friendly_name": "Water Dispenser"
+        }
+    },
+    {
+        "pk": 75,
+        "model": "products.category",
+        "fields": {
+            "name": "water_heater",
+            "friendly_name": "Water Heater"
+        }
+    },
+    {
+        "pk": 76,
+        "model": "products.category",
+        "fields": {
+            "name": "water_kettle",
+            "friendly_name": "Water Kettle"
+        }
+    },
+    {
+        "pk": 77,
+        "model": "products.category",
+        "fields": {
+            "name": "yam_pounder",
+            "friendly_name": "Yam Pounder"
+        }
+    }
+]

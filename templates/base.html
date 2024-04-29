@@ -42,8 +42,8 @@
             <nav class="navbar navbar-expand-sm navbar-danger py-2 bg-light base-nav">
                 <div class="container mx-auto">
                     <h1><a href="{% url 'home' %}" aria-label="home-page" class="text-dark navbar-brand {% if request.path == home_url %}active" aria-current="page{% endif %}"><span class="text-dark">Zit</span> Mall</a></h1>
-                    <form role="search">
-                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    <form method="GET" action="{% url 'products' %}" role="search">
+                        <input class="form-control" type="search" name="q" placeholder="What are you looking for?" aria-label="Search">
                     </form>
                     <div>
                         <button

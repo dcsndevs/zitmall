@@ -10,5 +10,6 @@ urlpatterns = [
     path('products/', include('products.urls')),
     path('summernote/', include('django_summernote.urls')),
     path('cart/', include('cart.urls')),
+    path('checkout/', include('checkout.urls')),
     path('', include('home.urls')),
 ]

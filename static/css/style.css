@@ -11,3 +11,19 @@
 .remove-item {
     cursor: pointer;
 }
+
+.logo {
+    text-transform: lowercase;
+}
+
+.letter {
+    display: inline-block;
+}
+
+.z { color: #FF5733; }
+.i { color: #FEE440; }
+.t { color: #004aad; }
+.m { color: #FF5733; }
+.a { color: #FEE440; }
+.l { color: #004aad; }
+.l2 { color: #FF5733; }

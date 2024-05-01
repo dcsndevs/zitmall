@@ -41,7 +41,17 @@
     <header class="">
             <nav class="navbar navbar-expand-sm navbar-danger py-2 bg-light base-nav">
                 <div class="container-fluid mx-auto">
-                    <h1><a href="{% url 'home' %}" aria-label="home-page" class="text-dark navbar-brand {% if request.path == home_url %}active" aria-current="page{% endif %}"><span class="text-dark">Zit</span> Mall</a></h1>
+                    <h1 class="logo">
+                        <a href="{% url 'home' %}" style="text-decoration: none; color: inherit;">
+                            <span class="letter z">z</span>
+                            <span class="letter i">i</span>
+                            <span class="letter t">t</span>
+                            <span class="letter m">m</span>
+                            <span class="letter a">a</span>
+                            <span class="letter l">l</span>
+                            <span class="letter l2">l</span>
+                        </a>
+                    </h1>
                     <form method="GET" action="{% url 'products' %}" role="search">
                         <input class="form-control" type="search" name="q" placeholder="What are you looking for?" aria-label="Search">
                     </form>
@@ -78,15 +88,16 @@
                                 <li class="nav-item">
                                 <a class="nav-link {% if request.path == member_area_url %}active" aria-current="page{% endif %}" href="{% url 'products' %}" aria-label="member-area"><i class="bi-person"></i> Product Management</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'account_logout' %}" aria-label="logout"><i class="bi-key"></i> Logout</a>
-                                </li>
+                                
                                 <li class="nav-item">
                                     <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'view_cart' %}" aria-label="logout">
                                         <i class="bi-cart4"><sup class="small text-primary">{% if product_count == 0 %}{% else %}{{ product_count }}{% endif %}</sup></i>
                                         <small>{% if grand_total %}${{ grand_total|floatformat:2 }}{% else %}$0.00{% endif %}</small></a>
                                 </li>
                                 {% if user.is_authenticated %}
+                                <li class="nav-item">
+                                    <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'account_logout' %}" aria-label="logout"><i class="bi-key"></i> Logout</a>
+                                </li>
                                 {% else %}
                                 <li class="nav-item">
                                     <a class="nav-link {% if request.path == registration_url %}active" aria-current="page{% endif %}" href="{% url 'account_signup' %}" aria-label="signup">Register</a>

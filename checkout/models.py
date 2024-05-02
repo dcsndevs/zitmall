@@ -28,7 +28,7 @@ class Order(models.Model):
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
 
     
-    def generate_order_number(self):
+    def _generate_order_number(self):
         def generate_random_letters():
             return ''.join(random.choices(string.ascii_uppercase, k=2))
 
@@ -62,7 +62,6 @@ class Order(models.Model):
 
     def __str__(self):
         return self.order_number
-
 
 class OrderLineItem(models.Model):
     order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')

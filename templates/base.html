@@ -78,9 +78,11 @@
                                 
                                                             
                                 <li class="nav-item">
-                                <a class="nav-link {% if request.path == member_area_url %}active" aria-current="page{% endif %}" href="{% url 'products' %}" aria-label="member-area"><i class="bi-person"></i> Product Management</a>
+                                <a class="nav-link {% if request.path == member_area_url %}active" aria-current="page{% endif %}" href="{% url 'products' %}" aria-label="Product-management"><i class="bi-person"></i> Product Management</a>
                                 </li>
-                                
+                                <li class="nav-item">
+                                    <a class="nav-link {% if request.path == member_area_url %}active" aria-current="page{% endif %}" href="{% url 'profiles' %}" aria-label="profile"><i class="bi-person"></i> Profile</a>
+                                </li>                                
                                 <li class="nav-item">
                                     <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'view_cart' %}" aria-label="logout">
                                         <i class="bi-cart4"><sup class="small text-primary">{% if product_count == 0 %}{% else %}{{ product_count }}{% endif %}</sup></i>

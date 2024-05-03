@@ -24,6 +24,7 @@ def apply_coupon(request):
             request.session['coupon_discount'] = coupon.discount
             messages.success(request, f'Coupon Code: {coupon_code} has just saved you {coupon.discount}%')
             coupon.usage_limit -= 1
+            coupon.used += 1
             if coupon.usage_limit == 0:
                 coupon.active = False
             coupon.save()

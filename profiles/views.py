@@ -1,8 +1,10 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import UserProfile
-from .forms import UserProfileForm
+from .models import UserProfile, UserFullnameEmail
+from .forms import UserProfileForm, UserFullnameEmailForm
+from django.urls import reverse_lazy
+from django.views import generic
 
 from checkout.models import Order
 
@@ -48,3 +50,24 @@ def order_history(request, order_number):
     }
 
     return render(request, template, context)
+
+
+class persona(generic.UpdateView):
+    form_class = UserFullnameEmailForm
+    login_url = 'login'
+    template_name = 'profiles/persona.html'
+    success_url = reverse_lazy('persona')
+    success_message = "User updated"
+
+    def get_object(self):
+        return self.request.user
+    
+    def form_valid(self, form):
+        messages.success(self.request,
+                         'Your Member profile has been successfully updated!')
+        return super().form_valid(form)
+    
+    def form_invalid(self, form):
+        messages.add_message(self.request, messages.ERROR,
+                             "Something went wrong...Please try again.")
+        return redirect('home')

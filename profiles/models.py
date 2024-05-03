@@ -23,7 +23,6 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.username
 
-
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):
     """
@@ -33,3 +32,17 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
         UserProfile.objects.create(user=instance)
     # Existing users: just save the profile
     instance.userprofile.save()
+
+class UserFullnameEmail(models.Model):
+    """
+    Update the user's personal profile
+    """
+    class Meta:
+        verbose_name_plural = 'Profile persona'
+    owner = models.OneToOneField(User, on_delete=models.CASCADE, related_name="owner")
+    first_name = models.CharField(max_length=50, null=True, blank=True)
+    last_name = models.CharField(max_length=50, null=True, blank=True)
+    email = models.EmailField(unique=True, null=True, blank=True)
+    
+    def __str__(self):
+        return f"{self.owner} | {self.first_name} | {self.email}"

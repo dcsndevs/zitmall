@@ -27,6 +27,11 @@
                     <div class="d-block d-md-none">
                         <div class="row">
                             <div class="col">
+                                {% include "cart/coupon.html" %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
                                 {% include "cart/cart-total.html" %}
                             </div>
                         </div>
@@ -91,6 +96,12 @@
                                     </td>
                                 </tr>
                             {% endfor %}
+                           
+                            <tr>
+                                <td colspan="5" class="pt-5 text-right">
+                                    {% include "cart/coupon.html" %}
+                                </td>
+                            </tr>
                             <tr>
                                 <td colspan="5" class="pt-5 text-right">
                                     {% include "cart/cart-total.html" %}

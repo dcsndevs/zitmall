@@ -34,7 +34,6 @@ class Order(models.Model):
         def generate_random_letters():
             return ''.join(random.choices(string.ascii_uppercase, k=2))
 
-        # Example usage
         random_letters = generate_random_letters()
         current_date = datetime.datetime.now().strftime('%d%m%y')
         random_digits = str(random.randint(10, 99))  

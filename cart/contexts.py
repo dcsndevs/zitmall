@@ -2,12 +2,14 @@ from decimal import Decimal
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
+from cart.models import Coupon
 
-def cart_contents(request):
+def cart_contents(request, coupon_code=None):
 
     cart_items = []
     total = 0
     product_count = 0
+    discount = request.session.get('coupon_discount', 0)
     cart = request.session.get('cart', {})
 
     for item_id, item_data in cart.items():
@@ -38,9 +40,17 @@ def cart_contents(request):
     else:
         delivery = 0
         free_delivery_delta = 0
-    
+    print("context A")
     grand_total = delivery + total
-    
+    print("context B")
+    if discount > 0:
+        print(coupon_code)
+        print("context C")
+        
+        discount = total * (Decimal (discount) / 100)
+        total -= discount
+        grand_total -= discount
+    print("context E")
     context = {
         'cart_items': cart_items,
         'total': total,
@@ -49,6 +59,8 @@ def cart_contents(request):
         'free_delivery_delta': free_delivery_delta,
         'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
         'grand_total': grand_total,
+        'coupon_code': coupon_code,
+        'discount': discount,
     }
 
     return context

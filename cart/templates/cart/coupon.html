@@ -1,0 +1,11 @@
+<form action="{% url 'apply_coupon' %}" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="coupon_code">Coupon Code:</label>
+        <input type="text" name="coupon_code" id="coupon_code" class="form-control" placeholder="Enter coupon code">
+    </div>
+    <button type="submit" class="btn btn-primary">Apply Coupon</button>
+</form>
+    <p>Coupon code: {{ coupon.code }}</p>
+    <p>Discount: {{ coupon.discount }}</p>
+    <p>Discounted Deduction: {{ discount }}</p>

@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        
+        <button class="navbar-toggler text-center" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span>Categories</span>
+        </button>
+        <div class="row">
+            <ul class="navbar-nav ml-auto col-6">
+                <li class="nav-item">
+                    <a class="dropdown-item" href="{% url 'products' %}">Your Products</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto col-6">
+
+                <li class="nav-item">
+                    <a class="dropdown-item" href="{% url 'add_product' %}">List new products</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

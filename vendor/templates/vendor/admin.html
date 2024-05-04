@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+
+{% endblock %}
+
+{% block extra-nav %}
+    {% include 'includes/vendor-navbar.html' %}
+{% endblock %}
+
+{% block content %}
+   
+                <div class="m-5">
+                    <h4>
+                        <a class="text-decoration-none" href="{% url 'add_products' %}">All Products</a>
+                    </h4>
+                </div>
+
+{% endblock %}

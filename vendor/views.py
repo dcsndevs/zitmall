@@ -10,6 +10,10 @@ from products.forms import ProductForm
 
 # Create your views here.
 
+def vendor_admin(request):
+    
+    return render(request, 'vendor/admin.html')
+
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
 
@@ -57,7 +61,7 @@ def all_products(request):
         'current_sorting': current_sorting,
     }
 
-    return render(request, 'products/products.html', context)
+    return render(request, 'vendor/all-products.html', context)
 
 
 def product_detail(request, product_id):
@@ -69,7 +73,7 @@ def product_detail(request, product_id):
         'product': product,
     }
 
-    return render(request, 'products/product_detail.html', context)
+    return render(request, 'vendor/product_detail.html', context)
 
 def product_detail_by_slug(request, product_slug):
     """ A view to show individual product details """
@@ -80,12 +84,12 @@ def product_detail_by_slug(request, product_slug):
         'product': product,
     }
 
-    return render(request, 'products/product_detail.html', context)
+    return render(request, 'vendor/product_detail.html', context)
 
 @login_required
 def add_product(request):
     """ Add a product to the store """
-    if not request.user.is_superuser:
+    if not request.user.is_superuser and not request.user.is_staff:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
 
@@ -100,7 +104,7 @@ def add_product(request):
     else:
         form = ProductForm()
         
-    template = 'products/add_product.html'
+    template = 'vendor/add_product.html'
     context = {
         'form': form,
     }
@@ -128,7 +132,7 @@ def edit_product(request, product_id):
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing {product.title}')
 
-    template = 'products/edit_products.html'
+    template = 'vendor/edit_products.html'
     context = {
         'form': form,
         'product': product,

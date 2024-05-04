@@ -1,5 +1,6 @@
 from django import forms
 from django.utils.text import slugify
+from django.contrib.auth.models import User  # Import the User model
 from .widgets import CustomClearableFileInput
 from .models import Product, Category
 
@@ -7,11 +8,12 @@ from .models import Product, Category
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        exclude = ['slug']
+        exclude = ['slug', 'vendor']  # Exclude the slug and vendor fields from the form's fields
 
     image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user', None)  # Get the currently logged-in user
         super().__init__(*args, **kwargs)
         categories = Category.objects.all()
         friendly_names = [(c.id, c.get_friendly_name()) for c in categories]
@@ -19,6 +21,9 @@ class ProductForm(forms.ModelForm):
         self.fields['category'].choices = friendly_names
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0'
+
+        if user:
+            self.instance.vendor = user  # Set the vendor field to the currently logged-in user
 
     def clean(self):
         cleaned_data = super().clean()

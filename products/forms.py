@@ -1,13 +1,13 @@
 from django import forms
+from django.utils.text import slugify
 from .widgets import CustomClearableFileInput
 from .models import Product, Category
 
 
 class ProductForm(forms.ModelForm):
-
     class Meta:
         model = Product
-        fields = '__all__'
+        exclude = ['slug']
 
     image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
 
@@ -19,3 +19,13 @@ class ProductForm(forms.ModelForm):
         self.fields['category'].choices = friendly_names
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded-0'
+
+    def clean(self):
+        cleaned_data = super().clean()
+        title = cleaned_data.get('title')
+
+        if title:
+            slug = slugify(title)
+            cleaned_data['slug'] = slug
+
+        return cleaned_data

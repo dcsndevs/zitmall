@@ -42,7 +42,7 @@
     <header class="">
             <nav class="navbar navbar-expand-sm navbar-danger py-2 bg-light base-nav">
                 <div class="container-fluid mx-auto">
-                    <h1><img class="h1" src="https://res.cloudinary.com/djhi60enx/image/upload/v1714657570/zitmall-shopping-logo_j6yges.png" alt="zitmall-logo"></h1>
+                    <a href="{% url 'home' %}"><h1><img class="h1" src="https://res.cloudinary.com/djhi60enx/image/upload/v1714657570/zitmall-shopping-logo_j6yges.png" alt="zitmall-logo"></h1></a>
                     <!-- <h1><img class="h1" src="https://res.cloudinary.com/djhi60enx/image/upload/v1714657835/zitmall-shopping_siipch.png" alt="zitmall-logo"></h1> -->
                     <form method="GET" action="{% url 'products' %}" role="search">
                         <input class="form-control" type="search" name="q" placeholder="What are you looking for?" aria-label="Search">
@@ -77,18 +77,19 @@
                             <ul class="navbar-nav">
                                 
                                                             
+                                
+                                {% if user.is_authenticated %}
                                 <li class="nav-item">
-                                <a class="nav-link {% if request.path == member_area_url %}active" aria-current="page{% endif %}" href="{% url 'products' %}" aria-label="Product-management"><i class="bi-person"></i> Product Management</a>
+                                    <a class="nav-link {% if request.path == member_area_url %}active" aria-current="page{% endif %}" href="{% url 'products' %}" aria-label="Product-management"><i class="bi-box"></i> Product Management</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link {% if request.path == member_area_url %}active" aria-current="page{% endif %}" href="{% url 'profile_view' %}" aria-label="profile"><i class="bi-person"></i> Profile</a>
+                                    <a class="nav-link {% if request.path == member_area_url %}active" aria-current="page{% endif %}" href="{% url 'profile_view' %}" aria-label="profile"><i class="bi-person"></i> {{ user }}</a>
                                 </li>                                
                                 <li class="nav-item">
                                     <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'view_cart' %}" aria-label="logout">
                                         <i class="bi-cart4"><sup class="small text-primary">{% if product_count == 0 %}{% else %}{{ product_count }}{% endif %}</sup></i>
                                         <small>{% if grand_total %}${{ grand_total|floatformat:2 }}{% else %}$0.00{% endif %}</small></a>
                                 </li>
-                                {% if user.is_authenticated %}
                                 <li class="nav-item">
                                     <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'account_logout' %}" aria-label="logout"><i class="bi-key"></i> Logout</a>
                                 </li>

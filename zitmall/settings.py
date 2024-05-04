@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'cart',
     'checkout',
     'profiles',
+    'vendor',
     
     #other
     'django_summernote',

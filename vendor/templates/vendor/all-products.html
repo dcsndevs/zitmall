@@ -54,24 +54,26 @@
             </thead>
             <tbody>
                 {% for product in products reversed %}
-                <tr>
-                    <td>{{ product.sku }}</td>
-                    <td><a href="{% url 'product_detail_by_slug' product_slug=product.slug %}" class="text-dark" target="_blank">{{ product.title }}</a></td>
-                    <td>{{ product.price }}</td>
-                    <td>
-                        {% if product.status == 1 %}
-                        Published
-                    {% elif product.status == 2 %}
-                        Draft
+                    {% if product.slug %}
+                    <tr>
+                        <td>{{ product.sku }}</td>
+                        <td><a href="{% url 'product_detail_by_slug' product_slug=product.slug %}" class="text-dark" target="_blank">{{ product.title }}</a></td>
+                        <td>{{ product.price }}</td>
+                        <td>
+                            {% if product.status == 1 %}
+                            Published
+                        {% elif product.status == 2 %}
+                            Draft
+                        {% endif %}
+                        </td>
+                        {% if request.user.is_staff %}
+                        <td>
+                            <a href="{% url 'edit_product' product.id %}" class="btn btn-sm btn-primary">Edit</a>
+                            <button class="btn btn-sm btn-danger delete-btn" data-product-id="{{ product.id }}" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">Delete</button>
+                        </td>
+                        {% endif %}
+                    </tr>
                     {% endif %}
-                    </td>
-                    {% if request.user.is_staff %}
-                    <td>
-                        <a href="{% url 'edit_product' product.id %}" class="btn btn-sm btn-primary">Edit</a>
-                        <button class="btn btn-sm btn-danger delete-btn" data-product-id="{{ product.id }}" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">Delete</button>
-                    </td>
-                    {% endif %}
-                </tr>
                 {% endfor %}
             </tbody>
         </table>

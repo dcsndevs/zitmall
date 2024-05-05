@@ -5,15 +5,21 @@
         <span>Categories</span>
         </button>
         <div class="row">
-            <ul class="navbar-nav ml-auto col-6">
+            <ul class="navbar-nav ml-auto col">
                 <li class="nav-item">
-                    <a class="dropdown-item" href="{% url 'vendor_products' %}">Your Products</a>
+                    <a class="dropdown-item" href="{% url 'vendor_products' %}">Your Products |</a>
                 </li>
             </ul>
-            <ul class="navbar-nav ml-auto col-6">
+            <ul class="navbar-nav ml-auto col">
 
                 <li class="nav-item">
-                    <a class="dropdown-item" href="{% url 'add_product' %}">List new products</a>
+                    <a class="dropdown-item" href="{% url 'add_product' %}">List new products |</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto col ">
+
+                <li class="nav-item">
+                    <a class="dropdown-item" href="{% url 'vendor_orders' %}">All orders</a>
                 </li>
             </ul>
         </div>

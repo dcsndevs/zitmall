@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 from django.contrib.auth.models import User
+from django.utils.text import slugify
 
 from products.models import Product, Category
 from products.forms import ProductForm
@@ -96,9 +97,12 @@ def add_product(request):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
+            product = form.save(commit=False)
+            product.vendor = request.user
+            product.slug = slugify(product.title)
             product = form.save()
             messages.success(request, 'Successfully added product!')
-            return redirect(reverse('product_detail', args=[product.id]))
+            return redirect(reverse('vendor_products'))
         else:
             messages.error(request, 'Failed to add product. Please ensure the form is valid.')
     else:

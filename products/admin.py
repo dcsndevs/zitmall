@@ -8,6 +8,7 @@ class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     search_fields = ['title', 'product_brand']
     list_display = (
+        'id',
         'sku',
         'title',
         'category',
@@ -19,7 +20,7 @@ class ProductAdmin(admin.ModelAdmin):
     )
     summernote_fields = ('description')
 
-    ordering = ('sku',)
+    ordering = ('-id',)
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = (

@@ -46,7 +46,7 @@
                     <th scope="col">SKU</th>
                     <th scope="col">Title</th>
                     <th scope="col">Price</th>
-                    <th scope="col">Status</th>
+                    <th scope="col">Published</th>
                     {% if request.user.is_staff %}
                     <th scope="col">Actions</th>
                     {% endif %}
@@ -60,11 +60,10 @@
                         <td><a href="{% url 'product_detail_by_slug' product_slug=product.slug %}" class="text-dark" target="_blank">{{ product.title }}</a></td>
                         <td>{{ product.price }}</td>
                         <td>
-                            {% if product.status == 1 %}
-                            Published
-                        {% elif product.status == 2 %}
-                            Draft
-                        {% endif %}
+                            <div class="form-check form-switch">
+                                <input class="form-check-input status-toggle" type="checkbox" id="statusToggle{{ product.id }}" {% if product.status == 1 %} checked {% endif %} data-product-id="{{ product.id }}">
+                                <label class="form-check-label" for="statusToggle{{ product.id }}"></label>
+                            </div>
                         </td>
                         {% if request.user.is_staff %}
                         <td>
@@ -114,7 +113,55 @@
 			window.scrollTo(0,0)
 		})
 	</script>
-    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Add event listeners to all status toggle switches
+            var statusToggles = document.querySelectorAll('.status-toggle');
+            statusToggles.forEach(function(toggle) {
+                toggle.addEventListener('change', function() {
+                    var productId = this.getAttribute('data-product-id');
+                    var status = this.checked ? 1 : 0;
+                    fetch(`/vendor/products/${productId}/${status}/`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': getCookie('csrftoken'), // Include CSRF token
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({ product_id: productId }, {product_status: status})
+                })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Failed to update product status');
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            console.log('Product status updated successfully');
+                        })
+                        .catch(error => {
+                            console.error('Error updating product status:', error);
+                        });
+                });
+            });
+        });
+
+    // Function to get CSRF token from cookies
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    </script>';'
     <script type="text/javascript">
         $('#sort-selector').change(function() {
             var selector = $(this);

@@ -5,6 +5,7 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 from django.contrib.auth.models import User
 from django.utils.text import slugify
+from django.http import JsonResponse
 
 from products.models import Product, Category
 from products.forms import ProductForm
@@ -187,3 +188,23 @@ def vendor_orders(request):
 
     return render(request, 'vendor/orders.html', context)
 
+def status_products(request, product_id, product_status):
+    products = get_object_or_404(Product, pk=product_id)
+    print(product_status)
+    print(products.status)
+    if products.status == 1:
+        print("A")
+        print(products.status)
+        products.status = 0
+        products.save()
+        print(products.status)
+        status = 0
+        print(products.status)
+    elif products.status == 0:
+        print("B")
+        
+        products.status = 1
+        products.save()
+        print(products.status)
+        status = 1
+    return JsonResponse({'status': status})

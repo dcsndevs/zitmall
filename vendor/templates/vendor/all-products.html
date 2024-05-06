@@ -115,36 +115,37 @@
 	</script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Add event listeners to all status toggle switches
-            var statusToggles = document.querySelectorAll('.status-toggle');
-            statusToggles.forEach(function(toggle) {
-                toggle.addEventListener('change', function() {
-                    var productId = this.getAttribute('data-product-id');
-                    var status = this.checked ? 1 : 0;
-                    fetch(`/vendor/products/${productId}/${status}/`, {
-                    method: 'POST',
-                    headers: {
-                        'X-CSRFToken': getCookie('csrftoken'), // Include CSRF token
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
-                    body: JSON.stringify({ product_id: productId }, {product_status: status})
-                })
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error('Failed to update product status');
-                            }
-                            return response.json();
-                        })
-                        .then(data => {
-                            console.log('Product status updated successfully');
-                        })
-                        .catch(error => {
-                            console.error('Error updating product status:', error);
-                        });
-                });
+    // Add event listeners to all status toggle switches
+    var statusToggles = document.querySelectorAll('.status-toggle');
+    statusToggles.forEach(function(toggle) {
+        toggle.addEventListener('change', function() {
+            var productId = this.getAttribute('data-product-id');
+            var status = this.checked ? 1 : 0;
+            fetch(`/vendor/products/${productId}/${status}/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken'), // Include CSRF token
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ product_id: productId }, { product_status: status })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to update product status');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Product status updated successfully');
+                // Show success message
+                showMessage(data.message);
+            })
+            .catch(error => {
+                console.error('Error updating product status:', error);
             });
         });
+    });
 
     // Function to get CSRF token from cookies
     function getCookie(name) {
@@ -161,7 +162,26 @@
         }
         return cookieValue;
     }
-    </script>';'
+
+    // Function to show success message
+    function showMessage(message) {
+        // Create a new element for the message
+        var successMessage = document.createElement('div');
+        successMessage.classList.add('alert', 'alert-success', 'small', 'my-0', 'py-0');
+        successMessage.textContent = message;
+
+        // Insert the message before the status toggles
+        var statusToggleWrapper = document.querySelector('.sort-select-wrapper');
+        statusToggleWrapper.parentNode.insertBefore(successMessage, statusToggleWrapper.nextSibling);
+
+        // Remove the message after 3 seconds
+        setTimeout(function() {
+            successMessage.remove();
+        }, 3000);
+    }
+});
+
+    </script>
     <script type="text/javascript">
         $('#sort-selector').change(function() {
             var selector = $(this);

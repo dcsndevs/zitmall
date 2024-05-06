@@ -202,3 +202,13 @@ def status_products(request, product_id, product_status):
         status = 1
         message = 'Product status updated to Published.'
     return JsonResponse({'status': status, 'message': message})
+
+@login_required
+def vendor_order_view(request, product_id, orderLineItem_order):
+    order = get_object_or_404(OrderLineItem, pk=product_id)
+    
+    context = {
+        'order': order,
+    }
+    
+    return render(request, 'vendor/order_view.html', context)

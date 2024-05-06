@@ -32,9 +32,9 @@
     <div class="col-12 col-md-6 order-md-first">
         <p class="text-muted mt-3 text-center text-md-left">
             {% if orders|length == 1 %}
-                Order History: {{ orders|length }} Order
+                {{ orders|length }} Order
             {% else %}
-                Order History: {{ orders|length }} Orders
+                {{ orders|length }} Orders
             {% endif %}
         </p>
     </div>
@@ -50,7 +50,7 @@
                     <th scope="col">Qty</th>
                     <th scope="col">Amount</th>
                     {% if request.user.is_staff %}
-                    <th scope="col">Action</th>
+                    <th scope="col">Accept?</th>
                     {% endif %}
                 </tr>
             </thead>
@@ -70,7 +70,8 @@
                         <td>{{ product.lineitem_total }}</td>
                         {% if request.user.is_staff %}
                         <td>
-                            <a href="" class="btn btn-sm btn-dark">Manage</a>
+                            <a href="" class="btn btn-sm btn-primary">Yes</a>
+                            <a href="" class="btn btn-sm btn-danger">No</a>
                         </td>
                         {% endif %}
                     </tr>

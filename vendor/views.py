@@ -6,7 +6,8 @@ from django.db.models.functions import Lower
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 from django.http import JsonResponse
-
+from .models import VendorOrder
+from .forms import VendorOrderForm
 from products.models import Product, Category
 from products.forms import ProductForm
 from checkout.models import Order, OrderLineItem
@@ -204,11 +205,14 @@ def status_products(request, product_id, product_status):
     return JsonResponse({'status': status, 'message': message})
 
 @login_required
-def vendor_order_view(request, product_id, orderLineItem_order):
-    order = get_object_or_404(OrderLineItem, pk=product_id)
-    
+def vendor_order_view(request, order_no, product_id):
+    order_line_item = get_object_or_404(OrderLineItem, order__order_number=order_no, id=product_id)
+
+    form = VendorOrderForm(order_line_item_id=order_line_item.id)
+        
     context = {
-        'order': order,
+        'order': order_line_item,
+        'form': form
     }
     
     return render(request, 'vendor/order_view.html', context)

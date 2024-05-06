@@ -6,7 +6,7 @@ from .models import Product, Category
 
 class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
-    search_fields = ['title', 'product_brand']
+    search_fields = ['title', 'sku']
     list_display = (
         'id',
         'sku',

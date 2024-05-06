@@ -49,15 +49,16 @@
                     <th scope="col">Product/Address</th>
                     <th scope="col">Qty</th>
                     <th scope="col">Amount</th>
+                    <th scope="col">Status</th>
                     {% if request.user.is_staff %}
-                    <th scope="col">Action</th>
+                    <th scope="col">Accept?</th>
                     {% endif %}
                 </tr>
             </thead>
             <tbody>
                 {% for product in orders %}
                     <tr>
-                        <td>{{ product.order }}</td>
+                        <td><a href="{% url 'vendor_order_view' order_no=product.order.order_number  product_id=product.id %}">{{ product.order }}</a></td>
                         <td>{{ product.product }}
                             | {{ product.order.full_name }}
                             {{ product.order.street_address1 }},
@@ -68,9 +69,11 @@
                         </td>
                         <td>{{ product.quantity }}</td>
                         <td>{{ product.lineitem_total }}</td>
+                        <td>Pending</td>
                         {% if request.user.is_staff %}
                         <td>
-                            <a href="" class="btn btn-sm btn-dark">Manage</a>
+                            <a href="" class="btn btn-sm btn-primary">Yes</a>
+                            <a href="" class="btn btn-sm btn-danger">No</a>
                         </td>
                         {% endif %}
                     </tr>

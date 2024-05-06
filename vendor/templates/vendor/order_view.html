@@ -55,19 +55,18 @@
                 </tr>
             </thead>
             <tbody>
-                {% for item in order %}
                     <tr>
-                        <td>{{ item.order }}</td>
-                        <td>{{ item.product }}
-                            | {{ item.order.full_name }}
-                            {{ item.order.street_address1 }},
-                            {{ item.order.street_address2 }}, 
-                            {{ item.order.town_or_city }},
-                            {{ item.order.county }},
-                            {{ item.order.country }}.
+                        <td>{{ order.order }}</td>
+                        <td>{{ order.product }}
+                            | {{ order.full_name }}
+                            {{ order.order.street_address1 }},
+                            {{ order.order.street_address2 }}, 
+                            {{ order.order.town_or_city }},
+                            {{ order.order.county }},
+                            {{ order.order.country }}.
                         </td>
-                        <td>{{ item.quantity }}</td>
-                        <td>{{ item.lineitem_total }}</td>
+                        <td>{{ order.quantity }}</td>
+                        <td>{{ order.lineitem_total }}</td>
                         {% if request.user.is_staff %}
                         <td>
                             <a href="" class="btn btn-sm btn-primary">Yes</a>
@@ -75,9 +74,15 @@
                         </td>
                         {% endif %}
                     </tr>
-                {% endfor %}
             </tbody>
         </table>
+        <div>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit">Update Status</button>
+              </form>
+        </div>
     </div>
     
 </div>

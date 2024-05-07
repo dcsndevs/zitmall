@@ -153,6 +153,16 @@ def vendor_orders(request):
 
     return render(request, 'vendor/orders.html', context)
 
+def new_vendor_orders(request):
+    """ A view to show all vendor orders, including sorting and search queries """
+
+    orders = OrderLineItem.objects.filter(product__vendor=request.user)
+
+    context = {
+        'orders': orders,
+    }
+
+    return render(request, 'vendor/orders.html', context)
 
 def status_products(request, product_id, product_status):
     products = get_object_or_404(Product, pk=product_id)
@@ -198,6 +208,10 @@ def accept_order(request, item_id):
     if vendor_order_item.accept == 0:
         vendor_order_item.accept = 1
         vendor_order_item.save()
+        #item.id refers to the id in orderlineitem since it shares same id with vendor order id
+        order_line_item = get_object_or_404(OrderLineItem, id=vendor_order_item.id)
+        order_line_item.status = 1
+        order_line_item.save()
         messages.success(request, 'Order fulfillment accepted! Please prepare shipment immediately.')
         return redirect('vendor_orders')
     else:
@@ -219,7 +233,10 @@ def reject_order(request, item_id):
     if vendor_order_item.accept == 0:
         vendor_order_item.accept = 2
         vendor_order_item.save()
-        messages.success(request, 'Your have rejected this Order{vendor_order_item.accept}. And it the Order canceled!')
+        order_line_item = get_object_or_404(OrderLineItem, id=vendor_order_item.id)
+        order_line_item.status = 5
+        order_line_item.save()
+        messages.success(request, 'Your have rejected this Order and it has been cancelled!')
         return redirect('vendor_orders')
     else:
         messages.error(request, 'Failed to reject order. Order is currently {vendor_order_item.accept}'
@@ -230,5 +247,5 @@ def reject_order(request, item_id):
         'vendor_order_item': vendor_order_item,
     }
 
-    return redirect('vendor_orders')
+    return redirect('vendor_orders', context)
 

@@ -19,25 +19,26 @@
             <ul class="navbar-nav ml-auto col ">
 
                 <li class="nav-item">
-                    <a class="dropdown-item" href="{% url 'new_vendor_orders' %}">New orders |</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto col ">
-
-                <li class="nav-item">
                     <a class="dropdown-item" href="{% url 'cancelled_vendor_orders' %}">Cancelled orders |</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto col ">
 
                 <li class="nav-item">
-                    <a class="dropdown-item" href="{% url 'vendor_orders' %}">All orders</a>
+                    <a class="dropdown-item" href="{% url 'vendor_orders' %}">All orders |</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto col ">
 
                 <li class="nav-item">
                     <a class="dropdown-item" href="{% url 'active_vendor_orders' %}">Active orders</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto col ">
+
+                <li class="nav-item">
+                    <a class="dropdown-item" href="{% url 'new_vendor_orders' %}">| New orders</a>
                 </li>
             </ul>
 

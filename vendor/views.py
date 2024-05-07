@@ -146,7 +146,7 @@ def vendor_orders(request):
     """ A view to show all vendor orders, including sorting and search queries """
 
     orders = OrderLineItem.objects.filter(product__vendor=request.user)
-   
+    orders = orders.order_by('-id')
     
     context = {
         'orders': orders,
@@ -158,7 +158,8 @@ def vendor_orders(request):
 def new_vendor_orders(request):
     """ A view to show all vendor orders """
 
-    orders = OrderLineItem.objects.filter(product__vendor=request.user, status=0)
+    orders = OrderLineItem.objects.filter(product__vendor=request.user, status=0).order_by('-id')
+    
     shipment_status = 2 #Default shipment/fulfillment value - zitship value = 2
     
     context = {
@@ -186,19 +187,36 @@ def status_products(request, product_id, product_status):
 def vendor_order_view(request, order_no, orderline_id):
     order_line_item = get_object_or_404(OrderLineItem, order__order_number=order_no, id=orderline_id)
     vendor_order, created = VendorOrder.objects.get_or_create(item=order_line_item)
-
+    condition_value = vendor_order.status
     if request.method == 'POST':
         form = VendorOrderForm(request.POST, instance=vendor_order)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Vendor order has been saved successfully.')
+            order_line_item = get_object_or_404(OrderLineItem, id=orderline_id)
+            if vendor_order.status == 0:
+                order_line_item.status = 1
+                order_line_item.save()
+            elif vendor_order.status == 1:
+                order_line_item.status = 2
+                order_line_item.save()
+            elif vendor_order.status == 2:
+                order_line_item.status = 3
+                order_line_item.save()
+            elif vendor_order.status == 3:
+                order_line_item.status = 4
+                order_line_item.save()
+            elif vendor_order.status == 4:
+                order_line_item.status = 5
+                order_line_item.save()
+            messages.success(request, 'Order status has been updated successfully!')
             return redirect('vendor_orders')  # Replace 'vendor_orders' with the URL name of your vendor orders list page
     else:
         form = VendorOrderForm(instance=vendor_order)
     
     context = {
         'order': order_line_item,
-        'form': form
+        'form': form,
+        'condition_value': condition_value
     }
     
     return render(request, 'vendor/order_view.html', context)
@@ -280,12 +298,10 @@ def shipment_type(request, product_id, product_status):
 def cancelled_vendor_orders(request):
     """ A view to show all canclled vendor orders"""
 
-    orders = OrderLineItem.objects.filter(product__vendor=request.user, status=5)
-    shipment_status = 5
+    orders = OrderLineItem.objects.filter(product__vendor=request.user, status=5).order_by('-id')
     
     context = {
         'orders': orders,
-        'shipment_status': shipment_status,
     }
 
     return render(request, 'vendor/cancelled_orders.html', context)
@@ -294,12 +310,10 @@ def cancelled_vendor_orders(request):
 def active_vendor_orders(request):
     """ A view to show all cancelled vendor orders"""
 
-    orders = OrderLineItem.objects.filter(product__vendor=request.user, status=1 or 2 or 3 or 4)
-    shipment_status = 4
+    orders = OrderLineItem.objects.filter(product__vendor=request.user, status=1 or 2 or 3 or 4).order_by('-id')
     
     context = {
         'orders': orders,
-        'shipment_status': shipment_status,
     }
 
     return render(request, 'vendor/active_orders.html', context)

@@ -67,8 +67,8 @@
                         </td>
                         {% if request.user.is_staff %}
                         <td>
-                            <a href="{% url 'edit_product' product.id %}" class="btn btn-sm btn-primary">Edit</a>
-                            <button class="btn btn-sm btn-danger delete-btn" data-product-id="{{ product.id }}" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">Delete</button>
+                            <a href="{% url 'edit_product' product.id %}" class="">Edit</a>
+                            <button class="btn btn-sm btn-outline-danger delete-btn" data-product-id="{{ product.id }}" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">Delete</button>
                         </td>
                         {% endif %}
                     </tr>

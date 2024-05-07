@@ -96,6 +96,20 @@
 			window.scrollTo(0,0)
 		})
 	</script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var conditionValue = {{ condition_value }};
+            var statusField = document.getElementById("id_status");
+            var options = statusField.options;
+            
+            for (var i = 0; i < options.length; i++) {
+                if (parseInt(options[i].value) <= conditionValue) {
+                    options[i].disabled = true;
+                }
+            }
+        });
+    </script>
     
     <script type="text/javascript">
         $('#sort-selector').change(function() {

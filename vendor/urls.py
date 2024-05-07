@@ -15,7 +15,5 @@ urlpatterns = [
     path('orders/active', views.active_vendor_orders, name='active_vendor_orders'),
     path('orders/<int:product_id>/<int:product_status>/zit', views.shipment_type, name='shipment_type'),
     path('orders/<int:item_id>/accept', views.accept_order, name='accept_order'),
-    path('orders/<int:item_id>/reject', views.reject_order, name='reject_order'),
-    
-    
+    path('orders/<int:item_id>/reject', views.reject_order, name='reject_order'),    
 ]

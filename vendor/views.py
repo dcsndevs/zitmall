@@ -146,9 +146,11 @@ def vendor_orders(request):
     """ A view to show all vendor orders, including sorting and search queries """
 
     orders = OrderLineItem.objects.filter(product__vendor=request.user)
-
+   
+    
     context = {
         'orders': orders,
+        
     }
 
     return render(request, 'vendor/orders.html', context)
@@ -157,9 +159,11 @@ def new_vendor_orders(request):
     """ A view to show all vendor orders, including sorting and search queries """
 
     orders = OrderLineItem.objects.filter(product__vendor=request.user, status=0)
-
+    shipment_status = 2 #Default shipment/fulfillment value - zitship value = 2
+    
     context = {
         'orders': orders,
+        'shipment_status': shipment_status,
     }
 
     return render(request, 'vendor/new_order.html', context)
@@ -190,7 +194,7 @@ def vendor_order_view(request, order_no, orderline_id):
             messages.success(request, 'Vendor order has been saved successfully.')
             return redirect('vendor_orders')  # Replace 'vendor_orders' with the URL name of your vendor orders list page
     else:
-        form = VendorOrderForm(instance=vendor_order, disable_item_edit=not created)
+        form = VendorOrderForm(instance=vendor_order)
     
     context = {
         'order': order_line_item,
@@ -248,3 +252,26 @@ def reject_order(request, item_id):
     }
 
     return redirect('vendor_orders', context)
+
+
+def shipment_type(request, product_id, product_status):
+    product_status = None
+    message = None
+    vendor_order_item = get_object_or_404(VendorOrder, pk=product_id)
+    
+    if vendor_order_item.fulfilment == 2:
+        vendor_order_item.fulfilment = 1
+        vendor_order_item.save()
+        product_status = 1
+        message = 'Shipment type has been set self. Please ship order immediately.'
+    
+    elif vendor_order_item.fulfilment == 1:
+        vendor_order_item.fulfilment = 2
+        vendor_order_item.save()
+        product_status = 2
+        message = 'Shipment type has been set to Zit-Ship. Kindly prepare the order for pickup from Zit Ship Team.'
+    
+    elif vendor_order_item.fulfilment == 0:
+        message = 'This Order has since been cancelled. You can no longer ship. Contact Support for help.'    
+    
+    return JsonResponse({'product_status': product_status, 'message': message})

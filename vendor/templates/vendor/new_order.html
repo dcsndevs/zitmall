@@ -34,9 +34,8 @@
                     <th scope="col">Amount</th>
                     <th scope="col">Date</th>
                     <th scope="col">Status</th>
-                    {% if request.user.is_staff %}
+                    <th scope="col">Fulfillment</th>
                     <th scope="col">Accept?</th>
-                    {% endif %}
                 </tr>
             </thead>
             <tbody>
@@ -54,7 +53,7 @@
                         <td>{{ item.quantity }}</td>
                         <td>{{ item.lineitem_total }}</td>
                         <td>{{ item.order.date }}</td>
-                        <td>
+                        <td>{{ shipment_status }}
                             {% if item.status == 0 %}
                                 Pending
                             {% elif item.status == 1 %}
@@ -69,12 +68,19 @@
                                 Cancelled
                             {% endif %}
                         </td>
-                        {% if request.user.is_staff %}
+                        <td>
+                            <div class="form-check form-switch">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input status-toggle" type="checkbox" id="statusToggle{{ product.id }}" {% if shipment_status == 1 %} checked {% endif %} data-product-id="{{ item.id }}">
+                                    <label class="form-check-label" for="statusToggle{{ product.id }}"></label>
+                                </div>
+                            </div>
+                        </td>
                         <td>
                             <a href="{% url 'accept_order' item.id %}" class="btn btn-sm btn-primary">Yes</a>
                             <a href="{% url 'reject_order' item.id %}" class="btn btn-sm btn-danger">No</a>
                         </td>
-                        {% endif %}
+
                     </tr>
                 {% endfor %}
             </tbody>
@@ -117,46 +123,93 @@
 		})
 	</script>
     
-    <script type="text/javascript">
-        $('#sort-selector').change(function() {
-            var selector = $(this);
-            var currentUrl = new URL(window.location);
-
-            var selectedVal = selector.val();
-            if(selectedVal != "reset"){
-                var sort = selectedVal.split("_")[0];
-                var direction = selectedVal.split("_")[1];
-
-                currentUrl.searchParams.set("sort", sort);
-                currentUrl.searchParams.set("direction", direction);
-
-                window.location.replace(currentUrl);
-            } else {
-                currentUrl.searchParams.delete("sort");
-                currentUrl.searchParams.delete("direction");
-
-                window.location.replace(currentUrl);
-            }
-        })
-    </script>
-
-<script>
-    // Handle click event on Delete button in modal
-    $(document).ready(function() {
-        $('#confirmDeleteBtn').on('click', function() {
-            // Show confirmation dialog
-            $('#confirmDeleteModal').modal('hide'); // Hide the confirmation modal
-            var productId = $(this).data('product-id'); // Get the product ID from data attribute
-            var deleteUrl = "{% url 'delete_product' product_id=0 %}".replace('0', productId); // Generate delete URL
-            window.location.href = deleteUrl; // Redirect to delete URL
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    // Add event listeners to all status toggle switches
+    var statusToggles = document.querySelectorAll('.status-toggle');
+    statusToggles.forEach(function(toggle) {
+        toggle.addEventListener('change', function() {
+            var productId = this.getAttribute('data-product-id');
+            var status = this.checked ? 1 : 0;
+            fetch(`/vendor/orders/${productId}/${status}/zit`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken'), // Include CSRF token
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ product_id: productId }, { product_status: status })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to update product status');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Product status updated successfully');
+                // Show success message
+                showMessage(data.message);
+            })
+            .catch(error => {
+                console.error('Error updating product status:', error);
+            });
         });
     });
 
-    // Show confirmation modal when delete button is clicked
-    $('.delete-btn').on('click', function() {
-        var productId = $(this).data('product-id'); // Get the product ID from data attribute
-        $('#confirmDeleteModal').modal('show'); // Show the confirmation modal
-        $('#confirmDeleteBtn').data('product-id', productId); // Set the product ID to data attribute of the delete button
-    });
-</script>
+    // Function to get CSRF token from cookies
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    // Function to show success message
+    function showMessage(message) {
+        // Create a new element for the message
+        var successMessage = document.createElement('div');
+        successMessage.classList.add('alert', 'alert-success', 'small', 'my-0', 'py-0', 'col-4', 'message-container');
+        successMessage.textContent = message;
+
+        // Find the table element
+        var table = document.querySelector('.table-responsive');
+
+        // Insert the message before the table
+        table.parentNode.insertBefore(successMessage, table);
+        
+        // Remove the message after 3 seconds
+        setTimeout(function() {
+            successMessage.remove();
+        }, 5000);
+    }
+});
+    </script>
+
+    <script>
+        // Handle click event on Delete button in modal
+        $(document).ready(function() {
+            $('#confirmDeleteBtn').on('click', function() {
+                // Show confirmation dialog
+                $('#confirmDeleteModal').modal('hide'); // Hide the confirmation modal
+                var productId = $(this).data('product-id'); // Get the product ID from data attribute
+                var deleteUrl = "{% url 'delete_product' product_id=0 %}".replace('0', productId); // Generate delete URL
+                window.location.href = deleteUrl; // Redirect to delete URL
+            });
+        });
+
+        // Show confirmation modal when delete button is clicked
+        $('.delete-btn').on('click', function() {
+            var productId = $(this).data('product-id'); // Get the product ID from data attribute
+            $('#confirmDeleteModal').modal('show'); // Show the confirmation modal
+            $('#confirmDeleteBtn').data('product-id', productId); // Set the product ID to data attribute of the delete button
+        });
+    </script>
 {% endblock %}

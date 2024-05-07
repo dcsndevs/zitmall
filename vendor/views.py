@@ -13,7 +13,11 @@ from products.forms import ProductForm
 from checkout.models import Order, OrderLineItem
 
 # Create your views here.
-
+def authentication(request):
+    if not request.user.is_superuser and not request.user.is_staff:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+    
 def vendor_admin(request):
     
     return render(request, 'vendor/admin.html')
@@ -100,9 +104,7 @@ def add_product(request):
 @login_required
 def edit_product(request, product_id):
     """ Edit a product in the store """
-    if not request.user.is_superuser and not request.user.is_staff:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))
+    authentication(request)
 
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
@@ -166,26 +168,6 @@ def status_products(request, product_id, product_status):
         message = 'Product status updated to Published.'
     return JsonResponse({'status': status, 'message': message})
 
-# @login_required
-# def vendor_order_view(request, order_no, orderline_id):
-#     order_line_item = get_object_or_404(OrderLineItem, order__order_number=order_no, id=orderline_id)
-#     vendor_order, created = VendorOrder.objects.get_or_create(item=order_line_item)
-
-#     if request.method == 'POST':
-#         form = VendorOrderForm(request.POST, instance=vendor_order)
-#         if form.is_valid():
-#             form.save()
-#             messages.success(request, 'Fullfilment Status have been successfully updated.')
-#             return redirect('vendor_orders')
-#     else:
-#         form = VendorOrderForm(instance=vendor_order)
-    
-#     context = {
-#         'order': order_line_item,
-#         'form': form
-#     }
-    
-#     return render(request, 'vendor/order_view.html', context)
 
 def vendor_order_view(request, order_no, orderline_id):
     order_line_item = get_object_or_404(OrderLineItem, order__order_number=order_no, id=orderline_id)
@@ -206,3 +188,24 @@ def vendor_order_view(request, order_no, orderline_id):
     }
     
     return render(request, 'vendor/order_view.html', context)
+
+def accept_order(request, item_id):
+    """ Vendor decision to accept new orders """
+    
+    authentication(request)
+    
+    vendor_order_item = get_object_or_404(VendorOrder, pk=item_id)
+    if vendor_order_item.accept == 0:
+        vendor_order_item.accept = 1
+        vendor_order_item.save()
+        messages.success(request, 'Order fulfillment accepted! Please prepare shipment immediately.')
+        return redirect('vendor_orders')
+    else:
+        messages.error(request, 'Failed to accept order. Kindly refresh the page.')
+    
+    context = {
+        'vendor_order_item': vendor_order_item,
+    }
+
+    return render(request, 'vendor/orders.html', context)
+

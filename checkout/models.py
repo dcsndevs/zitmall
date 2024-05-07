@@ -11,7 +11,7 @@ from django_countries.fields import CountryField
 from products.models import Product
 from profiles.models import UserProfile
 
-STATUS = ((0, "Pending"), (1, "Shipped"), (2, "Delivered"), (3, "Delivery Failed"), (4, "Canceled"))
+STATUS = ((0, "Pending"), (1, "Shipped"), (2, "Delivered"), (3, "Delivery Failed"), (4, "Cancelled"))
 
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)

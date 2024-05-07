@@ -53,7 +53,7 @@
                         <td>{{ item.quantity }}</td>
                         <td>{{ item.lineitem_total }}</td>
                         <td>{{ item.order.date }}</td>
-                        <td>{{ shipment_status }}
+                        <td>
                             {% if item.status == 0 %}
                                 Pending
                             {% elif item.status == 1 %}
@@ -72,7 +72,7 @@
                             <div class="form-check form-switch">
                                 <div class="form-check form-switch">
                                     <input class="form-check-input status-toggle" type="checkbox" id="statusToggle{{ product.id }}" {% if shipment_status == 1 %} checked {% endif %} data-product-id="{{ item.id }}">
-                                    <label class="form-check-label" for="statusToggle{{ product.id }}"></label>
+                                    <label class="form-check-label" for="statusToggle{{ product.id }}">Self</label>
                                 </div>
                             </div>
                         </td>

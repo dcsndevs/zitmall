@@ -156,7 +156,7 @@ def vendor_orders(request):
     return render(request, 'vendor/orders.html', context)
 
 def new_vendor_orders(request):
-    """ A view to show all vendor orders, including sorting and search queries """
+    """ A view to show all vendor orders """
 
     orders = OrderLineItem.objects.filter(product__vendor=request.user, status=0)
     shipment_status = 2 #Default shipment/fulfillment value - zitship value = 2
@@ -275,3 +275,31 @@ def shipment_type(request, product_id, product_status):
         message = 'This Order has since been cancelled. You can no longer ship. Contact Support for help.'    
     
     return JsonResponse({'product_status': product_status, 'message': message})
+
+
+def cancelled_vendor_orders(request):
+    """ A view to show all canclled vendor orders"""
+
+    orders = OrderLineItem.objects.filter(product__vendor=request.user, status=5)
+    shipment_status = 5
+    
+    context = {
+        'orders': orders,
+        'shipment_status': shipment_status,
+    }
+
+    return render(request, 'vendor/cancelled_orders.html', context)
+
+
+def active_vendor_orders(request):
+    """ A view to show all cancelled vendor orders"""
+
+    orders = OrderLineItem.objects.filter(product__vendor=request.user, status=1 or 2 or 3 or 4)
+    shipment_status = 4
+    
+    context = {
+        'orders': orders,
+        'shipment_status': shipment_status,
+    }
+
+    return render(request, 'vendor/active_orders.html', context)

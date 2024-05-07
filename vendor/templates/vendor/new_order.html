@@ -34,6 +34,9 @@
                     <th scope="col">Amount</th>
                     <th scope="col">Date</th>
                     <th scope="col">Status</th>
+                    {% if request.user.is_staff %}
+                    <th scope="col">Accept?</th>
+                    {% endif %}
                 </tr>
             </thead>
             <tbody>
@@ -66,6 +69,12 @@
                                 Cancelled
                             {% endif %}
                         </td>
+                        {% if request.user.is_staff %}
+                        <td>
+                            <a href="{% url 'accept_order' item.id %}" class="btn btn-sm btn-primary">Yes</a>
+                            <a href="{% url 'reject_order' item.id %}" class="btn btn-sm btn-danger">No</a>
+                        </td>
+                        {% endif %}
                     </tr>
                 {% endfor %}
             </tbody>

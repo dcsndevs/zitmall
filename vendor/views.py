@@ -156,13 +156,13 @@ def vendor_orders(request):
 def new_vendor_orders(request):
     """ A view to show all vendor orders, including sorting and search queries """
 
-    orders = OrderLineItem.objects.filter(product__vendor=request.user)
+    orders = OrderLineItem.objects.filter(product__vendor=request.user, status=0)
 
     context = {
         'orders': orders,
     }
 
-    return render(request, 'vendor/orders.html', context)
+    return render(request, 'vendor/new_order.html', context)
 
 def status_products(request, product_id, product_status):
     products = get_object_or_404(Product, pk=product_id)
@@ -216,12 +216,12 @@ def accept_order(request, item_id):
         return redirect('vendor_orders')
     else:
         messages.error(request, 'Failed to accept order. Kindly refresh the page.')
-    
+        
     context = {
         'vendor_order_item': vendor_order_item,
     }
-
     return render(request, 'vendor/orders.html', context)
+
 
 def reject_order(request, item_id):
     """ Vendor decision to reject orders """
@@ -233,6 +233,7 @@ def reject_order(request, item_id):
     if vendor_order_item.accept == 0:
         vendor_order_item.accept = 2
         vendor_order_item.save()
+        #item.id refers to the id in orderlineitem since it shares same id with vendor order id
         order_line_item = get_object_or_404(OrderLineItem, id=vendor_order_item.id)
         order_line_item.status = 5
         order_line_item.save()
@@ -242,10 +243,8 @@ def reject_order(request, item_id):
         messages.error(request, 'Failed to reject order. Order is currently {vendor_order_item.accept}'
                        'Kindly refresh the page.')
         
-    
     context = {
         'vendor_order_item': vendor_order_item,
     }
 
     return redirect('vendor_orders', context)
-

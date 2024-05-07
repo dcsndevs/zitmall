@@ -70,7 +70,7 @@
                         {% if request.user.is_staff %}
                         <td>
                             <a href="{% url 'accept_order' item.id %}" class="btn btn-sm btn-primary">Yes</a>
-                            <a href="" class="btn btn-sm btn-danger">No</a>
+                            <a href="{% url 'reject_order' item.id %}" class="btn btn-sm btn-danger">No</a>
                         </td>
                         {% endif %}
                     </tr>

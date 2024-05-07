@@ -209,3 +209,26 @@ def accept_order(request, item_id):
 
     return render(request, 'vendor/orders.html', context)
 
+def reject_order(request, item_id):
+    """ Vendor decision to reject orders """
+    
+    authentication(request)
+    
+    vendor_order_item = get_object_or_404(VendorOrder, pk=item_id)
+    
+    if vendor_order_item.accept == 0:
+        vendor_order_item.accept = 2
+        vendor_order_item.save()
+        messages.success(request, 'Your have rejected this Order{vendor_order_item.accept}. And it the Order canceled!')
+        return redirect('vendor_orders')
+    else:
+        messages.error(request, 'Failed to reject order. Order is currently {vendor_order_item.accept}'
+                       'Kindly refresh the page.')
+        
+    
+    context = {
+        'vendor_order_item': vendor_order_item,
+    }
+
+    return redirect('vendor_orders')
+

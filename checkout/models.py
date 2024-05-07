@@ -11,6 +11,7 @@ from django_countries.fields import CountryField
 from products.models import Product
 from profiles.models import UserProfile
 
+STATUS = ((0, "Pending"), (1, "Shipped"), (2, "Delivered"), (3, "Delivery Failed"), (4, "Canceled"))
 
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
@@ -73,6 +74,7 @@ class OrderLineItem(models.Model):
     product_size = models.CharField(max_length=2, null=True, blank=True) # XS, S, M, L, XL
     quantity = models.IntegerField(null=False, blank=False, default=0)
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
+    status = models.IntegerField(choices=STATUS, default=0)
 
     def save(self, *args, **kwargs):
         """
@@ -83,4 +85,4 @@ class OrderLineItem(models.Model):
         super().save(*args, **kwargs)
 
     def __str__(self):
-        return f'SKU {self.product.sku} on order {self.order.order_number}'
+        return f'ID {self.id} | SKU {self.product.sku} on order {self.order.order_number}'

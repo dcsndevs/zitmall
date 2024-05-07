@@ -4,26 +4,22 @@ from .models import VendorOrder, OrderLineItem
 
 # class VendorOrderForm(forms.ModelForm):
 #     def __init__(self, *args, **kwargs):
-#         order_line_item_id = kwargs.pop('order_line_item_id', None)  # Get the OrderLineItem ID from kwargs
+#         order_line_item_id = kwargs.pop('order_line_item_id', None)
 #         super().__init__(*args, **kwargs)
 #         if order_line_item_id:
-#             # Filter the item field queryset based on the OrderLineItem ID
-#             self.fields['item'].queryset = OrderLineItem.objects.filter(id=order_line_item_id)
+#             order_line_item = OrderLineItem.objects.get(id=order_line_item_id)
+#             # Set the initial value of the item field
+#             self.initial['item'] = order_line_item
 
 #     class Meta:
 #         model = VendorOrder
-#         fields = ['item', 'accept', 'fulfilment', 'status', 'reason']
-        
-
-
+#         fields = ['accept', 'fulfilment', 'status', 'reason']
 class VendorOrderForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
-        order_line_item_id = kwargs.pop('order_line_item_id', None)
+        self.disable_item_edit = kwargs.pop('disable_item_edit', False)
         super().__init__(*args, **kwargs)
-        if order_line_item_id:
-            order_line_item = OrderLineItem.objects.get(id=order_line_item_id)
-            # Set the initial value of the item field
-            self.initial['item'] = order_line_item
+        if self.disable_item_edit:
+            self.fields['item'].disabled = True
 
     class Meta:
         model = VendorOrder

@@ -144,47 +144,9 @@ def vendor_orders(request):
     """ A view to show all vendor orders, including sorting and search queries """
 
     orders = OrderLineItem.objects.filter(product__vendor=request.user)
-    query = None
-    categories = None
-    sort = None
-    direction = None
-
-    if request.GET:
-        if 'sort' in request.GET:
-            sortkey = request.GET['sort']
-            sort = sortkey
-            if sortkey == 'name':
-                sortkey = 'lower_name'
-                products = products.annotate(lower_name=Lower('title'))
-            if sortkey == 'category':
-                sortkey = 'category__name'
-            if 'direction' in request.GET:
-                direction = request.GET['direction']
-                if direction == 'desc':
-                    sortkey = f'-{sortkey}'
-            products = products.order_by(sortkey)
-            
-        if 'category' in request.GET:
-            categories = request.GET['category'].split(',')
-            products = products.filter(category__name__in=categories)
-            categories = Category.objects.filter(name__in=categories)
-
-        if 'q' in request.GET:
-            query = request.GET['q']
-            if not query:
-                messages.error(request, "You didn't enter any search criteria!")
-                return redirect(reverse('products'))
-            
-            queries = Q(title__icontains=query) | Q(description__icontains=query)
-            products = products.filter(queries)
-
-    current_sorting = f'{sort}_{direction}'
 
     context = {
         'orders': orders,
-        'search_term': query,
-        'current_categories': categories,
-        'current_sorting': current_sorting,
     }
 
     return render(request, 'vendor/orders.html', context)
@@ -204,12 +166,40 @@ def status_products(request, product_id, product_status):
         message = 'Product status updated to Published.'
     return JsonResponse({'status': status, 'message': message})
 
-@login_required
-def vendor_order_view(request, order_no, product_id):
-    order_line_item = get_object_or_404(OrderLineItem, order__order_number=order_no, id=product_id)
+# @login_required
+# def vendor_order_view(request, order_no, orderline_id):
+#     order_line_item = get_object_or_404(OrderLineItem, order__order_number=order_no, id=orderline_id)
+#     vendor_order, created = VendorOrder.objects.get_or_create(item=order_line_item)
 
-    form = VendorOrderForm(order_line_item_id=order_line_item.id)
-        
+#     if request.method == 'POST':
+#         form = VendorOrderForm(request.POST, instance=vendor_order)
+#         if form.is_valid():
+#             form.save()
+#             messages.success(request, 'Fullfilment Status have been successfully updated.')
+#             return redirect('vendor_orders')
+#     else:
+#         form = VendorOrderForm(instance=vendor_order)
+    
+#     context = {
+#         'order': order_line_item,
+#         'form': form
+#     }
+    
+#     return render(request, 'vendor/order_view.html', context)
+
+def vendor_order_view(request, order_no, orderline_id):
+    order_line_item = get_object_or_404(OrderLineItem, order__order_number=order_no, id=orderline_id)
+    vendor_order, created = VendorOrder.objects.get_or_create(item=order_line_item)
+
+    if request.method == 'POST':
+        form = VendorOrderForm(request.POST, instance=vendor_order)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Vendor order has been saved successfully.')
+            return redirect('vendor_orders')  # Replace 'vendor_orders' with the URL name of your vendor orders list page
+    else:
+        form = VendorOrderForm(instance=vendor_order, disable_item_edit=not created)
+    
     context = {
         'order': order_line_item,
         'form': form

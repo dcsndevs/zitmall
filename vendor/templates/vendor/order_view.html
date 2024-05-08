@@ -21,43 +21,47 @@
 <div>
     </div>
     <div class="table-responsive">
-        <table class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">Order No</th>
-                    <th scope="col">Product/Address</th>
-                    <th scope="col">Qty</th>
-                    <th scope="col">Amount</th>
-                    {% if request.user.is_staff %}
-                    <th scope="col">Accept?</th>
-                    {% endif %}
-                </tr>
-            </thead>
-            <tbody>
+        <form method="POST">
+            <table class="table table-bordered table-striped">
+                <thead>
                     <tr>
-                        <td>{{ order.order }}</td>
-                        <td>{{ order.product }}
-                            | {{ order.full_name }}
-                            {{ order.order.street_address1 }},
-                            {{ order.order.street_address2 }}, 
-                            {{ order.order.town_or_city }},
-                            {{ order.order.county }},
-                            {{ order.order.country }}.
-                        </td>
-                        <td>{{ order.quantity }}</td>
-                        <td>{{ order.lineitem_total }}</td>
-                        {% if request.user.is_staff %}
-                        <td>Accepted</td>
-                        {% endif %}
+                        <th scope="col">Order No</th>
+                        <th scope="col">Product/Address</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Action</th>
                     </tr>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td>{{ order.order }}</td>
+                            <td>{{ order.product }}
+                                | {{ order.full_name }}
+                                {{ order.order.street_address1 }},
+                                {{ order.order.street_address2 }}, 
+                                {{ order.order.town_or_city }},
+                                {{ order.order.county }},
+                                {{ order.order.country }}.
+                            </td>
+                            <td>{{ order.quantity }}</td>
+                            <td>{{ order.lineitem_total }}</td>
+                            
+                            <td>
+                                <div>
+                                    
+                                        {% csrf_token %}
+                                        {{ form.status }}        
+                                </div>
+
+                            </td>
+                            <td><button type="submit">Update</button></td>
+                        </tr>
+                </tbody>
+            </table>
+        </form>
         <div>
-            <form method="POST">
-                {% csrf_token %}
-                {{ form|crispy }}
-                <button type="submit">Update Status</button>
-              </form>
+            
         </div>
     </div>
     

@@ -1,5 +1,5 @@
 from django import forms
-from .models import VendorOrder, OrderLineItem
+from .models import VendorOrder
 
 
 class VendorOrderForm(forms.ModelForm):

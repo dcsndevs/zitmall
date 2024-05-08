@@ -1,7 +1,9 @@
 import os
 import dj_database_url
+
 if os.path.isfile('local_env.py'):
     import local_env
+
 from pathlib import Path
 from storages.backends.s3boto3 import S3Boto3Storage
 
@@ -116,13 +118,16 @@ WSGI_APPLICATION = 'zitmall.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
+DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+}
 
 
 # Password validation

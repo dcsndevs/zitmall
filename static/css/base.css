@@ -14,7 +14,7 @@ img.h1 {
 }
 
 body {
-
+    
     color: #555;
     font-family: 'Jura';
 }
@@ -327,4 +327,18 @@ input[name='q']::placeholder {
     .increment-qty, .decrement-qty {
         padding: .25rem .5rem !important;
     }
+}
+
+.top-down-button {
+    height: 40px;
+    width: 40px;
+    position: fixed;
+    bottom: 8px;
+    right: 8px;
+}
+
+.top-down-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
 }

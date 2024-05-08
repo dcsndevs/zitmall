@@ -18,7 +18,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
+# DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'zitmall-1f03b915b742.herokuapp.com']
 
@@ -104,7 +105,7 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
-ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = False
@@ -116,18 +117,30 @@ WSGI_APPLICATION = 'zitmall.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+
+# if 'DATABASE_URL' in os.environ:
+#     DATABASES = {
+#         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+#     }
+# else:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#         }
+#     }
 
 # DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
+#         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 # }
 
 DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-}
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 
 # Password validation
@@ -169,13 +182,6 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-if not DEBUG:
-    # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-    # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
-    # and renames the files with unique names for each version to support long-term caching
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 
 if 'USE_AWS' in os.environ:
     # Cache control
@@ -201,8 +207,6 @@ if 'USE_AWS' in os.environ:
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
-dotenv_path = os.path.join(os.path.dirname(__file__), 'sec.env')
-#load_dotenv(dotenv_path)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

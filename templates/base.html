@@ -77,7 +77,6 @@
                                 
                                                             
                                 
-                                {% if user.is_authenticated %}
                                 <li class="nav-item">
                                     <a class="nav-link {% if request.path == member_area_url %}active" aria-current="page{% endif %}" href="{% url 'profile_view' %}" aria-label="profile"><i class="bi-person"></i> {{ user }}</a>
                                 </li>                                
@@ -89,14 +88,12 @@
                                 <li class="nav-item">
                                     <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'account_logout' %}" aria-label="logout"><i class="bi-key"></i> Logout</a>
                                 </li>
-                                {% else %}
                                 <li class="nav-item">
                                     <a class="nav-link {% if request.path == registration_url %}active" aria-current="page{% endif %}" href="{% url 'account_signup' %}" aria-label="signup">Register</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link {% if request.path == logout_url %}active" aria-current="page{% endif %}" href="{% url 'account_login' %}" aria-label="login">Log In</a>
                                 </li>
-                                {% endif %}
                                 
                             </ul>
                             

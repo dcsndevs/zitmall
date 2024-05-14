@@ -6,6 +6,9 @@
 {% endblock %}
 
 {% block content %}
+<div id="gon">
+
+</div>
 <div class="row mt-1 mb-2">
     <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
         <div class="sort-select-wrapper w-50">
@@ -43,7 +46,7 @@
                 <div class="card-body mb-3 px-1" style="height: 160px;">
                     <p class="card-title small px-0 mb-1 fs-10" style="height: 80px; overflow: hidden;"><a href="{% url 'product_detail_by_slug' product_slug=product.slug %}">{{ product.title }}</a></p>
                     <p class="card-text text-primary p-auto mb-0 text-center" style="height: 40px; overflow: hidden; text-overflow: ellipsis;">{% if product.old_price  %}<del class="text-danger small">${{ product.old_price }} </del>{% endif %}${{ product.price }}</p>
-                    <p class="card-text text-center my-0" style="height: 40px; overflow: hidden; text-overflow: ellipsis;"><a href="" class="btn btn-sm btn-dark text-decoration-none">Add to Cart</a></p>
+                    <button type="button" class="btn btn-sm btn-dark text-decoration-none add-to-cart-btn" id="addCartBtn" data-product-id="{{ product.id }}">Add to Cart</button>
                 </div>
             </div>
         </div>
@@ -55,6 +58,8 @@
         {% endfor %}
     </div>
 </section>
+
+
 
 <div class="top-down-button shadow-sm rounded-0 border border-body">
     <a class="top-down-link d-flex h-100">
@@ -69,7 +74,71 @@
 			window.scrollTo(0,0)
 		})
 	</script>
-    
+    <script>
+      $(document).ready(function() {
+        $('.add-to-cart-btn').click(function() {
+            var productId = $(this).data('product-id');
+            fetch(`/cart/quick_add/${productId}/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken'), // Include CSRF token
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({ product_id: productId })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to update product status');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Product status updated successfully');
+                // Show success message
+                showMessage(data.message);
+            })
+            .catch(error => {
+                console.error('Error updating product status:', error);
+            });
+        });
+    });
+        // Function to get CSRF token from cookies
+        function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    // Function to show success message
+    function showMessage(message) {
+        // Create a new element for the message
+        var successMessage = document.createElement('div');
+        successMessage.classList.add('alert', 'alert-success', 'small', 'my-0', 'py-0', 'message-container');
+        successMessage.textContent = message;
+
+        // Insert the message before the status toggles
+        var statusToggleWrapper = document.querySelector('.sort-select-wrapper');
+        statusToggleWrapper.parentNode.insertBefore(successMessage, statusToggleWrapper.nextSibling);
+
+        // Remove the message after 5 seconds
+        setTimeout(function() {
+            successMessage.remove();
+        }, 5000);
+    }
+
+
+
+    </script>
     <script type="text/javascript">
         $('#sort-selector').change(function() {
             var selector = $(this);

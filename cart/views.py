@@ -4,6 +4,7 @@ from django.utils import timezone
 from products.models import Product
 from .models import Coupon
 from cart.contexts import cart_contents
+from django.http import JsonResponse
 
 
 
@@ -73,7 +74,7 @@ def add_to_cart(request, item_id):
             messages.success(request, f'Added {product.title} to your cart')
 
     request.session['cart'] = cart
-    return redirect(redirect_url)
+    return redirect(reverse('view_cart'))
     
 
 def adjust_cart(request, item_id):
@@ -132,3 +133,38 @@ def remove_from_cart(request, item_id):
     except Exception as e:
         messages.error(request, f'Error removing item: {e}')
         return HttpResponse(status=500)
+
+
+def quick_add_to_cart(request, item_id):
+    """ Add a single quantity of the specified product to the shopping cart """
+
+    # Get the product instance
+    product = get_object_or_404(Product, pk=item_id)
+    
+    # Set the default quantity to one
+    quantity = 1
+    
+    # Get the redirect URL
+    redirect_url = request.GET.get('redirect_url', '/')
+
+    # Get the session cart
+    cart = request.session.get('cart', {})
+
+    # Check if the product is already in the cart
+    if item_id in cart:
+        # Increment the quantity by one
+        cart[item_id] += quantity
+        message = f'Updated {product.title} quantity to {cart[item_id]}'
+    else:
+        # Add the product to the cart with quantity one
+        cart[item_id] = quantity
+        message = f'Added {product.title} to your cart'
+
+    # Update the session cart
+    request.session['cart'] = cart
+    
+    # Get the success message
+    
+    # Redirect to the specified URL
+    # return redirect(redirect_url)
+    return JsonResponse({'message': message})

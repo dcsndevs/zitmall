@@ -83,6 +83,10 @@ def checkout(request):
                                 product_size=size,
                             )
                             order_line_item.save()
+                            vendor_order_line_item = VendorOrder(
+                            item=order_line_item,
+                            )
+                            vendor_order_line_item.save()
                 except Product.DoesNotExist:
                     messages.error(request, (
                         "One of the products in your cart wasn't found in our database. "

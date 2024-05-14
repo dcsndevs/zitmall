@@ -10,7 +10,9 @@ class ProductForm(forms.ModelForm):
         model = Product
         exclude = ['slug', 'vendor']  # Exclude the slug and vendor fields from the form's fields
 
-    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
+    image_1 = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
+    image_2 = forms.ImageField(label='Image2', required=False, widget=CustomClearableFileInput)
+    image_3 = forms.ImageField(label='Image3', required=False, widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
         user = kwargs.pop('user', None)  # Get the currently logged-in user

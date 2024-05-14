@@ -47,7 +47,7 @@
                     <p class="card-title small px-0 mb-1 fs-10" style="height: 80px; overflow: hidden;"><a href="{% url 'product_detail_by_slug' product_slug=product.slug %}">{{ product.title }}</a></p>
                     <p class="card-text text-primary p-auto mb-0 text-center" style="height: 40px; overflow: hidden; text-overflow: ellipsis;">{% if product.old_price  %}<del class="text-danger small">${{ product.old_price }} </del>{% endif %}${{ product.price }}</p>
                     <p class="card-text text-center my-0" style="height: 40px; overflow: hidden; text-overflow: ellipsis;">
-                        <button type="button" class="btn btn-sm btn-dark text-decoration-none add-to-cart-btn" id="addCartBtn" data-product-id="{{ product.id }}">Add to Cart</button>
+                        <button type="button" class="btn btn-sm btn-dark text-decoration-none add-to-cart-btn" id="addCartBtn" data-product-id="{{ product.id }}" data-product-price="{{ product.price }}">Add to Cart</button>
                     </p>
                 </div>
             </div>
@@ -80,6 +80,7 @@
       $(document).ready(function() {
         $('.add-to-cart-btn').click(function() {
             var productId = $(this).data('product-id');
+            var productPrice = $(this).data('product-price');
             fetch(`/cart/quick_add/${productId}/`, {
                 method: 'POST',
                 headers: {
@@ -96,9 +97,13 @@
                 return response.json();
             })
             .then(data => {
-                console.log('Product status updated successfully');
                 // Show success message
                 showMessage(data.message);
+                // Increases product count
+                incrementProductCount();
+                var ccss1 = document.getElementById('grand');
+                ttd = parseInt(ccss1.textContent)
+                incrementTotal(productPrice);
             })
             .catch(error => {
                 console.error('Error updating product status:', error);
@@ -121,6 +126,31 @@
         return cookieValue;
     }
 
+    // Function to increment product count
+    function incrementProductCount() {
+        var productCountElement = document.getElementById('prod');
+        var currentCount = parseInt(productCountElement.textContent);
+        if (!isNaN(currentCount)) {
+            productCountElement.textContent = currentCount + 1;
+        } else {
+            productCountElement.textContent = 1;
+        }
+    }
+    
+    
+    // Function to increment grandTotal
+    function incrementTotal(productPrice) {
+        
+        let grandTotal = document.getElementById('grand');
+        let ccss = document.getElementById('grand');
+        grandTotal = parseInt(grandTotal.textContent);
+        let currentGrandTotal = parseInt(grandTotal.textContent);
+        let productPrice2 = parseInt(productPrice);
+        grandTotal.textContent = currentGrandTotal + productPrice;
+        ccss.textContent = productPrice + ttd
+    }
+    
+
     // Function to show success message
     function showMessage(message) {
         // Create a new element for the message
@@ -137,9 +167,6 @@
             successMessage.remove();
         }, 5000);
     }
-
-
-
     </script>
     <script type="text/javascript">
         $('#sort-selector').change(function() {

@@ -81,9 +81,9 @@
                                     <a class="nav-link {% if request.path == member_area_url %}active" aria-current="page{% endif %}" href="{% url 'profile_view' %}" aria-label="profile"><i class="bi-person"></i> {{ user }}</a>
                                 </li>                                
                                 <li class="nav-item">
-                                    <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'view_cart' %}" aria-label="logout">
-                                        <i class="bi-cart4"><sup class="small text-primary">{% if product_count == 0 %}{% else %}{{ product_count }}{% endif %}</sup></i>
-                                        <small>{% if grand_total %}${{ grand_total|floatformat:2 }}{% else %}$0.00{% endif %}</small></a>
+                                    <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'view_cart' %}" aria-label="view_cart">
+                                        <i class="bi-cart4"><sup class="small text-primary" id="prod">{% if product_count == 0 %}{% else %}{{ product_count }}{% endif %}</sup></i>
+                                        <span id="ccsd">£</span><small id="grand">{% if grand_total %}{{ grand_total|floatformat:2 }}{% else %}0.00{% endif %}</small></a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'account_logout' %}" aria-label="logout"><i class="bi-key"></i> Logout</a>

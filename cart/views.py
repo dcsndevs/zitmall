@@ -107,7 +107,6 @@ def adjust_cart(request, item_id):
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))
 
-
 def remove_from_cart(request, item_id):
     """Remove the item from the shopping cart"""
 
@@ -163,8 +162,17 @@ def quick_add_to_cart(request, item_id):
     # Update the session cart
     request.session['cart'] = cart
     
-    # Get the success message
-    
-    # Redirect to the specified URL
-    # return redirect(redirect_url)
     return JsonResponse({'message': message})
+
+
+def empty_cart(request):
+    # Get the cart from the session
+    cart = request.session.get('cart', {})
+    
+    # Clear the cart
+    cart.clear()
+    
+    # Update the session with the empty cart
+    request.session['cart'] = cart
+    
+    return redirect(reverse('view_cart'))    

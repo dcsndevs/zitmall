@@ -96,7 +96,8 @@
                                     </td>
                                 </tr>
                             {% endfor %}
-                           
+                            <div><a href="{% url 'empty_cart' %}">Empty your cart to start all over</a></div>
+
                             <tr>
                                 <td colspan="5" class="pt-5 text-right">
                                     {% include "cart/coupon.html" %}

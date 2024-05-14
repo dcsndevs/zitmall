@@ -67,7 +67,6 @@ def checkout(request):
                             quantity=item_data,
                         )
                         order_line_item.save()
-                        print("aysyauaa")
                         print(order_line_item)
                         vendor_order_line_item = VendorOrder(
                             item=order_line_item,
@@ -182,7 +181,10 @@ def checkout_success(request, order_number):
 
     if 'cart' in request.session:
         del request.session['cart']
-
+        
+    if 'coupon_discount' in request.session:
+        del request.session['coupon_discount']
+        
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,

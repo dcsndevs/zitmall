@@ -14,7 +14,6 @@ img.h1 {
 }
 
 body {
-    
     color: #555;
     font-family: 'Jura';
 }
@@ -341,4 +340,8 @@ input[name='q']::placeholder {
 .update-link,
 .remove-item {
     cursor: pointer;
+}
+
+.navmar {
+    margin-top: 30px;
 }

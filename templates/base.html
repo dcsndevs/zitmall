@@ -37,10 +37,10 @@
 
     <title>Zit Mall{% block extra_title %}{% endblock %}</title>
   </head>
-  <body>
+  <body class="container mx-0 px-0">
     <header class="">
         <!-- Large and medium screen navbar -->
-        <div id="topnav" class="row navbar-light bg-light pt-lg-2 d-none d-sm-flex">
+        <div id="topnav" class="fixed-top row navbar-light bg-light pt-lg-2 d-none d-sm-flex">
             <div class="col-12 col-sm-4 my-auto py-1 py-lg-0 text-center text-lg-left">
                 <a class="navbar-brand" href="{% url 'home' %}"><img class="h1" src="https://res.cloudinary.com/djhi60enx/image/upload/v1714657570/zitmall-shopping-logo_j6yges.png" alt="zitmall-logo"></a>
             </div>
@@ -71,7 +71,7 @@
                                 {% if request.user.is_superuser %}
                                     <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
                                 {% endif %}
-                                <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                                <a href="{% url 'profile_view' %}" class="dropdown-item">My Profile</a>
                                 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                             {% else %}
                                 <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
@@ -132,7 +132,7 @@
             <div class="col-sm-4">
                 <a class="navbar-brand" href="{% url 'home' %}"><img class="h1" src="https://res.cloudinary.com/djhi60enx/image/upload/v1714657570/zitmall-shopping-logo_j6yges.png" alt="zitmall-logo"></a>
             </div>
-            <div class="text-center">
+            <div class="text-center px-2">
                 <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'view_cart' %}" aria-label="view_cart">
                     <i class="bi-cart4"><sup class="small text-primary" id="prod-mobile">{% if product_count == 0 %}{% else %}{{ product_count }}{% endif %}</sup></i>
                     <span id="ccsd-mobile">$</span><small id="grand-mobile">{% if grand_total %}{{ grand_total|floatformat:2 }}{% else %}0.00{% endif %}</small></a>
@@ -144,7 +144,7 @@
             </form>
         </div>
         
-        <div class="px-2">
+        <div class="">
             {% if user.is_staff %}
                 {% include 'includes/vendor-navbar.html' %}
             {% else %}
@@ -187,7 +187,7 @@
         </div>
       {% endif %}
 
-        <main class="bottom-footer, fs-8">
+        <main class="bottom-footer navmar fs-8">
             {% block content %}
             {% endblock %}
         </main>

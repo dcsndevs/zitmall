@@ -19,23 +19,25 @@
         <div class="row">
             <div class="col">
                 <hr>
-                <h2 class="logo-font mb-4">Profile | {{ profile.user.username }}</h2>
+                <h2 class="h2 mb-4">Profile | {{ profile.user.username }}</h2>
                 <hr>
             </div>
         </div>
         <div class="row">
             <div class="col-12 col-lg-6">
-                <p class="text-muted">Default Delivery Information</p>
-                <p>{{ profile.user.first_name }}</p>
-                <p>{{ profile.user.last_name }}</p>
-                <p>{{ profile.user.email }}</p>
-                <p>{{ profile.default_phone_number }}</p>
-                <p>{{ profile.default_street_address1 }}</p>
-                <p>{{ profile.default_street_address2 }}</p>
-                <p>{{ profile.default_town_or_city }}</p>
-                <p>{{ profile.default_county }}</p>
-                <p>{{ profile.default_postcode }}</p>
-                <p>{{ profile.default_country }}</p>
+                <p class="text-muted">Default Delivery Information for</p>
+                <p>{{ profile.user.first_name }} {{ profile.user.last_name }}</p>
+                <p><hr></p>
+                <p>Email: {{ profile.user.email }}</p>
+                <p>Phone number: {{ profile.default_phone_number }}</p>
+                <p><hr></p>
+                <p class="h4">Address</p>
+                <p>{{ profile.default_street_address1 }}<br>
+                {{ profile.default_street_address2 }}<br>
+                {{ profile.default_town_or_city }}<br>
+                {{ profile.default_county }}<br>
+                {{ profile.default_postcode }}<br>
+                {{ profile.default_country }}<br></p>
             </div>
             <div class="row">
                 <div class="col-md-12">
@@ -51,7 +53,8 @@
                 </div>
             </div>
             <div class="col-12 col-lg-6">
-                <p class="text-muted">Order History</p>
+                <p class="text-muted h3">Order History</p>
+                {% if orders %}
                 <div class="order-history table-responsive">
                     <table class="table table-sm table-borderless">
                         <thead>
@@ -89,6 +92,10 @@
                         </tbody>
                     </table>
                 </div>
+                {% else %}
+                <p>You have no orders yet.</p>
+                {% endif %}
+            
             </div>
         </div>
 {% endblock %}

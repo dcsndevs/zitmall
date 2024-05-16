@@ -33,6 +33,7 @@
                 </form>
             </div>
             <div class="col-12 col-lg-6">
+                {% if orders %}
                 <p class="text-muted">Order History</p>
                 <div class="order-history table-responsive">
                     <table class="table table-sm table-borderless">
@@ -71,6 +72,8 @@
                         </tbody>
                     </table>
                 </div>
+                {% else %}
+                {% endif %}
             </div>
         </div>
 {% endblock %}

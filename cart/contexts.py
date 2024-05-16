@@ -3,6 +3,7 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
 from cart.models import Coupon
+from vendor.models import OrderLineItem
 
 def cart_contents(request, coupon_code=None):
 
@@ -63,4 +64,14 @@ def cart_contents(request, coupon_code=None):
         'discount': discount,
     }
 
+    return context
+
+
+def new_orders(request):
+    neworders = 0
+    context = {}
+    if request.user.is_authenticated and request.user.is_staff:
+        neworders = OrderLineItem.objects.filter(product__vendor=request.user, status=0).order_by('-id').count()
+        context['neworders'] = neworders
+        print(neworders)
     return context

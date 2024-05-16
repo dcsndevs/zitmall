@@ -23,7 +23,7 @@
     </div>
 </div>
 <div>
-    </div>
+    {% if orders %}
     <div class="table-responsive">
         <table class="table table-bordered table-striped">
             <thead>
@@ -71,6 +71,9 @@
             </tbody>
         </table>
     </div>
+    {% else %}
+    <p>No orders here!</p>
+    {% endif %}
     
 </div>
 </div>

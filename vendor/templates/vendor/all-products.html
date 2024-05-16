@@ -39,6 +39,7 @@
     </div>
 </div>
 <div>
+    {% if products %}
     <div class="table-responsive">
         <table class="table table-bordered table-striped">
             <thead>
@@ -76,6 +77,11 @@
                 {% endfor %}
             </tbody>
         </table>
+        {% else %}
+        <p>No Products here!. You have not created any products.</p>
+        <p>Click <a href="{% url 'add_product' %}">here</a> to start adding products to your store.</p>
+        {% endif %}
+    
     </div>
     
 </div>

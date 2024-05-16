@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Jura:400,300);
 
+
 img.h1 {
     width: 200px; /* Adjust the width as needed */
     height: auto; /* Automatically adjust height while maintaining aspect ratio */
@@ -183,6 +184,20 @@ input[name='q']::placeholder {
   }
 }
 
+@media (min-width: 576px) {
+    body {
+        padding-top: 87px;
+    }
+}
+
+@media (max-width: 575px) {
+    body {
+        padding-top: 80px;
+    }
+}
+
+
+
 /* Allauth form formatting */
 
 .allauth-form-inner-content p {
@@ -280,13 +295,12 @@ input[name='q']::placeholder {
         padding-top: 164px;
     }
 }
-
-/* fixed top navbar only on medium and up */
-@media (min-width: 426px) {
-    .navmar2 {
-        margin-top: 88px;
-    }
+.topnavmargin {
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
+
 @media (max-width: 425px) {
     .small-logo {
         width: 90%;
@@ -304,9 +318,6 @@ input[name='q']::placeholder {
         padding-top: 116px;
     }
 
-    .navmar {
-        margin-top: 80px;
-    }
     
     body {
         height: calc(100vh - 116px);

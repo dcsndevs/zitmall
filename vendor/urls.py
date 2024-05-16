@@ -14,6 +14,7 @@ urlpatterns = [
     path('orders/<str:order_no>/<int:orderline_id>/', views.vendor_order_view, name='vendor_order_view'),
     path('orders/active', views.active_vendor_orders, name='active_vendor_orders'),
     path('orders/<int:product_id>/<int:product_status>/zit', views.shipment_type, name='shipment_type'),
-    path('orders/<int:item_id>/accept', views.accept_order, name='accept_order'),
+    # path('orders/<int:item_id>/accept', views.accept_order, name='accept_order'),
+    path('orders/<str:order_number>/<int:product_id>/accept', views.accept_order, name='accept_order'),
     path('orders/<int:item_id>/reject', views.reject_order, name='reject_order'),    
 ]

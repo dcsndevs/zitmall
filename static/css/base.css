@@ -299,6 +299,7 @@ input[name='q']::placeholder {
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: 1;
 }
 
 @media (max-width: 425px) {

@@ -221,21 +221,38 @@ def vendor_order_view(request, order_no, orderline_id):
     
     return render(request, 'vendor/order_view.html', context)
 
-def accept_order(request, item_id):
+def accept_order(request, order_number, product_id):
     """ Vendor decision to accept new orders """
     
-    authentication(request)
+    order_line_item = get_object_or_404(
+        OrderLineItem, 
+        order__order_number=order_number, 
+        product__id=product_id
+    )
+    print(f'order_line_item: {order_line_item}')
+    print(order_line_item.status)
+    vendor_order_item = get_object_or_404(
+        VendorOrder, 
+        item__order__order_number=order_number, 
+        item__product__id=product_id
+        )
+    print(vendor_order_item)
+    print(f'vendor_order_item: {vendor_order_item.status}')
+    print(f'vendor_order_item Accept status: {vendor_order_item.accept}')
     
-    vendor_order_item = get_object_or_404(VendorOrder, pk=item_id)
     if vendor_order_item.accept == 0:
         vendor_order_item.accept = 1
         vendor_order_item.save()
         #item.id refers to the id in orderlineitem since it shares same id with vendor order id
-        order_line_item = get_object_or_404(OrderLineItem, id=vendor_order_item.id)
+        order_line_item = get_object_or_404(
+        OrderLineItem, 
+        order__order_number=order_number, 
+        product__id=product_id
+        )
         order_line_item.status = 1
         order_line_item.save()
         messages.success(request, 'Order fulfillment accepted! Please prepare shipment immediately.')
-        return redirect('vendor_orders')
+        return redirect('new_vendor_orders')
     else:
         messages.error(request, 'Failed to accept order. Kindly refresh the page.')
         

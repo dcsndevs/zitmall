@@ -2,192 +2,196 @@
 
 <!doctype html>
 <html lang="en">
-  <head>
+    <head>
+        {% block meta %}
+            <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+        {% endblock %}
 
-    {% block meta %}
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
-    {% endblock %}
+        {% block extra_meta %}
+        {% endblock %}
 
-    {% block extra_meta %}
-    {% endblock %}
+        {% block corecss %}
+            <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+            <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="{% static 'css/base.css' %}">
+        {% endblock %}
 
-    {% block corecss %}
-        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-        <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    {% endblock %}
+        {% block extra_css %}
+        {% endblock %}
 
-    {% block extra_css %}
-    {% endblock %}
+        {% block corejs %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+            <!-- Stripe -->
+            <script src="https://js.stripe.com/v3/"></script>
+        {% endblock %}
 
-    {% block corejs %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-        <!-- Stripe -->
-        <script src="https://js.stripe.com/v3/"></script>
-    {% endblock %}
+        {% block extra_js %}
+        {% endblock %}
 
-    {% block extra_js %}
-    {% endblock %}
+        <title>Zit Mall{% block extra_title %}{% endblock %}</title>
+    </head>
 
-    <title>Zit Mall{% block extra_title %}{% endblock %}</title>
-  </head>
-  <body class="container mx-0 px-0">
-    <header class="">
-        <!-- Large and medium screen navbar -->
-        <div id="topnav" class="fixed-top row navbar-light bg-light pt-lg-2 d-none d-sm-flex">
-            <div class="col-12 col-sm-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-                <a class="navbar-brand" href="{% url 'home' %}"><img class="h1" src="https://res.cloudinary.com/djhi60enx/image/upload/v1714657570/zitmall-shopping-logo_j6yges.png" alt="zitmall-logo"></a>
-            </div>
-            <div class="col-12 col-sm-4 my-auto py-1 py-lg-0">
-                <form method="GET" action="{% url 'products' %}" role="search">
-                    <input class="form-control" type="search" name="q" placeholder="What are you looking for?" aria-label="Search">
-                </form>
-            </div>
-            
-            <div class="col-12 col-sm-4 my-auto py-1 py-lg-0">
-                <ul class="list-inline list-unstyled text-center text-lg-right my-0">
-                    <li class="nav-item list-inline-item dropdown">
-                        <a class="nav-link {% if request.path == member_area_url %}active" aria-current="page{% endif %}" href="{% url 'profile_view' %}" aria-label="profile">
-                            
-                            {% if request.user.is_authenticated %} 
-                            <i class="bi-person"></i> {{ user }}
-                            {% else %}
-                                <p class="d-flex align-items-center mb-0">
-                                    <i class="bi-person me-2"></i>
-                                    <a href="{% url 'account_login' %}" class="text-dark text-decoration-none me-1">Login</a>
-                                    <span class="me-1">or</span>
-                                    <a href="{% url 'account_signup' %}" class="text-dark text-decoration-none">Register</a>
-                                </p>
-                            {% endif %}
-                        </a>                  
-                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                            {% if request.user.is_authenticated %}
-                                {% if request.user.is_superuser %}
-                                    <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+    <body class="mx-0 px-0">
+        <header class="mx-0 px-0">
+            <!-- Large and medium screen navbar -->
+            <div id="topnav" class="fixed-top row navbar-light bg-light pt-lg-2 d-none d-sm-flex">
+                <div class="col-12 col-sm-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+                    <a class="navbar-brand" href="{% url 'home' %}"><img class="h1" src="https://res.cloudinary.com/djhi60enx/image/upload/v1714657570/zitmall-shopping-logo_j6yges.png" alt="zitmall-logo"></a>
+                </div>
+                <div class="col-12 col-sm-4 my-auto py-1 py-lg-0">
+                    <form method="GET" action="{% url 'products' %}" role="search">
+                        <input class="form-control" type="search" name="q" placeholder="What are you looking for?" aria-label="Search">
+                    </form>
+                </div>
+                
+                <div class="col-12 col-sm-4 my-auto py-1 py-lg-0">
+                    <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+                        <li class="nav-item list-inline-item dropdown">
+                            <a class="nav-link {% if request.path == member_area_url %}active" aria-current="page{% endif %}" href="{% url 'profile_view' %}" aria-label="profile">
+                                
+                                {% if request.user.is_authenticated %} 
+                                <i class="bi-person"></i> {{ user }}
+                                {% else %}
+                                    <p class="d-flex align-items-center mb-0">
+                                        <i class="bi-person me-2"></i>
+                                        <a href="{% url 'account_login' %}" class="text-dark text-decoration-none me-1">Login</a>
+                                        <span class="me-1">or</span>
+                                        <a href="{% url 'account_signup' %}" class="text-dark text-decoration-none">Register</a>
+                                    </p>
                                 {% endif %}
-                                <a href="{% url 'profile_view' %}" class="dropdown-item">My Profile</a>
-                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                            {% else %}
-                                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                                <span> or </span>
-                                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                            {% endif %}
-                        </div>
-                    </li> 
-                    
-                    <li class="nav-item list-inline-item">
-                        <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'view_cart' %}" aria-label="view_cart">
-                            <i class="bi-cart4"><sup class="small text-primary" id="prod">{% if product_count == 0 %}{% else %}{{ product_count }}{% endif %}</sup></i>
-                            <span id="ccsd">$</span><small id="grand">{% if grand_total %}{{ grand_total|floatformat:2 }}{% else %}0.00{% endif %}</small></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- Smallscreen navbar -->
-        <div class="navbar bg-light d-flex d-block d-sm-none">
-            <div class="col-sm-4 dropdown px-2">
-                <button
-                    class="nav-link navbar-toggler"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    data-bs-target="#navprofilemenu"
-                    aria-label="user-menu">
-                    <i class="bi bi-person"></i>
-                </button>
-                <div class="dropdown-menu" id="navprofilemenu">
-                    <ul class="navbar-nav">
+                            </a>                  
+                            <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                                {% if request.user.is_authenticated %}
+                                    {% if request.user.is_superuser %}
+                                        <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+                                    {% endif %}
+                                    <a href="{% url 'profile_view' %}" class="dropdown-item">My Profile</a>
+                                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                                {% else %}
+                                    <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                                    <span> or </span>
+                                    <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                                {% endif %}
+                            </div>
+                        </li> 
                         
-                                                    
-                        
-                        <li class="dropdown-item">
-                            <a class="nav-link {% if request.path == member_area_url %}active" aria-current="page{% endif %}" href="{% url 'profile_view' %}" aria-label="profile"><i class="bi-person"></i> {{ user }}</a>
-                        </li>                                
-                        <li class="dropdown-item">
+                        <li class="nav-item list-inline-item">
                             <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'view_cart' %}" aria-label="view_cart">
                                 <i class="bi-cart4"><sup class="small text-primary" id="prod">{% if product_count == 0 %}{% else %}{{ product_count }}{% endif %}</sup></i>
                                 <span id="ccsd">$</span><small id="grand">{% if grand_total %}{{ grand_total|floatformat:2 }}{% else %}0.00{% endif %}</small></a>
                         </li>
-                        <li class="dropdown-item">
-                            <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'account_logout' %}" aria-label="logout"><i class="bi-key"></i> Logout</a>
-                        </li>
-                        <li class="dropdown-item">
-                            <a class="nav-link {% if request.path == registration_url %}active" aria-current="page{% endif %}" href="{% url 'account_signup' %}" aria-label="signup">Register</a>
-                        </li>
-                        <li class="dropdown-item">
-                            <a class="nav-link {% if request.path == logout_url %}active" aria-current="page{% endif %}" href="{% url 'account_login' %}" aria-label="login">Log In</a>
-                        </li>
-                        
                     </ul>
-                    
                 </div>
-                
+            </div>
+            <!-- Smallscreen navbar -->
+            <div class="container">
+                <div class="fixed-top navbar bg-light d-flex d-block my-0 py-0 px-0 mx-0 d-sm-none row justify-content-between">
+                    <div class="col dropdown mx-0">
+                        <a
+                            class="nav-link mx-0 px-0 dropdown-toggle"
+                            data-bs-toggle="dropdown"
+                            data-bs-target="#navprofilemenu"
+                            aria-label="user-menu">
+                            <i class="bi bi-person-circle"></i>
+                        </a>
+                        <div class="dropdown-menu" id="navprofilemenu">
+                            <ul class="navbar-nav">
+                                
+                                                            
+                                
+                                <li class="dropdown-item">
+                                    <a class="nav-link {% if request.path == member_area_url %}active" aria-current="page{% endif %}" href="{% url 'profile_view' %}" aria-label="profile"><i class="bi-person"></i> {{ user }}</a>
+                                </li>                                
+                                <li class="dropdown-item">
+                                    <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'view_cart' %}" aria-label="view_cart">
+                                        <i class="bi-cart4"><sup class="small text-primary" id="prod">{% if product_count == 0 %}{% else %}{{ product_count }}{% endif %}</sup></i>
+                                        <span id="ccsd">$</span><small id="grand">{% if grand_total %}{{ grand_total|floatformat:2 }}{% else %}0.00{% endif %}</small></a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'account_logout' %}" aria-label="logout"><i class="bi-key"></i> Logout</a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a class="nav-link {% if request.path == registration_url %}active" aria-current="page{% endif %}" href="{% url 'account_signup' %}" aria-label="signup">Register</a>
+                                </li>
+                                <li class="dropdown-item">
+                                    <a class="nav-link {% if request.path == logout_url %}active" aria-current="page{% endif %}" href="{% url 'account_login' %}" aria-label="login">Log In</a>
+                                </li>
+                                
+                            </ul>
+                            
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="col mx-0 px-0">
+                        <a class="navbar-brand" href="{% url 'home' %}">
+                            <img class="h1 small-logo" src="https://res.cloudinary.com/djhi60enx/image/upload/v1714657570/zitmall-shopping-logo_j6yges.png" alt="zitmall-logo">
+                        </a>
+                    </div>
+                    <div class="col mx-0 px-2 text-center">
+                        <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'view_cart' %}" aria-label="view_cart">
+                            <i class="bi-cart4"><sup class="small text-primary" id="prod-mobile">{% if product_count == 0 %}{% else %}{{ product_count }}{% endif %}</sup></i>
+                            <span id="ccsd-mobile">$</span><small class="small" id="grand-mobile">{% if grand_total %}{{ grand_total|floatformat:2 }}{% else %}0.00{% endif %}</small></a>
+                    </div>            
+                </div>
+            </div>
+            <div class="navbar navmar bg-light col-12 px-2 py-1 d-block d-sm-none mx-0">
+                <form method="GET" action="{% url 'products' %}" role="search">
+                    <input class="form-control" type="search" name="q" placeholder="What are you looking for?" aria-label="Search">
+                </form>
+            </div>
+            <!-- Category Navigation -->
+            <div class="bg-light navmar2 col-12 row px-0 mx-0">
+                {% if user.is_staff %}
+                    {% include 'includes/vendor-navbar.html' %}
+                {% else %}
+                   
+                        {% include 'includes/categories.html' %}
+                  
+                    
+                {% endif %}
             </div>
             
-            <div class="col-sm-4">
-                <a class="navbar-brand" href="{% url 'home' %}"><img class="h1" src="https://res.cloudinary.com/djhi60enx/image/upload/v1714657570/zitmall-shopping-logo_j6yges.png" alt="zitmall-logo"></a>
+            <!-- displaying Django messages -->
+            <div class="bg-dark py-0 my-0">
+                <div class="container">
+                    {% for message in messages %}
+                    <div class="alert {{ message.tags }} alert-dismissible
+                    fade show text-info text-center text-wrap my-0 py-0" id="msg" role="alert">
+                    <em>{{ message | safe }}</em>
+                    <button type="button" class="btn btn-outline-warning btn-sm rounded-circle"
+                            data-bs-dismiss="alert" aria-label="Close">x</button>
+                    {% endfor %}
+                </div>
             </div>
-            <div class="text-center px-2">
-                <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'view_cart' %}" aria-label="view_cart">
-                    <i class="bi-cart4"><sup class="small text-primary" id="prod-mobile">{% if product_count == 0 %}{% else %}{{ product_count }}{% endif %}</sup></i>
-                    <span id="ccsd-mobile">$</span><small id="grand-mobile">{% if grand_total %}{{ grand_total|floatformat:2 }}{% else %}0.00{% endif %}</small></a>
-            </div>            
-        </div>
-        <div class="navbar bg-light col-12 px-2 py-1 d-block d-sm-none">
-            <form method="GET" action="{% url 'products' %}" role="search">
-                <input class="form-control" type="search" name="q" placeholder="What are you looking for?" aria-label="Search">
-            </form>
-        </div>
-        
-        <div class="">
-            {% if user.is_staff %}
-                {% include 'includes/vendor-navbar.html' %}
-            {% else %}
-                {% include 'includes/categories.html' %}
-            {% endif %}
-        </div>
-        <!-- <nav class="navbar navbar-expand-sm navbar-primary py-2 bg-white base-nav"> -->
-        
-        <!-- displaying Django messages -->
-        <div class="bg-dark py-0 my-0">
-            <div class="container">
+            {% if messages %}
+            <div class="message-container ">
                 {% for message in messages %}
-                <div class="alert {{ message.tags }} alert-dismissible
-                fade show text-info text-center text-wrap my-0 py-0" id="msg" role="alert">
-                <em>{{ message | safe }}</em>
-                <button type="button" class="btn btn-outline-warning btn-sm rounded-circle"
-                        data-bs-dismiss="alert" aria-label="Close">x</button>
+                    {% with message.level as level %}
+                        {% if level == 40 %}
+                            {% include 'includes/toasts/toast_error.html' %}
+                        {% elif level == 30 %}
+                            {% include 'includes/toasts/toast_warning.html' %}
+                        {% elif level == 25 %}
+                            {% include 'includes/toasts/toast_success.html' %}
+                        {% else %}
+                            <p>testing</p>
+                            {% include 'includes/toasts/toast_info.html' %}
+                        {% endif %}
+                    {% endwith %}
                 {% endfor %}
             </div>
-        </div>
-
-        
+        {% endif %}
+            
         </header>
-        {% if messages %}
-        <div class="message-container ">
-            {% for message in messages %}
-                {% with message.level as level %}
-                    {% if level == 40 %}
-                        {% include 'includes/toasts/toast_error.html' %}
-                    {% elif level == 30 %}
-                        {% include 'includes/toasts/toast_warning.html' %}
-                    {% elif level == 25 %}
-                        {% include 'includes/toasts/toast_success.html' %}
-                    {% else %}
-                        <p>testing</p>
-                        {% include 'includes/toasts/toast_info.html' %}
-                    {% endif %}
-                {% endwith %}
-            {% endfor %}
-        </div>
-      {% endif %}
 
-        <main class="bottom-footer navmar fs-8">
+        <main class="bottom-footer fs-8">
             {% block content %}
             {% endblock %}
         </main>
@@ -196,15 +200,12 @@
               <span class="text-muted">Copyright &copy; 2024 Zitmall</span>
         </footer>
 
-        
-
         {% block postloadjs %}
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
         <script type="text/javascript">
             $('.toast').toast('show');
         </script>
         {% endblock %}
-
     
     </body>
 </html>

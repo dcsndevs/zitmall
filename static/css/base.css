@@ -281,12 +281,33 @@ input[name='q']::placeholder {
     }
 }
 
+/* fixed top navbar only on medium and up */
+@media (min-width: 426px) {
+    .navmar2 {
+        margin-top: 88px;
+    }
+}
+@media (max-width: 425px) {
+    .small-logo {
+        width: 90%;
+        height: 90%;
+    }
+
+    .smaller-font{
+        font-size: 0.8rem
+    }
+}
+
 /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
     .header-container {
         padding-top: 116px;
     }
 
+    .navmar {
+        margin-top: 80px;
+    }
+    
     body {
         height: calc(100vh - 116px);
     }
@@ -342,6 +363,3 @@ input[name='q']::placeholder {
     cursor: pointer;
 }
 
-.navmar {
-    margin-top: 30px;
-}

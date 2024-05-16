@@ -224,26 +224,16 @@ def vendor_order_view(request, order_no, orderline_id):
 def accept_order(request, order_number, product_id):
     """ Vendor decision to accept new orders """
     
-    order_line_item = get_object_or_404(
-        OrderLineItem, 
-        order__order_number=order_number, 
-        product__id=product_id
-    )
-    print(f'order_line_item: {order_line_item}')
-    print(order_line_item.status)
     vendor_order_item = get_object_or_404(
         VendorOrder, 
         item__order__order_number=order_number, 
         item__product__id=product_id
         )
-    print(vendor_order_item)
-    print(f'vendor_order_item: {vendor_order_item.status}')
-    print(f'vendor_order_item Accept status: {vendor_order_item.accept}')
-    
+
     if vendor_order_item.accept == 0:
         vendor_order_item.accept = 1
         vendor_order_item.save()
-        #item.id refers to the id in orderlineitem since it shares same id with vendor order id
+
         order_line_item = get_object_or_404(
         OrderLineItem, 
         order__order_number=order_number, 
@@ -251,10 +241,12 @@ def accept_order(request, order_number, product_id):
         )
         order_line_item.status = 1
         order_line_item.save()
-        messages.success(request, 'Order fulfillment accepted! Please prepare shipment immediately.')
+        messages.success(request, 'Order fulfillment accepted!'
+                        ' Please prepare shipment immediately.')
         return redirect('new_vendor_orders')
     else:
-        messages.error(request, 'Failed to accept order. Kindly refresh the page.')
+        messages.error(request, 'Failed to accept order.'
+                       'Kindly refresh the page.')
         
     context = {
         'vendor_order_item': vendor_order_item,
@@ -262,31 +254,40 @@ def accept_order(request, order_number, product_id):
     return render(request, 'vendor/orders.html', context)
 
 
-def reject_order(request, item_id):
+def reject_order(request, order_number, product_id):
     """ Vendor decision to reject orders """
     
     authentication(request)
     
-    vendor_order_item = get_object_or_404(VendorOrder, pk=item_id)
-    
+    vendor_order_item = get_object_or_404(
+            VendorOrder, 
+            item__order__order_number=order_number, 
+            item__product__id=product_id
+            )
+
     if vendor_order_item.accept == 0:
         vendor_order_item.accept = 2
         vendor_order_item.save()
-        #item.id refers to the id in orderlineitem since it shares same id with vendor order id
-        order_line_item = get_object_or_404(OrderLineItem, id=vendor_order_item.id)
+
+        order_line_item = get_object_or_404(
+        OrderLineItem, 
+        order__order_number=order_number, 
+        product__id=product_id
+        )
         order_line_item.status = 5
         order_line_item.save()
-        messages.success(request, 'Your have rejected this Order and it has been cancelled!')
+        messages.success(request, 'Your have rejected this Order'
+                        ' and it has been marked as cancelled!')
         return redirect('vendor_orders')
     else:
-        messages.error(request, 'Failed to reject order. Order is currently {vendor_order_item.accept}'
-                       'Kindly refresh the page.')
+        messages.error(request, f'Failed to reject order.'
+                       ' Kindly refresh the page.')
         
     context = {
         'vendor_order_item': vendor_order_item,
     }
 
-    return redirect('vendor_orders', context)
+    return render(request, 'vendor/orders.html', context)
 
 
 def shipment_type(request, product_id, product_status):

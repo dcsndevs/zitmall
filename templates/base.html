@@ -176,14 +176,13 @@
             <!-- displaying Django messages -->
             <div class="toast-container position-fixed top-0 end-0 p-3">
                 {% for message in messages %}
-                <div id="msg" class="toast alert show fade alert-dismissible" role="alert" aria-live="assertive" aria-atomic="true">
-                  <div class="toast-header bg-{{ message.tags }}">
-                    <i class="btn btn-sm bi bi-envelope"></i><strong class="me-auto text-light text-capitalize">{{ message.tags }} Notification!</strong>
+                <div id="msg" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+                  <div class="toast-header">
+                    <i class="btn btn-sm bi bi-envelope"></i> <strong class="me-auto text-capitalize text-{{ message.tags }}"> {{ message.tags }} Notification!</strong>
                     <small>
                         {% if request.user.is_authenticated %} 
                             {{ user }}
                         {% else %}
-                            {{ time }}
                         {% endif %}
                     </small>
                     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>

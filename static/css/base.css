@@ -145,8 +145,8 @@ input[name='q']::placeholder {
     background-color: #28a745 !important;
 }
 
-.bg-error {
-    background-color: #dc3545 !important;
+.text-error {
+    color: #dc3545 !important;
 }
 
 .bg-warning {

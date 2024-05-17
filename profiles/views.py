@@ -90,7 +90,7 @@ class persona(generic.UpdateView):
         return super().form_valid(form)
     
     def form_invalid(self, form):
-        messages.add_message(self.request, messages.ERROR,
+        messages.error(self.request, messages.ERROR,
                              "Something went wrong...Please try again.")
         return redirect('home')
     

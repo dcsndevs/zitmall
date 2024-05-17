@@ -162,6 +162,11 @@ def new_vendor_orders(request):
     orders = OrderLineItem.objects.filter(product__vendor=request.user, status=0).order_by('-id')
     
     shipment_status = 2 #Default shipment/fulfillment value - zitship value = 2
+    if orders.count() == 0:
+        messages.info(request, f'There are no New orders.'
+            ' You have been redirected to Active Order page.')
+        return redirect(reverse('active_vendor_orders'))
+         
     
     context = {
         'orders': orders,
@@ -336,6 +341,11 @@ def active_vendor_orders(request):
     orders = OrderLineItem.objects.filter(
     product__vendor=request.user,
     status__in=[1, 2])
+    
+    if orders.count() == 0:
+        messages.info(request, f'There are no Active orders.'
+                    ' You have been redirected to All Order page history')
+        return redirect(reverse('vendor_orders'))
     
     context = {
         'orders': orders,

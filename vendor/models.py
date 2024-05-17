@@ -27,7 +27,7 @@ class VendorOrder(models.Model):
             self.fulfilment = 0  # Assuming 0 corresponds to "Cancelled"
             self.status = 4
         
-        if self.status == 2:  # Assuming 2 corresponds to "Delivered"
+        if self.status > 1:  # Assuming 2 corresponds to "Delivered"
             # Disable other status options
             self._meta.get_field('status').choices = ((2, "Delivered"),) 
         

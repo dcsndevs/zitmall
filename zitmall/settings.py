@@ -21,7 +21,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 # DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'zitmall-1f03b915b742.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.0.220', 'zitmall-1f03b915b742.herokuapp.com']
 
 
 # Application definition

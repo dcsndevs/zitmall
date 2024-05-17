@@ -73,5 +73,4 @@ def new_orders(request):
     if request.user.is_authenticated and request.user.is_staff:
         neworders = OrderLineItem.objects.filter(product__vendor=request.user, status=0).order_by('-id').count()
         context['neworders'] = neworders
-        print(neworders)
     return context

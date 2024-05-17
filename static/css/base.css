@@ -184,15 +184,30 @@ input[name='q']::placeholder {
   }
 }
 
+/* Large screen top margin to allow for fixed-top gap*/
 @media (min-width: 576px) {
     body {
         padding-top: 87px;
     }
 }
 
+/* Small screen size reduction*/
 @media (max-width: 575px) {
-    body {
-        padding-top: 80px;
+    body{
+        padding-top: 62px;
+        font-size: 0.5rem;
+    }
+    p, h1, h2, h3, h4 {
+        font-size: 0.9rem;
+    }
+    .btn-lg {
+        padding: 5px 10px !important;
+        font-size: 14px !important;
+    }
+    .responsive-btn {
+        padding: .25rem .5rem; /* Adjust padding for small button */
+        font-size: .875rem; /* Adjust font size for small button */
+        border-radius: .2rem; /* Adjust border radius for small button */
     }
 }
 
@@ -299,18 +314,7 @@ input[name='q']::placeholder {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1;
-}
-
-@media (max-width: 425px) {
-    .small-logo {
-        width: 90%;
-        height: 90%;
-    }
-
-    .smaller-font{
-        font-size: 0.8rem
-    }
+    z-index: 5;
 }
 
 /* pad the top a bit when navbar is collapsed on mobile */

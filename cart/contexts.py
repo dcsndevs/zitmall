@@ -41,12 +41,15 @@ def cart_contents(request, coupon_code=None):
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = shipping_count
-            
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
+        if delivery == 0:
+            delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
+            free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
     else:
         delivery = 0
         free_delivery_delta = 0
     grand_total = delivery + total
+    
     if discount > 0:
         
         discount = total * (Decimal (discount) / 100)

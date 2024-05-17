@@ -56,11 +56,11 @@
                                 Pending
                             {% elif item.status == 1 %}
                                 Accepted
-                            {% elif item.status == 1 %}
-                                Shipped
                             {% elif item.status == 2 %}
-                                Delivered
+                                Shipped
                             {% elif item.status == 3 %}
+                                Delivered
+                            {% elif item.status == 4 %}
                                 Delivery Failed
                             {% else %}
                                 Cancelled

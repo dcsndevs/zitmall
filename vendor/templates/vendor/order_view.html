@@ -30,7 +30,10 @@
                         <th scope="col">Qty</th>
                         <th scope="col">Amount</th>
                         <th scope="col">Status</th>
+                        {% if condition_value > 2 %}
                         <th scope="col">Action</th>
+                        {% endif %}
+
                     </tr>
                 </thead>
                 <tbody>
@@ -49,13 +52,15 @@
                             
                             <td>
                                 <div>
-                                    
+
                                         {% csrf_token %}
                                         {{ form.status }}        
                                 </div>
 
                             </td>
+                            {% if condition_value > 2 %}
                             <td><button type="submit">Update</button></td>
+                            {% endif %}
                         </tr>
                 </tbody>
             </table>
@@ -108,7 +113,8 @@
             var options = statusField.options;
             
             for (var i = 0; i < options.length; i++) {
-                if (parseInt(options[i].value) <= conditionValue) {
+                var optionValue = parseInt(options[i].value);
+                if (conditionValue >= 2) {
                     options[i].disabled = true;
                 }
             }

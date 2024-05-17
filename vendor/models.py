@@ -9,7 +9,6 @@ REASON = (
     (1, "Price Difference"),
     (2, "other")
 )
-# Create your models here.
 
 class VendorOrder(models.Model):
     item = models.OneToOneField(OrderLineItem, null=False, blank=False, on_delete=models.CASCADE, related_name='vendor_order_number_item')
@@ -27,5 +26,9 @@ class VendorOrder(models.Model):
             # Set fulfilment to "Cancelled"
             self.fulfilment = 0  # Assuming 0 corresponds to "Cancelled"
             self.status = 4
+        
+        if self.status == 2:  # Assuming 2 corresponds to "Delivered"
+            # Disable other status options
+            self._meta.get_field('status').choices = ((2, "Delivered"),) 
         
         super().save(*args, **kwargs)

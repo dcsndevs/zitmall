@@ -68,19 +68,18 @@
                                 Cancelled
                             {% endif %}
                         </td>
-                        <td>
+                        <td class="mx-0 ps-0 pe-1">
                             <div class="form-check form-switch">
-                                <div class="form-check form-switch">
+                                <div class="form-check form-switch ps-2 ms-0">
                                     <input class="form-check-input status-toggle" type="checkbox" id="statusToggle{{ product.id }}" {% if shipment_status == 1 %} checked {% endif %} data-product-id="{{ item.id }}">
                                     <label class="form-check-label" for="statusToggle{{ product.id }}">Self</label>
                                 </div>
                             </div>
                         </td>
-                        <td>
-                            <a href="{% url 'accept_order' order_number=item.order.order_number  product_id=item.product.id  %}" class="btn btn-sm btn-primary">Yes</a>
-                            <a href="{% url 'reject_order' order_number=item.order.order_number  product_id=item.product.id  %}" class="btn btn-sm btn-danger">No</a>
+                        <td class="d-flex">
+                            <a href="{% url 'accept_order' order_number=item.order.order_number  product_id=item.product.id  %}" class="btn btn-sm btn-primary me-2">Yes</a>
+                            <a href="{% url 'reject_order' order_number=item.order.order_number  product_id=item.product.id  %}" class="btn btn-sm btn-outline-danger delete-btn">No</a>
                         </td>
-
                     </tr>
                 {% endfor %}
             </tbody>

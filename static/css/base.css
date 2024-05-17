@@ -136,21 +136,10 @@ input[name='q']::placeholder {
     right: 36px;
 }
 
-/* Convenience classes - colors copied from Bootstrap */
-.bg-info {
-    background-color: #007bff !important;
-}
-
-.bg-success {
-    background-color: #28a745 !important;
-}
+/* toast messages color code */
 
 .text-error {
     color: #dc3545 !important;
-}
-
-.bg-warning {
-    background-color: #ffc107 !important;
 }
 
 .cart-notification-wrapper {

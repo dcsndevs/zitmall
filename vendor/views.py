@@ -12,6 +12,7 @@ from products.models import Product, Category
 from products.forms import ProductForm
 from checkout.models import Order, OrderLineItem
 
+
 # Create your views here.
 def authentication(request):
     if not request.user.is_superuser and not request.user.is_staff:
@@ -169,6 +170,7 @@ def new_vendor_orders(request):
 
     return render(request, 'vendor/new_order.html', context)
 
+#Publish product or set as draft
 def status_products(request, product_id, product_status):
     products = get_object_or_404(Product, pk=product_id)
     if products.status == 1:
@@ -209,9 +211,12 @@ def vendor_order_view(request, order_no, orderline_id):
                 order_line_item.status = 5
                 order_line_item.save()
             messages.success(request, 'Order status has been updated successfully!')
-            return redirect('vendor_orders')  # Replace 'vendor_orders' with the URL name of your vendor orders list page
+            return redirect('vendor_orders')
+            
+        
     else:
         form = VendorOrderForm(instance=vendor_order)
+        
     
     context = {
         'order': order_line_item,
@@ -289,7 +294,7 @@ def reject_order(request, order_number, product_id):
 
     return render(request, 'vendor/orders.html', context)
 
-
+# Wether Vendor wants to ship item themselve or not
 def shipment_type(request, product_id, product_status):
     product_status = None
     message = None
@@ -328,7 +333,9 @@ def cancelled_vendor_orders(request):
 def active_vendor_orders(request):
     """ A view to show all cancelled vendor orders"""
 
-    orders = OrderLineItem.objects.filter(product__vendor=request.user, status=1 or 2 or 3 or 4).order_by('-id')
+    orders = OrderLineItem.objects.filter(
+    product__vendor=request.user,
+    status__in=[1, 2])
     
     context = {
         'orders': orders,

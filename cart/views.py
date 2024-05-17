@@ -14,6 +14,11 @@ def view_cart(request):
     return render(request, 'cart/cart.html')
 
 def apply_coupon(request):
+    if 'coupon_id' in request.session:
+        messages.success(request, f'You have already applied a coupon code to this cart.'
+                         ' Coupon codes can only be used per order. Thank you.')
+        return redirect('view_cart')
+        
     coupon_code = request.POST.get('coupon_code')
     coupon_code = coupon_code.upper()
     try:
@@ -30,7 +35,7 @@ def apply_coupon(request):
                 coupon.active = False
             coupon.save()
         else:
-            messages.success(request, f'This coupon code no longer active or has been used')
+            messages.success(request, f'This coupon code is no longer active or cannot be reused')
             # Coupon is not valid or active
             # You can handle this case as needed, such as displaying an error message
             pass

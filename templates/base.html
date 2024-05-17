@@ -174,17 +174,27 @@
 
             
             <!-- displaying Django messages -->
-            <div class="bg-dark py-0 my-0 fixed-top">
-                <div class="container">
-                    {% for message in messages %}
-                    <div class="alert {{ message.tags }} alert-dismissible
-                    fade show text-info text-center text-wrap my-0 py-0" id="msg" role="alert">
-                    <em>{{ message | safe }}</em>
-                    <button type="button" class="btn btn-outline-warning btn-sm rounded-circle"
-                            data-bs-dismiss="alert" aria-label="Close">x</button>
-                    {% endfor %}
+            <div class="toast-container position-fixed top-0 end-0 p-3">
+                {% for message in messages %}
+                <div id="msg" class="toast alert show fade alert-dismissible" role="alert" aria-live="assertive" aria-atomic="true">
+                  <div class="toast-header bg-{{ message.tags }}">
+                    <i class="btn btn-sm bi bi-envelope"></i><strong class="me-auto text-light text-capitalize">{{ message.tags }} Notification!</strong>
+                    <small>
+                        {% if request.user.is_authenticated %} 
+                            {{ user }}
+                        {% else %}
+                            {{ time }}
+                        {% endif %}
+                    </small>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                  </div>
+                  <div class="toast-body">
+                    <b><em>{{ message | safe }}</em></b>
+                  </div>
                 </div>
-            </div>            
+                {% endfor %}
+              </div>
+
         </header>
 
         <main class="bottom-footer fs-8">

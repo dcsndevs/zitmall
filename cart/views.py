@@ -15,7 +15,7 @@ def view_cart(request):
 
 def apply_coupon(request):
     if 'coupon_id' in request.session:
-        messages.success(request, f'You have already applied a coupon code to this cart.'
+        messages.info(request, f'You have already applied a coupon code to this cart.'
                          ' Coupon codes can only be used per order. Thank you.')
         return redirect('view_cart')
         
@@ -35,12 +35,12 @@ def apply_coupon(request):
                 coupon.active = False
             coupon.save()
         else:
-            messages.success(request, f'This coupon code is no longer active or cannot be reused')
+            messages.warning(request, f'This coupon code is no longer active or cannot be reused')
             # Coupon is not valid or active
             # You can handle this case as needed, such as displaying an error message
             pass
     except Coupon.DoesNotExist:
-        messages.success(request, f'The entered coupon code does not exist')
+        messages.error(request, f'This coupon code does not exist')
         # Coupon does not exist
         # You can handle this case as needed, such as displaying an error message
         pass

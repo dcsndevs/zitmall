@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-# from .views import handler404
+from zitmall.views import handler404, handler500
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -15,3 +15,10 @@ urlpatterns = [
     path('vendor/', include('vendor.urls')),
     path('', include('home.urls')),
 ]
+
+handler404 = handler404
+handler500 = handler500
+
+admin.site.site_header = "Admin | Zit Technology v1.0"
+admin.site.site_title = "Admin | Zit Technology v1.0"
+admin.site.index_title =""

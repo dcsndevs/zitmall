@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% comment %} Extra Title {% endcomment %}
+{% block extra_title %} 500 Error{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="pt-4">Ooops!</h2>
+    <em>There seem to be an internal server issue.</em><br>
+    <em>We hope to resolve this as soon as possible.</em>
+    <div class="container pt-4">
+        <p>Click to go back to the <a href="{% url 'home' %}" class="text-warning">home page</a></p>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+<footer class="fixed-bottom footer mt-auto text-center">
+    <span class="text-muted">Copyright &copy; 2024 Zitmall</span>
+</footer>
+{% endblock %}

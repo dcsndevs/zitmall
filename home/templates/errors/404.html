@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% comment %} Extra Title {% endcomment %}
+{% block extra_title %} 404 Error{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="pt-4">Ooops!</h2>
+    <em>Something isn't right because this page doesn't exist.</em>
+    <div class="container pt-4">
+        <p>Click to go to the <a href="{% url 'home' %}" class="text-warning">home page</a></p>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+<footer class="fixed-bottom footer mt-auto text-center">
+    <span class="text-muted">Copyright &copy; 2024 Zitmall</span>
+</footer>
+{% endblock %}

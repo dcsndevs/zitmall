@@ -200,7 +200,10 @@ def vendor_order_view(request, order_no, orderline_id):
         if form.is_valid():
             form.save()
             order_line_item = get_object_or_404(OrderLineItem, id=orderline_id)
-            if vendor_order.status == 0:
+            if vendor_order.reason > 0:
+                messages.success(request, 'Thank you for providing a reason.')
+                return redirect('vendor_orders')
+            elif vendor_order.status == 0:
                 order_line_item.status = 1
                 order_line_item.save()
             elif vendor_order.status == 1:
@@ -222,7 +225,8 @@ def vendor_order_view(request, order_no, orderline_id):
     else:
         form = VendorOrderForm(instance=vendor_order)
         
-    
+    if condition_value > 2:
+            form.fields['status'].widget.attrs['disabled'] = 'disabled'
     context = {
         'order': order_line_item,
         'form': form,

@@ -36,25 +36,31 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <div class="navbar-nav mx-auto text-center">
                 <div class="nav-item">
-                    <a class="{% if request.path == vendor_products_url %} btn  btn-warning disabled{% else %}btn btn-outline-warning{% endif %}" href="{% url 'vendor_products' %}">Stock</a>
+                    <a class="{% if request.path == vendor_products_url %} btn  btn-outline-warning disabled{% else %}btn btn-warning{% endif %}" href="{% url 'vendor_products' %}">Stock</a>
                 </div>
                 <div class="nav-item">
-                    <a class="{% if request.path == add_product_url %} btn  btn-info disabled{% else %}btn btn-outline-info{% endif %}" href="{% url 'add_product' %}">List new product</a>
+                    <a class="{% if request.path == add_product_url %} btn  btn-outline-info disabled{% else %}btn btn-info{% endif %}" href="{% url 'add_product' %}">List new product</a>
                 </div>
                 <div class="nav-item">
-                    <a class="{% if request.path == cancelled_vendor_orders_url %} btn btn-danger disabled{% else %}btn btn-outline-danger{% endif %}" href="{% url 'cancelled_vendor_orders' %}">Cancelled orders</a>
+                    <a class="{% if request.path == cancelled_vendor_orders_url %} btn btn-outline-danger disabled{% else %}btn btn-danger{% endif %}" href="{% url 'cancelled_vendor_orders' %}">Cancelled orders</a>
                 </div>
                 <div class="nav-item">
-                    <a class="{% if request.path == vendor_orders_url %} btn  btn-dark disabled{% else %}btn btn-outline-dark{% endif %}" href="{% url 'vendor_orders' %}">All orders</a>
+                    <a class="{% if request.path == vendor_orders_url %} btn  btn-outline-dark disabled{% else %}btn btn-dark{% endif %}" href="{% url 'vendor_orders' %}">All orders</a>
                 </div>
+                
+                {% if active_orders == 0 %}
+                                
+                {% else %}
                 <div class="nav-item">
-                    <a class="{% if request.path == active_vendor_orders_url %} btn  btn-primary disabled{% else %}btn btn-outline-primary{% endif %}" href="{% url 'active_vendor_orders' %}">Active orders</a>
+                    <a class="{% if request.path == active_vendor_orders_url %} btn  btn-outline-primary disabled{% else %}btn btn-primary{% endif %}" href="{% url 'active_vendor_orders' %}">Active orders</a>
                 </div>
+                {% endif %}
+
                 {% if neworders == 0 %}
                                 
                 {% else %}
                 <div class="nav-item">
-                    <a class="{% if request.path == new_vendor_orders_url %} btn btn-success disabled{% else %}btn btn-outline-success{% endif %} btn-with-subscript" href="{% url 'new_vendor_orders' %}">
+                    <a class="{% if request.path == new_vendor_orders_url %} btn btn-outline-success disabled{% else %}btn btn-success{% endif %} btn-with-subscript" href="{% url 'new_vendor_orders' %}">
                         New orders
                             <span class="subscript btn btn-warning">    
                                 {{ neworders }}

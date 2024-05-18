@@ -337,7 +337,7 @@ def cancelled_vendor_orders(request):
 
 def active_vendor_orders(request):
     """ A view to show all cancelled vendor orders"""
-
+    
     orders = OrderLineItem.objects.filter(
     product__vendor=request.user,
     status__in=[1, 2])

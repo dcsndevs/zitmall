@@ -39,6 +39,8 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=0)
     old_price = models.DecimalField(max_digits=6, decimal_places=0,
                                     null=True, blank=True)
+    cost = models.DecimalField(max_digits=6, decimal_places=0,
+                                    null=True, blank=True)
     image_1= models.ImageField(null=True, blank=True,
                                       help_text="This is the first image"
                                       "that site users would see")

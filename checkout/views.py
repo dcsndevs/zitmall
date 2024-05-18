@@ -40,7 +40,8 @@ def checkout(request):
         cart = request.session.get('cart', {})
 
         form_data = {
-            'full_name': request.POST['full_name'],
+            'first_name': request.POST['first_name'],
+            'last_name': request.POST['last_name'],
             'email': request.POST['email'],
             'phone_number': request.POST['phone_number'],
             'country': request.POST['country'],
@@ -118,7 +119,8 @@ def checkout(request):
             try:
                 profile = UserProfile.objects.get(user=request.user)
                 order_form = OrderForm(initial={
-                    'full_name': profile.user.get_full_name(),
+                    'first_name': profile.user.first_name, 
+                    'last_name': profile.user.last_name,
                     'email': profile.user.email,
                     'phone_number': profile.default_phone_number,
                     'country': profile.default_country,
@@ -163,6 +165,8 @@ def checkout_success(request, order_number):
         # Save the user's info
         if save_info:
             profile_data = {
+                'default_first_name': order.first_name,
+                'default_last_name': order.last_name,
                 'default_phone_number': order.phone_number,
                 'default_country': order.country,
                 'default_postcode': order.postcode,

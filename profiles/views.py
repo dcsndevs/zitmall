@@ -31,7 +31,7 @@ def view(request):
 
 
 @login_required
-def profile(request):
+def profile_address(request):
     """ Display the user's profile. """
     profile = get_object_or_404(UserProfile, user=request.user)
 
@@ -48,7 +48,7 @@ def profile(request):
         form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
 
-    template = 'profiles/profile.html'
+    template = 'profiles/profile-address.html'
     context = {
         'form': form,
         'orders': orders,

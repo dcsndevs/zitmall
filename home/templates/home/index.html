@@ -39,18 +39,34 @@
     <div class="row row-cols-2 row-cols-lg-5 g-4 py-5 ">
         {% for product in products %}
         <div class="col-lg-3 mb-2">
-            <div class="card h-100 overflow-hidden rounded-4 shadow-lg">
+            <div class="card h-100 overflow-hidden rounded-4 rounded-top-0 border-0 shadow-lg position-relative">
+                <!-- Sales Badge -->
+                {% if product.old_price %}
+                <span class="badge bg-danger position-absolute top-0 end-0 m-2">Sale</span>
+                {% endif %}
+
+                <!-- Product Image -->
                 <div style="height: 150px;">
-                    <img src="{{ product.image_url }}" class="card-img-top h-100" alt="Product Image" style="object-fit: cover;">
+                    <img src="{{ product.image_url }}" class="card-img-top border-0 h-100 img-thumbnail object-fit-scale" alt="Product Image" style="object-fit: cover;">
                 </div>
+                
+                <!-- Card Body -->
                 <div class="card-body mb-3 px-1" style="height: 160px;">
-                    <p class="card-title small px-0 mb-1 fs-10" style="height: 80px; overflow: hidden;"><a href="{% url 'product_detail_by_slug' product_slug=product.slug %}">{{ product.title }}</a></p>
-                    <p class="card-text text-primary p-auto mb-0 text-center" style="height: 40px; overflow: hidden; text-overflow: ellipsis;">{% if product.old_price  %}<del class="text-danger small">${{ product.old_price }} </del>{% endif %}${{ product.price }}</p>
+                    <p class="card-title small px-0 mb-1 fs-10" style="height: 40px; overflow: hidden;">
+                        <a href="{% url 'product_detail_by_slug' product_slug=product.slug %}">{{ product.title }}</a>
+                    </p>
+                    <p class="card-text text-primary p-auto mb-0 text-center" style="height: 40px; overflow: hidden; text-overflow: ellipsis;">
+                        {% if product.old_price %}
+                            <del class="text-danger small">${{ product.old_price }} </del>
+                        {% endif %}
+                        <span class="fs-5">${{ product.price }}</span>
+                    </p>
                     <p class="card-text text-center my-0" style="height: 40px; overflow: hidden; text-overflow: ellipsis;">
-                        <button type="button" class="btn btn-sm btn-dark text-decoration-none add-to-cart-btn" id="addCartBtn" data-product-id="{{ product.id }}" data-product-price="{{ product.price }}">Add to Cart</button>
+                        <button type="button" class="btn btn-sm btn-dark text-decoration-none add-to-cart-btn" id="addCartBtn" data-product-id="{{ product.id }}" data-product-price="{{ product.price }}">Add to <i class="bi-cart4"></i></button>
                     </p>
                 </div>
             </div>
+            
         </div>
         {% if forloop.counter|divisibleby:4 %}
         <div class="w-100"></div>

@@ -35,7 +35,7 @@ def apply_coupon(request):
                 coupon.active = False
             coupon.save()
         else:
-            messages.info(request, f'This coupon code is no longer active or cannot be reused')
+            messages.info(request, f'This coupon code is no longer active.')
             # Coupon is not valid or active
             # You can handle this case as needed, such as displaying an error message
             pass

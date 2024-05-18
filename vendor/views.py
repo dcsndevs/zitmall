@@ -1,6 +1,7 @@
+from functools import wraps
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import staff_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 from django.contrib.auth.models import User
@@ -13,16 +14,21 @@ from products.forms import ProductForm
 from checkout.models import Order, OrderLineItem
 
 
-# Create your views here.
-def authentication(request):
-    if not request.user.is_superuser and not request.user.is_staff:
-        messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))
-    
+def staff_required(view_func):
+    @wraps(view_func)
+    def _wrapped_view(request, *args, **kwargs):
+        if not request.user.is_staff:
+            messages.error(request, 'Sorry, only store owners can do that.')
+            return redirect('home')
+        return view_func(request, *args, **kwargs)
+    return _wrapped_view
+
+
 def vendor_admin(request):
     
     return render(request, 'vendor/admin.html')
 
+@staff_required
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
 
@@ -73,7 +79,7 @@ def all_products(request):
     return render(request, 'vendor/all-products.html', context)
 
 
-@login_required
+@staff_required
 def add_product(request):
     """ Add a product to the store """
     if not request.user.is_superuser and not request.user.is_staff:
@@ -102,10 +108,9 @@ def add_product(request):
     return render(request, template, context)
 
 
-@login_required
+@staff_required
 def edit_product(request, product_id):
     """ Edit a product in the store """
-    authentication(request)
 
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
@@ -129,7 +134,7 @@ def edit_product(request, product_id):
     return render(request, template, context)
 
 
-@login_required
+@staff_required
 def delete_product(request, product_id):
     """ Delete a product from the store """
     if not request.user.is_superuser and not request.user.is_staff:
@@ -142,10 +147,9 @@ def delete_product(request, product_id):
     return redirect(reverse('vendor_products'))
 
 
-@login_required
+@staff_required
 def vendor_orders(request):
     """ A view to show all vendor orders, including sorting and search queries """
-
     orders = OrderLineItem.objects.filter(product__vendor=request.user)
     orders = orders.order_by('-id')
     
@@ -156,6 +160,8 @@ def vendor_orders(request):
 
     return render(request, 'vendor/orders.html', context)
 
+
+@staff_required
 def new_vendor_orders(request):
     """ A view to show all vendor orders """
 
@@ -175,7 +181,9 @@ def new_vendor_orders(request):
 
     return render(request, 'vendor/new_order.html', context)
 
+
 #Publish product or set as draft
+@staff_required
 def status_products(request, product_id, product_status):
     products = get_object_or_404(Product, pk=product_id)
     if products.status == 1:
@@ -191,6 +199,7 @@ def status_products(request, product_id, product_status):
     return JsonResponse({'status': status, 'message': message})
 
 
+@staff_required
 def vendor_order_view(request, order_no, orderline_id):
     order_line_item = get_object_or_404(OrderLineItem, order__order_number=order_no, id=orderline_id)
     vendor_order, created = VendorOrder.objects.get_or_create(item=order_line_item)
@@ -235,6 +244,8 @@ def vendor_order_view(request, order_no, orderline_id):
     
     return render(request, 'vendor/order_view.html', context)
 
+
+@staff_required
 def accept_order(request, order_number, product_id):
     """ Vendor decision to accept new orders """
     
@@ -268,11 +279,10 @@ def accept_order(request, order_number, product_id):
     return render(request, 'vendor/orders.html', context)
 
 
+@staff_required
 def reject_order(request, order_number, product_id):
     """ Vendor decision to reject orders """
-    
-    authentication(request)
-    
+        
     vendor_order_item = get_object_or_404(
             VendorOrder, 
             item__order__order_number=order_number, 
@@ -303,7 +313,9 @@ def reject_order(request, order_number, product_id):
 
     return render(request, 'vendor/orders.html', context)
 
+
 # Wether Vendor wants to ship item themselve or not
+@staff_required
 def shipment_type(request, product_id, product_status):
     product_status = None
     message = None
@@ -326,7 +338,7 @@ def shipment_type(request, product_id, product_status):
     
     return JsonResponse({'product_status': product_status, 'message': message})
 
-
+@staff_required
 def cancelled_vendor_orders(request):
     """ A view to show all canclled vendor orders"""
 
@@ -339,6 +351,7 @@ def cancelled_vendor_orders(request):
     return render(request, 'vendor/cancelled_orders.html', context)
 
 
+@staff_required
 def active_vendor_orders(request):
     """ A view to show all cancelled vendor orders"""
     

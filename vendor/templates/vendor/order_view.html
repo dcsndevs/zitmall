@@ -43,7 +43,7 @@
                         <tr>
                             <td>{{ order.order }}</td>
                             <td>{{ order.product }}
-                                | {{ item.order.first_name }} <span> {{ item.order.last_name }}</span>
+                                | {{ order.full_name }}
                                 {{ order.order.street_address1 }},
                                 {{ order.order.street_address2 }}, 
                                 {{ order.order.town_or_city }},

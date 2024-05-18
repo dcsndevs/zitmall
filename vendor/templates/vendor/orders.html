@@ -41,7 +41,7 @@
                     <tr>
                         <td><a href="{% url 'vendor_order_view' order_no=item.order.order_number  orderline_id=item.id %}">{{ item.order }}</a></td>
                         <td>{{ item.product }}
-                            | {{ item.order.first_name }} <span> {{ item.order.last_name }} </span>
+                            | {{ item.order.full_name }}
                             {{ item.order.street_address1 }},
                             {{ item.order.street_address2 }}, 
                             {{ item.order.town_or_city }},

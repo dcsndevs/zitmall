@@ -1,4 +1,4 @@
-Hello {{ order.last_name }}!
+Hello {{ order.full_name }}!
 
 This is a confirmation of your order at Zitmall Marketplace. Your order information is below:
 

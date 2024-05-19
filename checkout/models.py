@@ -3,7 +3,7 @@ import string
 import datetime
 
 from django.db import models
-from django.db.models import Sum, Avg
+from django.db.models import Sum
 from django.conf import settings
 
 from django_countries.fields import CountryField

@@ -1,0 +1,21 @@
+Hello {{ order.full_name }}!
+
+Thank you again for your order.
+
+Note that a profile was automatically created for you on checkout. This would enable you to view your order history.
+
+You can use this randomly generated password and can change it to something else.
+
+Username: ${{ order.email }}
+Password: ${{ random_password}}
+
+Login: https://zitmall-1f03b915b742.herokuapp.com/accounts/login/
+
+
+If you have any questions, feel free to contact us at {{ contact_email }}.
+
+Thank you for your order!
+
+Sincerely,
+
+Zitmall Team.

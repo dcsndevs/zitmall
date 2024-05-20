@@ -2,6 +2,10 @@ from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 from django.contrib.auth.models import User
 from django.utils.crypto import get_random_string
+from django.conf import settings
+from django.template.loader import render_to_string
+from django.core.mail import send_mail
+
 
 
 from .models import OrderLineItem
@@ -27,6 +31,7 @@ def create_user_after_purchase(sender, instance, created, **kwargs):
     Automatically create a superuser account for the user after they have successfully purchased.
     """
     if created:  # Check if a new purchase was created
+        order = instance.order
         user_email = instance.order.email
         if not User.objects.filter(email=user_email).exists():
             full_name = instance.order.full_name.strip()
@@ -44,6 +49,19 @@ def create_user_after_purchase(sender, instance, created, **kwargs):
             )
             user.is_staff = False
             user.save()
+            subject = f'Hey {order.full_name}: your Zitmall user login details'
+            body = render_to_string(
+                'checkout/confirmation_emails/newuser_email_body.txt',
+                {'order': order,
+                 'contact_email': settings.DEFAULT_FROM_EMAIL,
+                 'random_password': random_password})
+            
+            send_mail(
+                subject,
+                body,
+                settings.DEFAULT_FROM_EMAIL,
+                [user_email]
+            )   
             
             user_profile, created = UserProfile.objects.get_or_create(
                     user=user)
@@ -59,3 +77,9 @@ def create_user_after_purchase(sender, instance, created, **kwargs):
             user_profile.default_street_address2 = instance.order.street_address2
             user_profile.default_county = instance.order.county
             user_profile.save()
+            
+  
+            
+
+
+    

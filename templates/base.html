@@ -58,7 +58,7 @@
                                     data-bs-toggle="dropdown"
                                     data-bs-target="#navprofilemenu"
                                     aria-label="user-menu">
-                                    <i class="bi bi-person-circle"></i>
+                                    <i class="bi bi-person-circle text-black"></i>
                                 </a>
                                 <div class="dropdown-menu" id="navprofilemenu">
                                     <ul class="navbar-nav">
@@ -93,7 +93,7 @@
                         
                         <li class="nav-item list-inline-item">
                             <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'view_cart' %}" aria-label="view_cart">
-                                <i class="bi-cart4"><sup class="small text-primary" id="prod">{% if product_count == 0 %}{% else %}{{ product_count }}{% endif %}</sup></i>
+                                <i class="bi-cart4 text-black"><sup class="small text-primary" id="prod">{% if product_count == 0 %}{% else %}{{ product_count }}{% endif %}</sup></i>
                                 <span id="ccsd">$</span><small id="grand">{% if grand_total %}{{ grand_total|floatformat:2 }}{% else %}0.00{% endif %}</small></a>
                         </li>
                     </ul>
@@ -108,7 +108,7 @@
                             data-bs-toggle="dropdown"
                             data-bs-target="#navprofilemenu"
                             aria-label="user-menu">
-                            <i class="bi bi-person-circle"></i>
+                            <i class="fs-5 bi bi-person-circle text-black"></i>
                         </a>
                         <div class="dropdown-menu" id="navprofilemenu">
                             <ul class="navbar-nav">
@@ -129,7 +129,7 @@
                                 </li>
                                 {% else %} 
                                 <li class="dropdown-item">
-                                    <a class="nav-link text-sm"><sm>Not logged in</sm></a>
+                                    <em class="nav-link text-sm text-info">Not signed in</em>
                                 </li>
                                 <li class="dropdown-item">
                                     <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'view_cart' %}" aria-label="view_cart">
@@ -155,7 +155,7 @@
                     </div>
                     <div class="col mx-0 px-2 text-center">
                         <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'view_cart' %}" aria-label="view_cart">
-                            <i class="bi-cart4"><sup class="small text-primary" id="prod-mobile">{% if product_count == 0 %}{% else %}{{ product_count }}{% endif %}</sup></i>
+                            <i class="fs-5 bi-cart4 text-black"><sup class="small text-primary" id="prod-mobile">{% if product_count == 0 %}{% else %}{{ product_count }}{% endif %}</sup></i>
                             <span id="ccsd-mobile">$</span><small class="small" id="grand-mobile">{% if grand_total %}{{ grand_total|floatformat:2 }}{% else %}0.00{% endif %}</small></a>
                     </div>            
                 </div>

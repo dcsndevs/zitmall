@@ -18,17 +18,17 @@
                             <img src="{{ product.image_url }}" class="d-block w-100" alt="image_url_alt"
                         </div>
                         {% endif %}
-                        {% if product.image_1.url %}
+                        {% if product.image_1 %}
                         <div class="carousel-item">
                             <img src="{{ product.image_1.url }}" class="d-block w-100" alt="image_1_alt">
                         </div>
                         {% endif %}
-                        {% if product.image_2.url %}
+                        {% if product.image_2 %}
                         <div class="carousel-item">
                             <img src="{{ product.image_2.url }}" class="d-block w-100" alt="image_2_alt">
                         </div>
                         {% endif %}
-                        {% if product.image_3.url %}
+                        {% if product.image_3 %}
                         <div class="carousel-item">
                             <img src="{{ product.image_3.url }}" class="d-block w-100" alt="image_3_alt">
                         </div>
@@ -42,12 +42,13 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
-                </div>
+                
                     {% else %}
                     <div>
                         <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.title }}">
                     </div>
-                {% endif %}
+                    {% endif %}
+                </div>
             </div>
         </div>
         <div class="col-12 col-md-6 col-lg-4">

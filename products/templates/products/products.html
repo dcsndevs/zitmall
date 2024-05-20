@@ -96,8 +96,7 @@
 		$('.top-down-link').click(function(e) {
 			window.scrollTo(0,0)
 		})
-	</script>
-    <script>
+
         $(document).ready(function() {
           $('.add-to-cart-btn').click(function() {
               var productId = $(this).data('product-id');
@@ -118,79 +117,64 @@
                   return response.json();
               })
               .then(data => {
-                  // Show success message
-                  showMessage(data.message);
-                  // Increases product count
-                  incrementProductCount();
-                  var ccss1 = document.getElementById('grand');
-                  ttd = parseInt(ccss1.textContent)
-                  incrementTotal(productPrice);
+                const toastLive = document.getElementById('liveToast');
+                const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLive);
+                let successMessage = document.getElementById('toastcc');
+                toastBootstrap.show()
+                // Show message info
+                successMessage.textContent = data.message;
+                // Increases product count
+                incrementProductCount();
+                var ccss1 = document.getElementById('grand');
+                ttd = parseInt(ccss1.textContent)
+                incrementTotal(productPrice);
               })
               .catch(error => {
                   console.error('Error updating product status:', error);
               });
           });
-      });
-          // Function to get CSRF token from cookies
-          function getCookie(name) {
-          let cookieValue = null;
-          if (document.cookie && document.cookie !== '') {
-              const cookies = document.cookie.split(';');
-              for (let i = 0; i < cookies.length; i++) {
-                  const cookie = cookies[i].trim();
-                  if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                      cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                      break;
-                  }
-              }
-          }
-          return cookieValue;
-      }
+        });
+
+        // Function to get CSRF token from cookies
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
   
-      // Function to increment product count
-      function incrementProductCount() {
-          var productCountElement = document.getElementById('prod');
-          var currentCount = parseInt(productCountElement.textContent);
-          if (!isNaN(currentCount)) {
-              productCountElement.textContent = currentCount + 1;
-          } else {
-              productCountElement.textContent = 1;
-          }
-      }
+        // Function to increment product count
+        function incrementProductCount() {
+            var productCountElement = document.getElementById('prod');
+            var currentCount = parseInt(productCountElement.textContent);
+            if (!isNaN(currentCount)) {
+                productCountElement.textContent = currentCount + 1;
+            } else {
+                productCountElement.textContent = 1;
+            }
+        }
       
       
-      // Function to increment grandTotal
-      function incrementTotal(productPrice) {
-          
-          let grandTotal = document.getElementById('grand');
-          let ccss = document.getElementById('grand');
-          grandTotal = parseInt(grandTotal.textContent);
-          let currentGrandTotal = parseInt(grandTotal.textContent);
-          let productPrice2 = parseInt(productPrice);
-          grandTotal.textContent = currentGrandTotal + productPrice;
-          ccss.textContent = productPrice + ttd
-      }
+        // Function to increment grandTotal
+        function incrementTotal(productPrice) {
+            
+            let grandTotal = document.getElementById('grand');
+            let ccss = document.getElementById('grand');
+            grandTotal = parseInt(grandTotal.textContent);
+            let currentGrandTotal = parseInt(grandTotal.textContent);
+            let productPrice2 = parseInt(productPrice);
+            grandTotal.textContent = currentGrandTotal + productPrice;
+            ccss.textContent = productPrice + ttd
+        }
       
-  
-      // Function to show success message
-      function showMessage(message) {
-          // Create a new element for the message
-          var successMessage = document.createElement('div');
-          successMessage.classList.add('alert', 'alert-success', 'small', 'my-0', 'py-0', 'message-container');
-          successMessage.textContent = message;
-  
-          // Insert the message before the status toggles
-          var statusToggleWrapper = document.querySelector('.sort-select-wrapper');
-          statusToggleWrapper.parentNode.insertBefore(successMessage, statusToggleWrapper.nextSibling);
-  
-          // Remove the message after 5 seconds
-          setTimeout(function() {
-              successMessage.remove();
-          }, 5000);
-      }
-      </script>
-  
-    <script type="text/javascript">
         $('#sort-selector').change(function() {
             var selector = $(this);
             var currentUrl = new URL(window.location);

@@ -6,31 +6,11 @@
 {% endblock %}
 
 {% block content %}
-<div id="gon">
 
 </div>
-<div class="row mt-1 mb-2">
-    <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
-        <div class="sort-select-wrapper w-50">
-            <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}body{% endif %}">
-                <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
-                <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
-                <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
-                <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
-                <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
-                <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
-                <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
-                <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category (A-Z)</option>
-                <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>
-            </select>
-        </div>
-    </div>
-    <div class="col-12 col-md-6 order-md-first">
-        <p class="text-muted mt-3 text-center text-md-left">
-            {% if search_term or current_categories or current_sorting != 'None_None' %}
-                <span class="small"><a href="{% url 'products' %}">Products Home</a> | </span>
-            {% endif %}
-            {{ products|length }} Today's top Picks{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+    <div class="col-12">
+        <p class="text-muted mt-3 text-center">
+            {{ products|length }} Today's top Picks
         </p>
     </div>
 </div>
@@ -101,131 +81,94 @@
 		$('.top-down-link').click(function(e) {
 			window.scrollTo(0,0)
 		})
-	</script>
-    <script>
-      $(document).ready(function() {
-        $('.add-to-cart-btn').click(function() {
-            var productId = $(this).data('product-id');
-            var productPrice = $(this).data('product-price');
-            fetch(`/cart/quick_add/${productId}/`, {
-                method: 'POST',
-                headers: {
-                    'X-CSRFToken': getCookie('csrftoken'), // Include CSRF token
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({ product_id: productId })
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Failed to update product status');
-                }
-                return response.json();
-            })
-            .then(data => {
-                // Show success message
-                showMessage(data.message);
-                // Increases product count
-                incrementProductCount();
-                var ccss1 = document.getElementById('grand');
-                ttd = parseInt(ccss1.textContent);
-                incrementTotal(productPrice);
-            })
-            .catch(error => {
-                console.error('Error updating product status:', error);
+
+        $(document).ready(function() {
+            $('.add-to-cart-btn').click(function() {
+                var productId = $(this).data('product-id');
+                var productPrice = $(this).data('product-price');
+                fetch(`/cart/quick_add/${productId}/`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': getCookie('csrftoken'), // Include CSRF token
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({ product_id: productId })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to update product status');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const toastLive = document.getElementById('liveToast');
+                    const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLive);
+                    let successMessage = document.getElementById('toastcc');
+                    toastBootstrap.show()
+                    // Show message info
+                    successMessage.textContent = data.message;
+                    // Increases product count
+                    incrementProductCount();
+                    var ccss1 = document.getElementById('grand');
+                    ttd = parseInt(ccss1.textContent);
+                    incrementTotal(productPrice);
+                })
+                .catch(error => {
+                    console.error('Error updating product status:', error);
+                });
             });
         });
-    });
         // Function to get CSRF token from cookies
         function getCookie(name) {
-        let cookieValue = null;
-        if (document.cookie && document.cookie !== '') {
-            const cookies = document.cookie.split(';');
-            for (let i = 0; i < cookies.length; i++) {
-                const cookie = cookies[i].trim();
-                if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break;
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
                 }
             }
+            return cookieValue;
         }
-        return cookieValue;
-    }
 
-    // Function to increment product count
-    function incrementProductCount() {
-        var productCountElement = document.getElementById('prod');
-        var currentCount = parseInt(productCountElement.textContent);
-        if (!isNaN(currentCount)) {
-            productCountElement.textContent = currentCount + 1;
-        } else {
-            productCountElement.textContent = 1;
-        }
-        var productCountElement2 = document.getElementById('prod-mobile');
-        var currentCount2 = parseInt(productCountElement2.textContent);
-        if (!isNaN(currentCount)) {
-            productCountElement2.textContent = currentCount + 1;
-        } else {
-            productCountElement2.textContent = 1;
-        }
-    }
-    
-    
-    // Function to increment grandTotal
-    function incrementTotal(productPrice) {
-        
-        let grandTotal = document.getElementById('grand');
-        let grandTotal2 = document.getElementById('grand-mobile');
-        let ccss = document.getElementById('grand');
-        let ccss2 = document.getElementById('grand-mobile');
-        grandTotal = parseInt(grandTotal.textContent);
-        let currentGrandTotal = parseInt(grandTotal.textContent);
-        let productPrice2 = parseInt(productPrice);
-        grandTotal.textContent = currentGrandTotal + productPrice;
-        ccss.textContent = productPrice + ttd
-        grandTotal2.textContent = currentGrandTotal + productPrice;
-        ccss2.textContent = productPrice + ttd
-
-    }
-    
-
-    // Function to show success message
-    function showMessage(message) {
-        // Create a new element for the message
-        var successMessage = document.createElement('div');
-        successMessage.classList.add('alert', 'alert-success', 'small', 'my-0', 'py-0', 'message-container');
-        successMessage.textContent = message;
-
-        // Insert the message before the status toggles
-        var statusToggleWrapper = document.querySelector('.sort-select-wrapper');
-        statusToggleWrapper.parentNode.insertBefore(successMessage, statusToggleWrapper.nextSibling);
-
-        // Remove the message after 5 seconds
-        setTimeout(function() {
-            successMessage.remove();
-        }, 5000);
-    }
-    </script>
-    <script type="text/javascript">
-        $('#sort-selector').change(function() {
-            var selector = $(this);
-            var currentUrl = new URL(window.location);
-
-            var selectedVal = selector.val();
-            if(selectedVal != "reset"){
-                var sort = selectedVal.split("_")[0];
-                var direction = selectedVal.split("_")[1];
-
-                currentUrl.searchParams.set("sort", sort);
-                currentUrl.searchParams.set("direction", direction);
-
-                window.location.replace(currentUrl);
+        // Function to increment product count
+        function incrementProductCount() {
+            var productCountElement = document.getElementById('prod');
+            var currentCount = parseInt(productCountElement.textContent);
+            if (!isNaN(currentCount)) {
+                productCountElement.textContent = currentCount + 1;
             } else {
-                currentUrl.searchParams.delete("sort");
-                currentUrl.searchParams.delete("direction");
-
-                window.location.replace(currentUrl);
+                productCountElement.textContent = 1;
             }
-        })
+            var productCountElement2 = document.getElementById('prod-mobile');
+            var currentCount2 = parseInt(productCountElement2.textContent);
+            if (!isNaN(currentCount)) {
+                productCountElement2.textContent = currentCount + 1;
+            } else {
+                productCountElement2.textContent = 1;
+            }
+        }
+    
+    
+        // Function to increment grandTotal
+        function incrementTotal(productPrice) {
+            
+            let grandTotal = document.getElementById('grand');
+            let grandTotal2 = document.getElementById('grand-mobile');
+            let ccss = document.getElementById('grand');
+            let ccss2 = document.getElementById('grand-mobile');
+            grandTotal = parseInt(grandTotal.textContent);
+            let currentGrandTotal = parseInt(grandTotal.textContent);
+            let productPrice2 = parseInt(productPrice);
+            grandTotal.textContent = currentGrandTotal + productPrice;
+            ccss.textContent = productPrice + ttd
+            grandTotal2.textContent = currentGrandTotal + productPrice;
+            ccss2.textContent = productPrice + ttd
+
+        }
     </script>
 {% endblock %}

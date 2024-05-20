@@ -13,8 +13,6 @@
                 <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
                 <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
                 <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
-                <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
-                <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
                 <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
                 <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
                 <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category (A-Z)</option>
@@ -27,7 +25,9 @@
             {% if search_term or current_categories or current_sorting != 'None_None' %}
                 <span class="small"><a href="{% url 'products' %}">Products Home</a> | </span>
             {% endif %}
-            {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+            Page {{ products.number }} of {{ products.paginator.num_pages }}
+
+            {% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
         </p>
     </div>
 </div>
@@ -74,13 +74,34 @@
             </div>
             
         </div>
-        {% if forloop.counter|divisibleby:4 %}
-        <div class="w-100"></div>
-        {% endif %}
         {% empty %}
             <p>No products found.</p>
         {% endfor %}
     </div>
+    <!-- Pagination Controls -->
+    <div class="col-12 text-center">
+        <ul>  
+            <span>
+                Page {{ products.number }} of {{ products.paginator.num_pages }}
+            </span>
+        </ul>
+    </div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            {% if products.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page={{ products.previous_page_number }}">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
+            {% else %}
+            <li class="page-item disabled"><a class="page-link" href="#">1</a></li>
+            {% endif %}
+            <li class="page-item"><a class="page-link" href="?page=2">2</a></li>
+            <li class="page-item"><a class="page-link" href="?page=3">3</a></li>
+            {% if products.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ products.next_page_number }}">Next</a></li>
+            <li class="page-item"><a class="page-link" href="?page={{ products.paginator.num_pages }}">last</a></li>
+            {% endif %}
+        </ul>
+      </nav>
 </section>
 
 

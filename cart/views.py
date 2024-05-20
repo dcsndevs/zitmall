@@ -5,19 +5,24 @@ from products.models import Product
 from .models import Coupon
 from cart.contexts import cart_contents
 from django.http import JsonResponse
+import json
 
 
 
 def view_cart(request):
     """ A view that renders the cart contents page """
+    cart = request.session.get('cart', {})
+    current_cart = cart_contents(request)
+    total = current_cart['discount']
+    print(f'this is the {total}')
     
     return render(request, 'cart/cart.html')
 
 def apply_coupon(request):
-    if 'coupon_id' in request.session:
-        messages.info(request, f'You have already applied a coupon code to this cart.'
-                         ' Coupon codes can only be used per order. Thank you.')
-        return redirect('view_cart')
+    # if 'coupon_id' in request.session:
+    #     messages.info(request, f'You have already applied a coupon code to this cart.'
+    #                      ' Coupon codes can only be used per order. Thank you.')
+    #     return redirect('view_cart')
         
     coupon_code = request.POST.get('coupon_code')
     coupon_code = coupon_code.upper()
@@ -42,7 +47,6 @@ def apply_coupon(request):
     except Coupon.DoesNotExist:
         messages.error(request, f'This coupon code does not exist')
         # Coupon does not exist
-        # You can handle this case as needed, such as displaying an error message
         pass
 
     # Redirect back to the cart page after applying the coupon

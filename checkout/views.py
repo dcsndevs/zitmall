@@ -38,6 +38,7 @@ def checkout(request):
 
     if request.method == 'POST':
         cart = request.session.get('cart', {})
+        discount = request.session.get('coupon_discount', 0)
 
         form_data = {
             'full_name': request.POST['full_name'],
@@ -56,6 +57,8 @@ def checkout(request):
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_cart = json.dumps(cart)
+            current_cart = cart_contents(request)
+            order.discount = current_cart['discount']
             order.save()
             for item_id, item_data in cart.items():
                 try:
@@ -67,11 +70,10 @@ def checkout(request):
                             quantity=item_data,
                         )
                         order_line_item.save()
-                        print(order_line_item)
+                        #create vendor line item
                         vendor_order_line_item = VendorOrder(
                             item=order_line_item,
                         )
-                        
                         vendor_order_line_item.save()
                     else:
                         for size, quantity in item_data['items_by_size'].items():
@@ -82,6 +84,7 @@ def checkout(request):
                                 product_size=size,
                             )
                             order_line_item.save()
+                            #create vendor line item
                             vendor_order_line_item = VendorOrder(
                             item=order_line_item,
                             )
@@ -184,7 +187,8 @@ def checkout_success(request, order_number):
         
     if 'coupon_discount' in request.session:
         del request.session['coupon_discount']
-        
+        del request.session['coupon_id']
+                
     template = 'checkout/checkout_success.html'
     context = {
         'order': order,

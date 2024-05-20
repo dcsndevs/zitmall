@@ -1,11 +1,12 @@
-<form action="{% url 'apply_coupon' %}" method="post">
-    {% csrf_token %}
-    <div class="input-group mb-3">
-        <input type="text" name="coupon_code" id="coupon_code" class="form-control rounded-0" placeholder="Enter coupon code" aria-label="Enter coupon code" aria-describedby="apply-coupon">
-        <button class="btn btn-black rounded-0" type="submit" id="button-addon2">Apply Coupon</button>
-    </div>
-    
-</form>
-    {% if discount %}
+{% if discount %}
     <p>Your Coupon discount is saving you <b class="text-danger">${{ discount }} </b>for this order!</p>
-    {% endif %}
+{% else %}
+    <form action="{% url 'apply_coupon' %}" method="post">
+        {% csrf_token %}
+        <div class="input-group mb-3">
+            <input type="text" name="coupon_code" id="coupon_code" class="form-control rounded-0" placeholder="Enter coupon code" aria-label="Enter coupon code" aria-describedby="apply-coupon">
+            <button class="btn btn-black rounded-0" type="submit" id="button-addon2">Apply Coupon</button>
+        </div>
+        
+    </form>
+{% endif %}

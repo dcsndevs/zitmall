@@ -4,6 +4,7 @@ from django.template.loader import render_to_string
 from django.conf import settings
 
 from .models import Order, OrderLineItem
+from vendor.models import VendorOrder
 from products.models import Product
 from profiles.models import UserProfile
 
@@ -105,7 +106,6 @@ class StripeWH_Handler:
                 attempt += 1
                 time.sleep(1)
         if order_exists:
-            print("Print2")
             self._send_confirmation_email(order)
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | SUCCESS: Verified order already in database',
@@ -136,6 +136,11 @@ class StripeWH_Handler:
                             quantity=item_data,
                         )
                         order_line_item.save()
+                        #create vendor line item
+                        vendor_order_line_item = VendorOrder(
+                        item=order_line_item,
+                        )
+                        vendor_order_line_item.save()
                     else:
                         for size, quantity in item_data['items_by_size'].items():
                             order_line_item = OrderLineItem(
@@ -145,6 +150,11 @@ class StripeWH_Handler:
                                 product_size=size,
                             )
                             order_line_item.save()
+                            #create vendor line item
+                            vendor_order_line_item = VendorOrder(
+                            item=order_line_item,
+                            )
+                            vendor_order_line_item.save()
             except Exception as e:
                 if order:
                     order.delete()

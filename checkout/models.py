@@ -10,6 +10,7 @@ from django_countries.fields import CountryField
 
 from products.models import Product
 from profiles.models import UserProfile
+from cart import contexts
 
 STATUS = ((0, "Pending"), (1, "Accepted"), (2, "Shipped"), (3, "Delivered"), (4, "Delivery Failed"), (5, "Cancelled"))
 
@@ -27,6 +28,7 @@ class Order(models.Model):
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
     county = models.CharField(max_length=80, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
+    discount = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
     delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
     order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
@@ -55,7 +57,8 @@ class Order(models.Model):
                 self.delivery_cost = self.order_total * settings.STANDARD_DELIVERY_PERCENTAGE / 100
         else:
             self.delivery_cost = 0
-        self.grand_total = self.order_total + self.delivery_cost
+        self.grand_total = self.order_total + self.delivery_cost - self.discount
+        
         self.save()
 
     def save(self, *args, **kwargs):

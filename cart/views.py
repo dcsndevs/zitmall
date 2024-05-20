@@ -19,10 +19,10 @@ def view_cart(request):
     return render(request, 'cart/cart.html')
 
 def apply_coupon(request):
-    # if 'coupon_id' in request.session:
-    #     messages.info(request, f'You have already applied a coupon code to this cart.'
-    #                      ' Coupon codes can only be used per order. Thank you.')
-    #     return redirect('view_cart')
+    if 'coupon_code' in request.session:
+        messages.info(request, f'You have already applied a coupon code to this cart.'
+                         ' Coupon codes can only be used per order. Thank you.')
+        return redirect('view_cart')
         
     coupon_code = request.POST.get('coupon_code')
     coupon_code = coupon_code.upper()

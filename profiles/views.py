@@ -96,7 +96,7 @@ class persona(generic.UpdateView):
     
 class PasswordsChangeView(PasswordChangeView):
     """
-    View for changin profile member passord.
+    View for changing profile member password.
     **Context**
     """
 

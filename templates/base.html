@@ -64,12 +64,12 @@
                                     <ul class="navbar-nav">
                                         {% if request.user.is_authenticated %}                            
                                         <li class="dropdown-item">
-                                            <a class="nav-link {% if request.path == member_area_url %}active" aria-current="page{% endif %}" href="{% url 'profile_view' %}" aria-label="profile"><i class="bi-person"></i> {{ user }}</a>
+                                            <a class="nav-link {% if request.path == member_area_url %}active" aria-current="page{% endif %}" href="{% url 'profile_view' %}" aria-label="profile"><i class="bi-person"></i> My Profile</a>
                                         </li>                                
                                         <li class="dropdown-item">
                                             <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'view_cart' %}" aria-label="view_cart">
                                                 <i class="bi-cart4"></i>
-                                                <span>View Cart</span></a>
+                                                <span> View Cart</span></a>
                                         </li>
                                         <li class="dropdown-item">
                                             <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'account_logout' %}" aria-label="logout"><i class="bi-key"></i> Logout</a>
@@ -116,7 +116,7 @@
                                 {% if request.user.is_authenticated %}                            
                                 
                                 <li class="dropdown-item">
-                                    <a class="nav-link {% if request.path == member_area_url %}active" aria-current="page{% endif %}" href="{% url 'profile_view' %}" aria-label="profile"><i class="bi-person"></i> {{ user }}</a>
+                                    <a class="nav-link {% if request.path == member_area_url %}active" aria-current="page{% endif %}" href="{% url 'profile_view' %}" aria-label="profile"><i class="bi-person"></i>My Profile</a>
                                 </li>                                
                                 <li class="dropdown-item">
                                     <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'view_cart' %}" aria-label="view_cart">
@@ -174,17 +174,12 @@
 
             
             <!-- displaying Django messages -->
-            <div class="toast-container position-fixed top-7 end-0 p-3">
+            <div class="toast-container position-fixed top-0 end-0 p-3">
                 {% for message in messages %}
                 <div id="msg" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
                   <div class="toast-header">
                     <i class="btn btn-sm bi bi-envelope"></i> <strong class="me-auto text-capitalize text-{{ message.tags }}"> {{ message.tags }} Notification!</strong>
-                    <small>
-                        {% if request.user.is_authenticated %} 
-                            {{ user }}
-                        {% else %}
-                        {% endif %}
-                    </small>
+                    <small>close</small>
                     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                   </div>
                   <div class="toast-body">

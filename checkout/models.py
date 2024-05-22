@@ -7,6 +7,8 @@ from django.db.models import Sum
 from django.conf import settings
 
 from django_countries.fields import CountryField
+from django.core.exceptions import ValidationError
+
 
 from products.models import Product
 from profiles.models import UserProfile
@@ -28,10 +30,10 @@ class Order(models.Model):
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
     county = models.CharField(max_length=80, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
-    discount = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
-    delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
-    order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
-    grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
+    discount = models.DecimalField(max_digits=14, decimal_places=2, null=False, default=0)
+    delivery_cost = models.DecimalField(max_digits=14, decimal_places=2, null=False, default=0)
+    order_total = models.DecimalField(max_digits=14, decimal_places=2, null=False, default=0)
+    grand_total = models.DecimalField(max_digits=14, decimal_places=2, null=False, default=0)
     original_cart = models.TextField(null=False, blank=False, default='')
     stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
 
@@ -60,6 +62,13 @@ class Order(models.Model):
         self.grand_total = self.order_total + self.delivery_cost - self.discount
         
         self.save()
+    
+    def clean(self):
+        super().clean()
+        if self.order_total >= 10**8:
+            raise ValidationError('Order total cannot exceed 999999999999.99')
+        if self.grand_total >= 10**8:
+            raise ValidationError('Order total cannot exceed 999999999999.99')
 
     def save(self, *args, **kwargs):
         """
@@ -68,6 +77,7 @@ class Order(models.Model):
         """
         if not self.order_number:
             self.order_number = self._generate_order_number()
+        self.clean()
         super().save(*args, **kwargs)
 
     def __str__(self):
@@ -78,8 +88,8 @@ class OrderLineItem(models.Model):
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
     product_size = models.CharField(max_length=2, null=True, blank=True) # XS, S, M, L, XL
     quantity = models.IntegerField(null=False, blank=False, default=0)
-    lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
-    shipping = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    lineitem_total = models.DecimalField(max_digits=14, decimal_places=2, null=False, blank=False, editable=False)
+    shipping = models.DecimalField(max_digits=14, decimal_places=2, null=True, blank=True)
     status = models.IntegerField(choices=STATUS, default=0)
 
     def save(self, *args, **kwargs):

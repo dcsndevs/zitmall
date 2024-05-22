@@ -173,7 +173,12 @@ input[name='q']::placeholder {
     .btn-lg {
         padding: 1px 1px !important;
     }
-    
+
+    .cardmargin {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+ 
 }
 
 

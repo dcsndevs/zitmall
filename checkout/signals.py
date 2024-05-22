@@ -77,6 +77,16 @@ def create_user_after_purchase(sender, instance, created, **kwargs):
             user_profile.default_street_address2 = instance.order.street_address2
             user_profile.default_county = instance.order.county
             user_profile.save()
+        elif User.objects.filter(email=user_email).exists():
+            print('sdjgyvsuybdhkskshyd')
+            user = User.objects.get(email=user_email)
+            print(user)
+
+            print('---- -------- -------')
+            user_profile = UserProfile.objects.get(user=user)
+            print(user_profile)
+            
+            instance.order.user_profile = user_profile
             
   
             

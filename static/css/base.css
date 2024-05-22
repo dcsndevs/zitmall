@@ -344,3 +344,15 @@ input[name='q']::placeholder {
     cursor: pointer;
 }
 
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: #000; /* Change this to your desired color */
+}
+
+.carousel-control-prev-icon {
+    filter: invert(100%); /* This inverts the color of the icon */
+}
+
+.carousel-control-next-icon {
+    filter: invert(100%); /* This inverts the color of the icon */
+}

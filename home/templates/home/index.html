@@ -75,6 +75,11 @@
     </a>	
 </div>
 {% endblock %}
+
+{% block subscription %}
+    {% include 'includes/newsletter-subscription.html' %}
+{% endblock %}
+
 {% block postloadjs %}
     {{ block.super }}
     <script type="text/javascript">

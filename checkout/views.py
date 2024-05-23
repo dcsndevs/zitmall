@@ -110,6 +110,10 @@ def checkout(request):
 
         current_cart = cart_contents(request)
         total = current_cart['grand_total']
+        if total > 999999.99:
+            messages.error(request, "You have exceeded the order limit. You cannot order upto USD 1 million at once. "
+                        "Kindly reduce your order items")
+            return redirect(reverse('view_cart'))
         stripe_total = round(total * 100)
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(

@@ -25,7 +25,7 @@ class VendorOrder(models.Model):
         if self.accept == 2:  # Assuming 2 corresponds to "No"
             # Set fulfilment to "Cancelled"
             self.fulfilment = 0  # Assuming 0 corresponds to "Cancelled"
-            self.status = 4
+            self.status = 5
         
         if self.status > 1:  # Assuming 2 corresponds to "Delivered"
             # Disable other status options

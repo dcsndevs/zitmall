@@ -164,9 +164,8 @@ def vendor_orders(request):
 def new_vendor_orders(request):
     """ A view to show all vendor orders """
 
-    orders = OrderLineItem.objects.filter(product__vendor=request.user, status=0).order_by('-id')
-    
-    shipment_status = 2 #Default shipment/fulfillment value - zitship value = 2
+    # orders = OrderLineItem.objects.filter(product__vendor=request.user, status=0).order_by('-id')
+    orders = VendorOrder.objects.filter(item__product__vendor=request.user, accept=0).order_by('-id')
     if orders.count() == 0:
         messages.info(request, f'There are no New orders.'
             ' You have been redirected to Active Order page.')
@@ -175,7 +174,6 @@ def new_vendor_orders(request):
     
     context = {
         'orders': orders,
-        'shipment_status': shipment_status,
     }
 
     return render(request, 'vendor/new_order.html', context)
@@ -245,6 +243,7 @@ def vendor_order_view(request, order_no, orderline_id):
 
 
 @staff_required
+# Vendors accept orders thereby processing it
 def accept_order(request, order_number, product_id):
     """ Vendor decision to accept new orders """
     
@@ -279,6 +278,7 @@ def accept_order(request, order_number, product_id):
 
 
 @staff_required
+# Vendors reject order thereby cancelling it
 def reject_order(request, order_number, product_id):
     """ Vendor decision to reject orders """
         
@@ -301,7 +301,7 @@ def reject_order(request, order_number, product_id):
         order_line_item.save()
         messages.success(request, 'Your have rejected this Order'
                         ' and it has been marked as cancelled!')
-        return redirect('vendor_orders')
+        return redirect('new_vendor_orders')
     else:
         messages.error(request, f'Failed to reject order.'
                        ' Kindly refresh the page.')
@@ -315,22 +315,25 @@ def reject_order(request, order_number, product_id):
 
 # Wether Vendor wants to ship item themselve or not
 @staff_required
-def shipment_type(request, product_id, product_status):
-    product_status = None
-    message = None
-    vendor_order_item = get_object_or_404(VendorOrder, pk=product_id)
+def shipment_type(request, order_number, product_id):
+
+    vendor_order_item = get_object_or_404(
+        VendorOrder, 
+        item__order__order_number=order_number, 
+        item__product__id=product_id
+        )
     
     if vendor_order_item.fulfilment == 2:
         vendor_order_item.fulfilment = 1
         vendor_order_item.save()
         product_status = 1
-        message = 'Shipment type has been set self. Please ship order immediately.'
+        message = 'Shipment type has been set to self. You still have to accept the order in other to begin shipment process.'
     
     elif vendor_order_item.fulfilment == 1:
         vendor_order_item.fulfilment = 2
         vendor_order_item.save()
         product_status = 2
-        message = 'Shipment type has been set to Zit-Ship. Kindly prepare the order for pickup from Zit Ship Team.'
+        message = 'Shipment type has been set to Zit-Ship. Kindly accept the order and prepare the order for pickup from Zit Ship Team.'
     
     elif vendor_order_item.fulfilment == 0:
         message = 'This Order has since been cancelled. You can no longer ship. Contact Support for help.'    

@@ -116,113 +116,75 @@
 	</script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-    // Add event listeners to all status toggle switches
-    var statusToggles = document.querySelectorAll('.status-toggle');
-    statusToggles.forEach(function(toggle) {
-        toggle.addEventListener('change', function() {
-            var productId = this.getAttribute('data-product-id');
-            var status = this.checked ? 1 : 0;
-            fetch(`/vendor/products/${productId}/${status}/`, {
-                method: 'POST',
-                headers: {
-                    'X-CSRFToken': getCookie('csrftoken'), // Include CSRF token
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({ product_id: productId }, { product_status: status })
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Failed to update product status');
+            // Add event listeners to all status toggle switches
+            var statusToggles = document.querySelectorAll('.status-toggle');
+            statusToggles.forEach(function(toggle) {
+                toggle.addEventListener('change', function() {
+                    var productId = this.getAttribute('data-product-id');
+                    var status = this.checked ? 1 : 0;
+                    fetch(`/vendor/products/${productId}/${status}/`, {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRFToken': getCookie('csrftoken'), // Include CSRF token
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify({ product_id: productId }, { product_status: status })
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Failed to update product status');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        const toastLive = document.getElementById('liveToast');
+                        const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLive);
+                        let successMessage = document.getElementById('toastcc');
+                        toastBootstrap.show()
+                        // Show message info
+                        successMessage.textContent = data.message;
+                    })
+                    .catch(error => {
+                        console.error('Error updating product status:', error);
+                    });
+                });
+            });
+
+            // Function to get CSRF token from cookies
+            function getCookie(name) {
+                let cookieValue = null;
+                if (document.cookie && document.cookie !== '') {
+                    const cookies = document.cookie.split(';');
+                    for (let i = 0; i < cookies.length; i++) {
+                        const cookie = cookies[i].trim();
+                        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
                 }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Product status updated successfully');
-                // Show success message
-                showMessage(data.message);
-            })
-            .catch(error => {
-                console.error('Error updating product status:', error);
+                return cookieValue;
+            }
+
+        });
+
+        // Handle click event on Delete button in modal
+        $(document).ready(function() {
+            $('#confirmDeleteBtn').on('click', function() {
+                // Show confirmation dialog
+                $('#confirmDeleteModal').modal('hide'); // Hide the confirmation modal
+                var productId = $(this).data('product-id'); // Get the product ID from data attribute
+                var deleteUrl = "{% url 'delete_product' product_id=0 %}".replace('0', productId); // Generate delete URL
+                window.location.href = deleteUrl; // Redirect to delete URL
             });
         });
-    });
 
-    // Function to get CSRF token from cookies
-    function getCookie(name) {
-        let cookieValue = null;
-        if (document.cookie && document.cookie !== '') {
-            const cookies = document.cookie.split(';');
-            for (let i = 0; i < cookies.length; i++) {
-                const cookie = cookies[i].trim();
-                if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break;
-                }
-            }
-        }
-        return cookieValue;
-    }
-
-    // Function to show success message
-    function showMessage(message) {
-        // Create a new element for the message
-        var successMessage = document.createElement('div');
-        successMessage.classList.add('alert', 'alert-success', 'small', 'my-0', 'py-0');
-        successMessage.textContent = message;
-
-        // Insert the message before the status toggles
-        var statusToggleWrapper = document.querySelector('.sort-select-wrapper');
-        statusToggleWrapper.parentNode.insertBefore(successMessage, statusToggleWrapper.nextSibling);
-
-        // Remove the message after 3 seconds
-        setTimeout(function() {
-            successMessage.remove();
-        }, 3000);
-    }
-});
-
-    </script>
-    <script type="text/javascript">
-        $('#sort-selector').change(function() {
-            var selector = $(this);
-            var currentUrl = new URL(window.location);
-
-            var selectedVal = selector.val();
-            if(selectedVal != "reset"){
-                var sort = selectedVal.split("_")[0];
-                var direction = selectedVal.split("_")[1];
-
-                currentUrl.searchParams.set("sort", sort);
-                currentUrl.searchParams.set("direction", direction);
-
-                window.location.replace(currentUrl);
-            } else {
-                currentUrl.searchParams.delete("sort");
-                currentUrl.searchParams.delete("direction");
-
-                window.location.replace(currentUrl);
-            }
-        })
-    </script>
-
-<script>
-    // Handle click event on Delete button in modal
-    $(document).ready(function() {
-        $('#confirmDeleteBtn').on('click', function() {
-            // Show confirmation dialog
-            $('#confirmDeleteModal').modal('hide'); // Hide the confirmation modal
+        // Show confirmation modal when delete button is clicked
+        $('.delete-btn').on('click', function() {
             var productId = $(this).data('product-id'); // Get the product ID from data attribute
-            var deleteUrl = "{% url 'delete_product' product_id=0 %}".replace('0', productId); // Generate delete URL
-            window.location.href = deleteUrl; // Redirect to delete URL
+            $('#confirmDeleteModal').modal('show'); // Show the confirmation modal
+            $('#confirmDeleteBtn').data('product-id', productId); // Set the product ID to data attribute of the delete button
         });
-    });
-
-    // Show confirmation modal when delete button is clicked
-    $('.delete-btn').on('click', function() {
-        var productId = $(this).data('product-id'); // Get the product ID from data attribute
-        $('#confirmDeleteModal').modal('show'); // Show the confirmation modal
-        $('#confirmDeleteBtn').data('product-id', productId); // Set the product ID to data attribute of the delete button
-    });
-</script>
+    </script>
 {% endblock %}

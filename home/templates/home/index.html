@@ -78,10 +78,6 @@
 {% block postloadjs %}
     {{ block.super }}
     <script type="text/javascript">
-		$('.top-down-link').click(function(e) {
-			window.scrollTo(0,0)
-		})
-
         $(document).ready(function() {
             $('.add-to-cart-btn').click(function() {
                 var productId = $(this).data('product-id');

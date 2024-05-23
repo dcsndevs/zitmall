@@ -21,6 +21,10 @@ class VendorOrder(models.Model):
         return f"{self.item.order.order_number} | {self.item.product.sku} | {self.item.product.title}"
 
     def save(self, *args, **kwargs):
+        #Disables status option when acceptance is still pending
+        if self.accept == 0:
+            self._meta.get_field('status').choices
+            
         # Check if accept is set to "No"
         if self.accept == 2:  # Assuming 2 corresponds to "No"
             # Set fulfilment to "Cancelled"
@@ -29,7 +33,7 @@ class VendorOrder(models.Model):
         
         if self.status > 1:  # Assuming 2 corresponds to "Delivered"
             # Disable other status options
-            self._meta.get_field('status').choices = ((2, "Delivered"),) 
+            self._meta.get_field('status').choices = ((0, 'Pending'),)
             
         if self.pk and self.status > 2:
             original = VendorOrder.objects.get(pk=self.pk)

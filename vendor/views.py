@@ -200,6 +200,8 @@ def status_products(request, product_id, product_status):
 def vendor_order_view(request, order_no, orderline_id):
     order_line_item = get_object_or_404(OrderLineItem, order__order_number=order_no, id=orderline_id)
     vendor_order, created = VendorOrder.objects.get_or_create(item=order_line_item)
+    print(vendor_order)
+    print(order_line_item)
     condition_value = vendor_order.status
     if request.method == 'POST':
         form = VendorOrderForm(request.POST, instance=vendor_order)

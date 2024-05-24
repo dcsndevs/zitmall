@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /accounts/
+Disallow: /bag/
+Disallow: /cart/
+Disallow: /vendor/
+Disallow: /profiles/
+Disallow: /zitmall/
+Disallow: /templates/allauth/
+Sitemap: https://zitmall-1f03b915b742.herokuapp.com/sitemap.xml

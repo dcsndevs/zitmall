@@ -361,3 +361,19 @@ input[name='q']::placeholder {
 .carousel-control-next-icon {
     filter: invert(100%); /* This inverts the color of the icon */
 }
+
+.brand-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+.brand-logos a {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+}
+.brand-logos img {
+    max-width: 100%;
+}

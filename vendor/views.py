@@ -499,3 +499,28 @@ def delivery_failed_order(request, order_number, product_id):
         return redirect('vendor_order_view', order_no=order_number, orderline_id=order_line_item.id)
 
     return render(request, 'vendor_order_view')
+
+
+@staff_required
+def delivered_vendor_orders(request):
+    """ A view to show all delivered vendor orders"""
+
+    orders = OrderLineItem.objects.filter(product__vendor=request.user, status=3).order_by('-id')
+    
+    context = {
+        'orders': orders,
+    }
+
+    return render(request, 'vendor/delivered_orders.html', context)
+
+@staff_required
+def delivery_failed_vendor_orders(request):
+    """ A view to show all delivery failed vendor orders"""
+
+    orders = OrderLineItem.objects.filter(product__vendor=request.user, status=4).order_by('-id')
+    
+    context = {
+        'orders': orders,
+    }
+
+    return render(request, 'vendor/delivery_failed_orders.html', context)

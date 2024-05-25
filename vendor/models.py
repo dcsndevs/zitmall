@@ -1,7 +1,7 @@
 from django.db import models
 from checkout.models import OrderLineItem
 
-ACCEPT = ((0, "Pending"), (1, "Yes"), (2, "No"))
+ACCEPT = ((0, "Pending"), (1, "Accepted"), (2, "Rejected"))
 FULFILMENT = ((0, "Cancelled"), (1, "Self"), (2, "Zit Ship"))
 STATUS = ((0, "Preparing to ship"), (1, "Shipped"), (2, "Delivered"), (3, "Delivery Failed"), (4, "Canceled"))
 REASON = (

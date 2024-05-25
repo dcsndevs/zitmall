@@ -13,7 +13,7 @@
 <div class="row mt-1 mb-2">
     <div class="col-12">
         <h4 class="text-muted mt-3 text-center">
-            Order Details
+            Order management
         </h4>
     </div>
 </div>
@@ -21,8 +21,6 @@
 
 <!-- History Section -->
 <style>
-
-
 .history-heading {
     color: #fafafa;
     margin-bottom: 50px;
@@ -73,7 +71,6 @@
     background-color: black;
 }
 
-
 .history-heading,
 .section-heading {
     font-family: "Exo", sans-serif;
@@ -106,8 +103,11 @@
                     <em>{{ entry.created_on|time:"h:i A" }}</em>
                 </div>
                 {% empty %}
-                <span>No history available for this order.</span>
                 {% endfor %}
+                <div class="timeline-item" data-dates="{{ order.order.date|date:"jS F Y" }}">
+                    <p>Order created</p>
+                    <em>{{ order.order.date|time:"h:i A" }}</em>
+                </div>
             </div>
         </div>
 
@@ -119,19 +119,16 @@
                     <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th scope="col">Order No</th>
-                                <th scope="col">Product/Address</th>
-                                <th scope="col">Qty</th>
-                                <th scope="col">Amount</th>
-                                <th scope="col">Status</th>
-                                {% if condition_value == 0 or condition_value == 1 %}
-                                <th scope="col">Action</th>
-                                {% endif %}
+                                <th scope="col" colspan="2">Order Details</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
+                                <th scope="row">Order No</th>
                                 <td>{{ order.order.order_number }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Product/Address</th>
                                 <td>
                                     {{ order.product }}<br>
                                     {{ order.order.full_name }}<br>
@@ -141,8 +138,17 @@
                                     {{ order.order.county }}<br>
                                     {{ order.order.country }}
                                 </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Qty</th>
                                 <td>{{ order.quantity }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Amount</th>
                                 <td>{{ order.lineitem_total }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Status</th>
                                 <td>
                                     {% if condition_value == 1 %}
                                     Shipped
@@ -156,7 +162,10 @@
                                     Preparing to ship
                                     {% endif %}
                                 </td>
-                                {% if condition_value == 0 or condition_value == 1 %}
+                            </tr>
+                            {% if condition_value == 0 or condition_value == 1 %}
+                            <tr>
+                                <th scope="row">Action</th>
                                 <td>
                                     <div class="dropdown">
                                         <button class="btn btn-sm btn-primary dropdown-toggle" type="button" id="actionDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -187,13 +196,14 @@
                                         </ul>
                                     </div>
                                 </td>
-                                {% endif %}
                             </tr>
+                            {% endif %}
                         </tbody>
                     </table>
                 </form>
             </div>
         </div>
+        
     </div>
 </section>
 

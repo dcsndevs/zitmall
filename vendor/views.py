@@ -6,7 +6,7 @@ from django.db.models.functions import Lower
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 from django.http import JsonResponse
-from .models import VendorOrder
+from .models import VendorOrder, VendorOrderStatusHistory
 from .forms import VendorOrderForm
 from products.models import Product, Category
 from products.forms import ProductForm
@@ -232,10 +232,14 @@ def vendor_order_view(request, order_no, orderline_id):
     else:
         form = VendorOrderForm(instance=vendor_order)
         
+    # Retrieve the history
+    history_entries = VendorOrderStatusHistory.objects.filter(vendor_order=vendor_order).order_by('-created_on')
+
     context = {
         'order': order_line_item,
         'form': form,
-        'condition_value': condition_value
+        'condition_value': condition_value,
+        'history_entries': history_entries,  # Add history entries to context
     }
     
     return render(request, 'vendor/view_order_details.html', context)

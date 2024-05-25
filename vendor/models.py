@@ -33,3 +33,12 @@ class VendorOrder(models.Model):
         
        
         super().save(*args, **kwargs)
+        
+
+class VendorOrderStatusHistory(models.Model):
+    vendor_order = models.ForeignKey(VendorOrder, null=False, blank=False, on_delete=models.CASCADE)
+    created_on = models.DateTimeField(auto_now_add=True)  # Automatically set the field to now when the object is first created
+    history = models.TextField()  # Store the history as a string
+
+    def __str__(self):
+        return f"{self.vendor_order} - {self.history} at {self.created_on}"

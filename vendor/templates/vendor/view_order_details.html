@@ -12,92 +12,191 @@
 {% block content %}
 <div class="row mt-1 mb-2">
     <div class="col-12">
-        <p class="text-muted mt-3 text-center">
+        <h4 class="text-muted mt-3 text-center">
             Order Details
-        </p>
+        </h4>
     </div>
 </div>
-<div class="table-responsive">
-    <form method="POST">
-        {% csrf_token %}
-        <table class="table table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">Order No</th>
-                    <th scope="col">Product/Address</th>
-                    <th scope="col">Qty</th>
-                    <th scope="col">Amount</th>
-                    <th scope="col">Status</th>
-                    {% if condition_value == 0 or condition_value == 1 %}
-                    <th scope="col">Action</th>
-                    {% endif %}
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>{{ order.order.order_number }}</td>
-                    <td>
-                        {{ order.product }}<br>
-                        {{ order.order.full_name }}<br>
-                        {{ order.order.street_address1 }}<br>
-                        {{ order.order.street_address2 }}<br>
-                        {{ order.order.town_or_city }}<br>
-                        {{ order.order.county }}<br>
-                        {{ order.order.country }}
-                    </td>
-                    <td>{{ order.quantity }}</td>
-                    <td>{{ order.lineitem_total }}</td>
-                    <td>
-                        {% if condition_value == 1 %}
-                            Shipped
-                        {% elif condition_value == 2 %}
-                            Delivered
-                        {% elif condition_value == 3 %}
-                            Delivery Failed
-                        {% elif condition_value == 4 %}
-                            Cancelled
-                        {% else %}
-                            Preparing to ship
-                        {% endif %}
-                    </td>
-                    {% if condition_value == 0 or condition_value == 1 %}
-                    <td>
-                        <div class="dropdown">
-                            <button class="btn btn-sm btn-primary dropdown-toggle" type="button" id="actionDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                Update
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="actionDropdown">
-                                {% if not condition_value == 1 %}
-                                <li><a 
-                                    class="dropdown-item" 
-                                    href="{% url 'ship_order' order_number=order.order.order_number product_id=order.product.id %}">
-                                    Ship
-                                    </a>
-                                </li>
+
+
+<!-- History Section -->
+<style>
+
+
+.history-heading {
+    color: #fafafa;
+    margin-bottom: 50px;
+}
+
+.timeline-item {
+    padding: 4em 2em 0em 2em;
+    position: relative;
+    color: #fafafa;
+    border-left: 1px solid;
+}
+
+.timeline-item p {
+    padding: 0;
+    margin: 0;
+}
+
+.timeline-item:before {
+    content: attr(data-dates);
+    position: absolute;
+    left: 2.5em;
+    top: 3em;
+    display: block;
+    font-family: "Exo", sans-serif;
+    font-weight: 500;
+    font-size: 0.8em;
+    padding: 0;
+    margin: 0;
+}
+
+.timeline-item:after {
+    width: 12px;
+    height: 12px;
+    display: block;
+    top: 2.4em;
+    position: absolute;
+    left: -6px;
+    border-radius: 12px;
+    content: '';
+    background: #fafafa;
+}
+
+.history-items {
+    margin-bottom: 30px;
+}
+
+.bg-color-history {
+    background-color: black;
+}
+
+
+.history-heading,
+.section-heading {
+    font-family: "Exo", sans-serif;
+    font-weight: 300;
+    margin-top: 25px;
+    margin-bottom: 40px;
+}
+.section-column {
+    display: table-cell;
+    padding: 0 30px 30px;
+    float: none;
+}
+</style>
+
+<section class="container-fluid">
+    <div class="row">
+        <!-- History Column -->
+        <div class="col-md-4 bg-color-history section-column">
+            <div class="row">
+                <div class="col-12">
+                    <h5 class="history-heading text-uppercase">
+                        Order Status History
+                    </h5>
+                </div>
+            </div>
+            <div class="history-items">
+                {% for entry in history_entries %}
+                <div class="timeline-item" data-dates="{{ entry.created_on|date:"jS F Y" }}">
+                    <p>{{ entry.history }}</p>
+                    <em>{{ entry.created_on|time:"h:i A" }}</em>
+                </div>
+                {% empty %}
+                <span>No history available for this order.</span>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Table Column -->
+        <div class="col-md-8">
+            <div class="table-responsive">
+                <form method="POST">
+                    {% csrf_token %}
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Order No</th>
+                                <th scope="col">Product/Address</th>
+                                <th scope="col">Qty</th>
+                                <th scope="col">Amount</th>
+                                <th scope="col">Status</th>
+                                {% if condition_value == 0 or condition_value == 1 %}
+                                <th scope="col">Action</th>
                                 {% endif %}
-                                <li><a class="dropdown-item text-success" 
-                                    href="{% url 'deliver_order' order_number=order.order.order_number product_id=order.product.id %}">Set to Delivered</a></li>
-                                <li><a class="dropdown-item text-warning" 
-                                    href="{% url 'delivery_failed_order' order_number=order.order.order_number product_id=order.product.id %}">Delivery Failed</a></li>
-                                <li>
-                                    <button 
-                                        type="button"
-                                        class="dropdown-item text-danger no-btn"
-                                        data-product-id="{{ order.product.id }}" 
-                                        data-order-no="{{ order.order.order_number }}" 
-                                        data-bs-toggle="modal" 
-                                        data-bs-target="#confirmCancelModal"> Cancel order
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
-                    </td>
-                    {% endif %}
-                </tr>
-            </tbody>
-        </table>
-    </form>
-</div>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ order.order.order_number }}</td>
+                                <td>
+                                    {{ order.product }}<br>
+                                    {{ order.order.full_name }}<br>
+                                    {{ order.order.street_address1 }}<br>
+                                    {{ order.order.street_address2 }}<br>
+                                    {{ order.order.town_or_city }}<br>
+                                    {{ order.order.county }}<br>
+                                    {{ order.order.country }}
+                                </td>
+                                <td>{{ order.quantity }}</td>
+                                <td>{{ order.lineitem_total }}</td>
+                                <td>
+                                    {% if condition_value == 1 %}
+                                    Shipped
+                                    {% elif condition_value == 2 %}
+                                    Delivered
+                                    {% elif condition_value == 3 %}
+                                    Delivery Failed
+                                    {% elif condition_value == 4 %}
+                                    Cancelled
+                                    {% else %}
+                                    Preparing to ship
+                                    {% endif %}
+                                </td>
+                                {% if condition_value == 0 or condition_value == 1 %}
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-sm btn-primary dropdown-toggle" type="button" id="actionDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Update
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="actionDropdown">
+                                            {% if not condition_value == 1 %}
+                                            <li><a 
+                                                class="dropdown-item" 
+                                                href="{% url 'ship_order' order_number=order.order.order_number product_id=order.product.id %}">
+                                                Ship
+                                            </a></li>
+                                            {% endif %}
+                                            <li><a class="dropdown-item text-success" 
+                                                href="{% url 'deliver_order' order_number=order.order.order_number product_id=order.product.id %}">Set to Delivered</a></li>
+                                            <li><a class="dropdown-item text-warning" 
+                                                href="{% url 'delivery_failed_order' order_number=order.order.order_number product_id=order.product.id %}">Delivery Failed</a></li>
+                                            <li>
+                                                <button 
+                                                    type="button"
+                                                    class="dropdown-item text-danger no-btn"
+                                                    data-product-id="{{ order.product.id }}" 
+                                                    data-order-no="{{ order.order.order_number }}" 
+                                                    data-bs-toggle="modal" 
+                                                    data-bs-target="#confirmCancelModal"> Cancel order
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                                {% endif %}
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <!-- Modal -->
 <div class="modal fade" id="confirmCancelModal" tabindex="-1" role="dialog" aria-labelledby="confirmCancelModalLabel" aria-hidden="true">

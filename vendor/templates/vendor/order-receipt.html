@@ -1,0 +1,144 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <!-- Add any header content here if needed -->
+{% endblock %}
+
+{% block extra-nav %}
+    {% include 'includes/vendor-navbar.html' %}
+{% endblock %}
+
+{% block content %}
+<style>
+    .order-details {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #eee;
+        background: #fff;
+    }
+    .order-details h2 {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .order-details .table {
+        margin-bottom: 0;
+    }
+    .actions a {
+        margin-right: 10px;
+    }
+    .print-button {
+        margin-top: 20px;
+    }
+</style>
+<div class="order-details">
+    <h2>Order Details</h2>
+    
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <p><strong>Order Number:</strong> {{ order.order.order_number }}</p>
+        </div>
+        <div class="col-12 col-md-6 text-md-right">
+            <p><strong>Order Date:</strong> {{ order.order.date }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <p><strong>Customer Name:</strong> {{ order.order.full_name }}</p>
+        </div>
+        <div class="col-12 col-md-6 text-md-right">
+            <p><strong>Phone Number:</strong> {{ order.order.phone_number }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <p><strong>Shipping Address:</strong></p>
+            <p>
+                {{ order.order.street_address1 }}<br>
+                {{ order.order.street_address2 }}<br>
+                {{ order.order.town_or_city }}<br>
+                {{ order.order.county }}<br>
+                {{ order.order.country }}<br>
+                {% if order.order.postcode %}{{ order.order.postcode }}{% endif %}
+            </p>
+        </div>
+        <div class="col-12 col-md-6 text-md-right">
+            <p><strong>Billing Info:</strong></p>
+            <p>
+                <strong>Order Total:</strong> {{ order.order.order_total }}<br>
+                <strong>Delivery:</strong> {{ order.order.delivery_cost }}<br>
+                <strong>Grand Total:</strong> {{ order.order.grand_total }}
+            </p>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Product</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in order.order.lineitems.all %}
+                <tr>
+                    <td>
+                        <p>{{ item.product.title }}{% if item.product_size %} - Size {{ item.product.size|upper }}{% endif %}</p>
+                    </td>
+                    <td>{{ item.quantity }}</td>
+                    <td>${{ item.lineitem_total }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row mt-4">
+        <form method="POST"></form>
+        <p><strong>Current Status:</strong></p>
+            <div class="d-flex">
+                 
+                    
+                {% if condition_value == 2 %}
+                    Delivered
+                {% elif condition_value == 3 %}
+                    Delivery Failed
+                {% elif condition_value == 4 %}
+                    Cancelled
+                {% else %}
+                <div class="form-control gap-2">
+                    {% csrf_token %}
+                    {{ form.status | as_crispy_field }}        
+                </div>
+                {% endif %}
+            {% if condition_value == 4 %}
+                    <div class="form-control mx-3 me-3 gap-2">
+                        {% csrf_token %}
+                        {{ form.reason | as_crispy_field }}        
+                    </div>
+            {% endif %}
+            {% if condition_value == 0 or condition_value == 1 or condition_value == 4 %}
+            <button class="btn btn-black btn-sm" type="submit">Update</button>
+            {% endif %}
+            </div>
+        </form>
+
+    </div>
+    
+    <div class="actions mb-3">
+        
+        <a href="" class="text-danger">Cancel Order</a>
+    </div>
+
+    <a class="print-button text-center" onclick="window.print()">Print Order</a>
+</div>
+
+    
+    
+{% endblock %}

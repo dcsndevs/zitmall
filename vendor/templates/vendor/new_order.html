@@ -82,14 +82,18 @@
                                 </div>
                             </div>
                         </td>
-                        <td class="d-flex">
-                            <a href="{% url 'accept_order' order_number=item.item.order.order_number  product_id=item.item.product.id  %}" class="btn btn-sm btn-primary me-2">Yes</a>
-                            <button 
-                                class="btn btn-sm btn-outline-danger no-btn"
-                                data-product-id="{{ item.item.product.id }}" 
-                                data-order-no="{{ item.item.order.order_number }}" 
-                                data-bs-toggle="modal" 
-                                data-bs-target="#confirmCancelModal">No</button>
+                        <td>
+                            <div class="d-flex">
+                                <a href="{% url 'accept_order' order_number=item.item.order.order_number  product_id=item.item.product.id  %}" class="btn btn-sm btn-primary me-2">Yes</a>
+                                <button 
+                                    class="btn btn-sm btn-outline-danger no-btn"
+                                    data-product-id="{{ item.item.product.id }}" 
+                                    data-order-no="{{ item.item.order.order_number }}" 
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#confirmCancelModal"> No
+                                </button>
+                            </div>
+                            
                         </td>
                     </tr>
                 {% endfor %}
@@ -118,7 +122,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    Are you sure you want to cancel/reject this order?
+                    Are you sure you want to reject this order?
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>

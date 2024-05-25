@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <!-- Add any header content here if needed -->
+{% endblock %}
+
+{% block extra-nav %}
+    {% include 'includes/vendor-navbar.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="row mt-1 mb-2">
+    
+    <div class="col-12">
+        <p class="text-muted mt-3 text-center">
+            Order Details
+        </p>
+    </div>
+</div>
+<div>
+    </div>
+    <div class="table-responsive">
+        <form method="POST">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Order No</th>
+                        <th scope="col">Product/Address</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Status</th>
+                        {% if condition_value == 0 or condition_value == 1 %}
+                        <th scope="col">Action</th>
+                        {% endif %}
+
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td>{{ order.order.order_number }}</td>
+                            <td>{{ order.product }}<br>
+                                {{ order.order.full_name }}
+                                {{ order.order.street_address1 }},
+                                {{ order.order.street_address2 }}, 
+                                {{ order.order.town_or_city }},
+                                {{ order.order.county }},
+                                {{ order.order.country }}.
+                            </td>
+                            <td>{{ order.quantity }}</td>
+                            <td>{{ order.lineitem_total }}</td>
+                            
+                            <td>
+                                {% if condition_value == 2 %}
+                                    Delivered
+                                {% elif condition_value == 3 %}
+                                    Delivery Failed
+                                {% elif condition_value == 4 %}
+                                    Cancelled
+                                {% else %}
+                                <div class="d-flex gap-2 form-control">
+                                    <div>
+                                        {% csrf_token %}
+                                        {{ form.status | as_crispy_field }}        
+                                    </div>
+                                    <div>
+                                        {% if condition_value == 0 or condition_value == 1 or condition_value == 4 %}
+                                            <button class="btn btn-black btn-sm" type="submit">Update</button>
+                                        {% endif %}
+                                    </div>
+                                </div>
+
+                                {% endif %}
+                            </td>
+                            {% if condition_value == 4 %}
+                            {% else %}
+                            <td>
+                                <button 
+                                    class="btn btn-sm btn-outline-danger no-btn"
+                                    data-product-id="{{ order.product.id }}" 
+                                    data-order-no="{{ order.order.order_number }}" 
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#confirmCancelModal"> Cancel order
+                                </button>
+                            </td>
+                            {% endif %}
+                        </tr>
+                </tbody>
+            </table>
+        </form>
+        <div>
+            
+        </div>
+    </div>
+    
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="confirmCancelModal" tabindex="-1" role="dialog" aria-labelledby="confirmCancelModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmCancelModalLabel">Confirm Order Cancellation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to cancel this order?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
+                <button type="button" class="btn btn-danger" id="confirmCancelBtn">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Handle click event on Cancel button in modal
+        $('#confirmCancelBtn').on('click', function() {
+            // Show confirmation dialog
+            $('#confirmCancelModal').modal('hide'); // Hide the confirmation modal
+            var orderNo = $(this).data('order-no'); // Get the order number from data attribute
+            var productId = $(this).data('product-id'); // Get the product ID from data attribute
+            var cancelUrl = "{% url 'cancel_order' order_number=1 product_id=0 %}".replace('0', productId).replace('1', orderNo); // Generate cancel URL
+            window.location.href = cancelUrl; // Redirect to cancel URL
+        });
+
+        // Show confirmation modal when the No button is clicked
+        $('.no-btn').on('click', function() {
+            var productId = $(this).data('product-id'); // Get the product ID from data attribute
+            var orderNo = $(this).data('order-no'); // Get the order number from data attribute
+            $('#confirmCancelModal').modal('show'); // Show the confirmation modal
+            $('#confirmCancelBtn').data('product-id', productId); // Set the product ID to data attribute of the cancel button
+            $('#confirmCancelBtn').data('order-no', orderNo); // Set the order number to data attribute of the cancel button
+        });
+    });
+</script>
+    
+    
+{% endblock %}
+ 

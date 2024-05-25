@@ -241,7 +241,7 @@ def vendor_order_view(request, order_no, orderline_id):
         'condition_value': condition_value
     }
     
-    return render(request, 'vendor/order_view.html', context)
+    return render(request, 'vendor/view_order_details.html', context)
 
 
 @staff_required
@@ -373,3 +373,39 @@ def active_vendor_orders(request):
     }
 
     return render(request, 'vendor/active_orders.html', context)
+
+
+@staff_required
+# Vendors cancel order
+def cancel_order(request, order_number, product_id):
+    """ Vendor decision to cancel orders """
+    
+    try:    
+        vendor_order_item = get_object_or_404(
+                VendorOrder, 
+                item__order__order_number=order_number, 
+                item__product__id=product_id
+                )
+        vendor_order_item.status = 4
+        vendor_order_item.save()
+
+        order_line_item = get_object_or_404(
+        OrderLineItem, 
+        order__order_number=order_number, 
+        product__id=product_id
+        )
+        order_line_item.status = 5
+        order_line_item.save()
+        messages.success(request, 'Your have marked this order as cancelled!')
+        
+        return redirect('new_vendor_orders')
+
+    except:
+        messages.error(request, f'Failed to cancel order.'
+                       ' Kindly refresh the page.')
+        
+    context = {
+        'vendor_order_item': vendor_order_item,
+    }
+
+    return render(request, 'vendor/orders.html', context)

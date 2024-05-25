@@ -20,7 +20,7 @@
 <div class="table-responsive">
     <form method="POST">
         {% csrf_token %}
-        <table class="table table-bordered table-striped">
+        <table class="table table-bordered table-hover">
             <thead>
                 <tr>
                     <th scope="col">Order No</th>
@@ -64,7 +64,7 @@
                     <td>
                         <div class="dropdown">
                             <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="actionDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                Actions
+                                Update
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="actionDropdown">
                                 {% if not condition_value == 1 %}
@@ -75,7 +75,8 @@
                                     </a>
                                 </li>
                                 {% endif %}
-                                <li><a class="dropdown-item" href="#">Deliver</a></li>
+                                <li><a class="dropdown-item" 
+                                    href="{% url 'deliver_order' order_number=order.order.order_number product_id=order.product.id %}">Deliver</a></li>
                                 <li><a class="dropdown-item" href="#">Delivery Failed</a></li>
                                 <li>
                                     <button 

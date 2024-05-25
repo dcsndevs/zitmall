@@ -413,32 +413,63 @@ def cancel_order(request, order_number, product_id):
 def ship_order(request, order_number, product_id):
     """ Vendor decision to cancel orders """
     
-    try:    
-        vendor_order_item = get_object_or_404(
-                VendorOrder, 
-                item__order__order_number=order_number, 
-                item__product__id=product_id
-                )
-        vendor_order_item.status = 1
-        vendor_order_item.save()
+    vendor_order_item = get_object_or_404(
+            VendorOrder, 
+            item__order__order_number=order_number, 
+            item__product__id=product_id
+            )
+    vendor_order_item.status = 1
+    vendor_order_item.save()
 
-        order_line_item = get_object_or_404(
-        OrderLineItem, 
-        order__order_number=order_number, 
-        product__id=product_id
-        )
-        order_line_item.status = 2
-        order_line_item.save()
-        messages.success(request, 'Your have set the order as shipped!')
-        
-        return redirect('vendor_order_view')
+    order_line_item = get_object_or_404(
+    OrderLineItem, 
+    order__order_number=order_number, 
+    product__id=product_id
+    )
+    order_line_item.status = 2
+    order_line_item.save()
+    messages.success(request, 'Your have set the order as shipped!')
+    
+    return redirect('vendor_order_view')
 
-    except:
-        messages.error(request, f'Failed to ship order.'
-                       ' Kindly refresh the page.')
+    messages.error(request, f'Failed to ship order.'
+                    ' Kindly refresh the page.')
         
     context = {
         'vendor_order_item': vendor_order_item,
     }
 
     return render(request, 'vendor/orders.html', context)
+
+
+@staff_required
+# Vendors deliver order
+def deliver_order(request, order_number, product_id):
+    """ Vendor decision to deliver orders """
+    
+    vendor_order_item = get_object_or_404(
+            VendorOrder, 
+            item__order__order_number=order_number, 
+            item__product__id=product_id
+            )
+    
+    order_line_item = get_object_or_404(
+        OrderLineItem, 
+        order__order_number=order_number, 
+        product__id=product_id
+        )
+    
+    
+    vendor_order_item.status = 2
+    vendor_order_item.save()
+
+
+    order_line_item.status = 3
+    order_line_item.save()
+    
+    if vendor_order_item.status == 2:
+        messages.success(request, 'Your have set the order to Delivered!')
+        return redirect('vendor_order_view', order_no=order_number, orderline_id=order_line_item.id)
+
+
+    return render(request, 'vendor_order_view')

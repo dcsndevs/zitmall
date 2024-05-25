@@ -217,7 +217,19 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Are you sure you want to cancel this order?
+                <form id="cancelOrderForm" method="post" action="">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="cancelReason">Select Reason for Cancellation</label>
+                        <select class="form-control" id="cancelReason" name="cancel_reason">
+                            <option value="">Choose...</option>
+                            <option value="1">Customer Request</option>
+                            <option value="2">Out of Stock</option>
+                            <option value="3">Price Issue</option>
+                            <option value="4">Other</option>
+                        </select>
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Back</button>
@@ -229,25 +241,33 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        // Prevent default action and handle cancellation with JavaScript
-        $('#confirmCancelBtn').on('click', function(event) {
-            event.preventDefault();
-            // Show confirmation dialog
-            $('#confirmCancelModal').modal('hide'); // Hide the confirmation modal
-            var orderNo = $(this).data('order-no'); // Get the order number from data attribute
-            var productId = $(this).data('product-id'); // Get the product ID from data attribute
-            var cancelUrl = "{% url 'cancel_order' order_number=1 product_id=0 %}".replace('0', productId).replace('1', orderNo); // Generate cancel URL
-            window.location.href = cancelUrl; // Redirect to cancel URL
-        });
-
-        // Show confirmation modal when the No button is clicked
+        // Show confirmation modal when the Cancel button is clicked
         $('.no-btn').on('click', function(event) {
             event.preventDefault();
-            var productId = $(this).data('product-id'); // Get the product ID from data attribute
-            var orderNo = $(this).data('order-no'); // Get the order number from data attribute
-            $('#confirmCancelModal').modal('show'); // Show the confirmation modal
-            $('#confirmCancelBtn').data('product-id', productId); // Set the product ID to data attribute of the cancel button
-            $('#confirmCancelBtn').data('order-no', orderNo); // Set the order number to data attribute of the cancel button
+            var productId = $(this).data('product-id');
+            var orderNo = $(this).data('order-no');
+            $('#confirmCancelModal').modal('show');
+            $('#confirmCancelBtn').data('product-id', productId);
+            $('#confirmCancelBtn').data('order-no', orderNo);
+        });
+
+        // Handle cancellation form submission
+        $('#confirmCancelBtn').on('click', function(event) {
+            event.preventDefault();
+            var productId = $(this).data('product-id');
+            var orderNo = $(this).data('order-no');
+            var cancelReason = $('#cancelReason').val();
+            
+            if (cancelReason === "") {
+                alert("Please select a reason for cancellation.");
+                return;
+            }
+            
+            var cancelUrl = "{% url 'cancel_order' order_number=1 product_id=0 reason_value=2 %}"
+                .replace('0', productId)
+                .replace('1', orderNo)
+                .replace('2', cancelReason); // Generate cancel URL with reason
+            window.location.href = cancelUrl; // Redirect to cancel URL
         });
     });
 </script>

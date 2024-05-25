@@ -16,7 +16,7 @@ def create_vendor_order_status_history(sender, instance, **kwargs):
             changes.append(f' Order status: {instance.get_status_display()}')
         if previous.reason != instance.reason:
             current_reason = instance.get_reason_display() if instance.reason is not None else 'None'
-            changes.append(f"Order Canceled due to: {current_reason}")
+            changes.append(f"{current_reason}")
 
         if changes:
             VendorOrderStatusHistory.objects.create(

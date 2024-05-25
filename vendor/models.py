@@ -7,7 +7,8 @@ STATUS = ((0, "Preparing to ship"), (1, "Shipped"), (2, "Delivered"), (3, "Deliv
 REASON = (
     (0, "Out of Stock"),
     (1, "Price Difference"),
-    (2, "other")
+    (2, "customer request"),
+    (3, "other")
 )
 
 class VendorOrder(models.Model):

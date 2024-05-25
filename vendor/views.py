@@ -378,38 +378,34 @@ def active_vendor_orders(request):
 
 @staff_required
 # Vendors cancel order
-def cancel_order(request, order_number, product_id):
+def cancel_order(request, order_number, product_id, reason_value):
     """ Vendor decision to cancel orders """
     
-    try:    
-        vendor_order_item = get_object_or_404(
-                VendorOrder, 
-                item__order__order_number=order_number, 
-                item__product__id=product_id
-                )
-        vendor_order_item.status = 4
-        vendor_order_item.save()
+    vendor_order_item = get_object_or_404(
+            VendorOrder, 
+            item__order__order_number=order_number, 
+            item__product__id=product_id
+            )
 
-        order_line_item = get_object_or_404(
+    order_line_item = get_object_or_404(
         OrderLineItem, 
         order__order_number=order_number, 
         product__id=product_id
         )
-        order_line_item.status = 5
-        order_line_item.save()
-        messages.success(request, 'Your have marked this order as cancelled!')
-        
-        return redirect('new_vendor_orders')
+    
+    vendor_order_item.status = 4
+    vendor_order_item.reason = reason_value
+    vendor_order_item.save()
+    
+    order_line_item.status = 5
+    order_line_item.save()
 
-    except:
-        messages.error(request, f'Failed to cancel order.'
-                       ' Kindly refresh the page.')
-        
-    context = {
-        'vendor_order_item': vendor_order_item,
-    }
+    if vendor_order_item.status == 4:
+            messages.success(request, 'Your have set the order as canceled')
+            return redirect('vendor_order_view', order_no=order_number, orderline_id=order_line_item.id)
 
-    return render(request, 'vendor/orders.html', context)
+    return redirect('vendor_order_view', order_no=order_number, orderline_id=order_line_item.id)
+
 
 
 @staff_required

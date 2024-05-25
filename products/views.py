@@ -75,6 +75,7 @@ def product_detail(request, product_id):
     """ A view to show individual product details """
 
     product = get_object_or_404(Product, pk=product_id)
+    
 
     context = {
         'product': product,
@@ -86,9 +87,14 @@ def product_detail_by_slug(request, product_slug):
     """ A view to show individual product details """
 
     product = get_object_or_404(Product, slug=product_slug)
+    print('shgdvujhsuyj')
+    print(product.category_id)
+    similar_products = Product.objects.filter(category_id=product.category).order_by('?')[:4]
 
     context = {
         'product': product,
+        'similar_products': similar_products,
+
     }
 
     return render(request, 'products/product_detail.html', context)

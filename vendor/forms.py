@@ -9,13 +9,8 @@ class VendorOrderForm(forms.ModelForm):
     
     def __init__(self, *args, **kwargs):
         
-        condition_value = kwargs.pop('condition_value', None)
         super(VendorOrderForm, self).__init__(*args, **kwargs)
         
         self.fields['status'].choices = [
             choice for choice in self.fields['status'].choices if choice[0] != 4
         ]
-        
-        if condition_value is not None and condition_value > 2:
-            self.fields['status'].widget.attrs['disabled'] = 'disabled'
-            self.fields['status'].disabled = True  # Ensure it's not editable in the backend

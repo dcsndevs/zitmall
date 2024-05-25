@@ -227,14 +227,11 @@ def vendor_order_view(request, order_no, orderline_id):
                 order_line_item.status = 5
                 order_line_item.save()
             messages.success(request, 'Order status has been updated successfully!')
-            return redirect('vendor_orders')
-            
+            return redirect('vendor_orders')         
         
     else:
         form = VendorOrderForm(instance=vendor_order)
         
-    if condition_value > 2:
-            form.fields['status'].widget.attrs['disabled'] = 'disabled'
     context = {
         'order': order_line_item,
         'form': form,
@@ -402,6 +399,42 @@ def cancel_order(request, order_number, product_id):
 
     except:
         messages.error(request, f'Failed to cancel order.'
+                       ' Kindly refresh the page.')
+        
+    context = {
+        'vendor_order_item': vendor_order_item,
+    }
+
+    return render(request, 'vendor/orders.html', context)
+
+
+@staff_required
+# Vendors ship order
+def ship_order(request, order_number, product_id):
+    """ Vendor decision to cancel orders """
+    
+    try:    
+        vendor_order_item = get_object_or_404(
+                VendorOrder, 
+                item__order__order_number=order_number, 
+                item__product__id=product_id
+                )
+        vendor_order_item.status = 1
+        vendor_order_item.save()
+
+        order_line_item = get_object_or_404(
+        OrderLineItem, 
+        order__order_number=order_number, 
+        product__id=product_id
+        )
+        order_line_item.status = 2
+        order_line_item.save()
+        messages.success(request, 'Your have set the order as shipped!')
+        
+        return redirect('vendor_order_view')
+
+    except:
+        messages.error(request, f'Failed to ship order.'
                        ' Kindly refresh the page.')
         
     context = {

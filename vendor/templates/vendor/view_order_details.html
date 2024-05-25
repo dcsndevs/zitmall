@@ -11,88 +11,90 @@
 
 {% block content %}
 <div class="row mt-1 mb-2">
-    
     <div class="col-12">
         <p class="text-muted mt-3 text-center">
             Order Details
         </p>
     </div>
 </div>
-<div>
-    </div>
-    <div class="table-responsive">
-        <form method="POST">
-            <table class="table table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Order No</th>
-                        <th scope="col">Product/Address</th>
-                        <th scope="col">Qty</th>
-                        <th scope="col">Amount</th>
-                        <th scope="col">Status</th>
-                        {% if condition_value == 0 or condition_value == 1 %}
-                        <th scope="col">Action</th>
+<div class="table-responsive">
+    <form method="POST">
+        {% csrf_token %}
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Order No</th>
+                    <th scope="col">Product/Address</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Status</th>
+                    {% if condition_value == 0 or condition_value == 1 %}
+                    <th scope="col">Action</th>
+                    {% endif %}
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ order.order.order_number }}</td>
+                    <td>
+                        {{ order.product }}<br>
+                        {{ order.order.full_name }}<br>
+                        {{ order.order.street_address1 }}<br>
+                        {{ order.order.street_address2 }}<br>
+                        {{ order.order.town_or_city }}<br>
+                        {{ order.order.county }}<br>
+                        {{ order.order.country }}
+                    </td>
+                    <td>{{ order.quantity }}</td>
+                    <td>{{ order.lineitem_total }}</td>
+                    <td>
+                        {% if condition_value == 1 %}
+                            Shipped
+                        {% elif condition_value == 2 %}
+                            Delivered
+                        {% elif condition_value == 3 %}
+                            Delivery Failed
+                        {% elif condition_value == 4 %}
+                            Cancelled
+                        {% else %}
+                            Preparing to ship
                         {% endif %}
-
-                    </tr>
-                </thead>
-                <tbody>
-                        <tr>
-                            <td>{{ order.order.order_number }}</td>
-                            <td>{{ order.product }}<br>
-                                {{ order.order.full_name }}
-                                {{ order.order.street_address1 }},
-                                {{ order.order.street_address2 }}, 
-                                {{ order.order.town_or_city }},
-                                {{ order.order.county }},
-                                {{ order.order.country }}.
-                            </td>
-                            <td>{{ order.quantity }}</td>
-                            <td>{{ order.lineitem_total }}</td>
-                            
-                            <td>
-                                {% if condition_value == 2 %}
-                                    Delivered
-                                {% elif condition_value == 3 %}
-                                    Delivery Failed
-                                {% elif condition_value == 4 %}
-                                    Cancelled
-                                {% else %}
-                                <div class="d-flex gap-2 form-control">
-                                    <div>
-                                        {% csrf_token %}
-                                        {{ form.status | as_crispy_field }}        
-                                    </div>
-                                    <div>
-                                        {% if condition_value == 0 or condition_value == 1 or condition_value == 4 %}
-                                            <button class="btn btn-black btn-sm" type="submit">Update</button>
-                                        {% endif %}
-                                    </div>
-                                </div>
-
+                    </td>
+                    {% if condition_value == 0 or condition_value == 1 %}
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="actionDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                Actions
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="actionDropdown">
+                                {% if not condition_value == 1 %}
+                                <li><a 
+                                    class="dropdown-item" 
+                                    href="{% url 'ship_order' order_number=order.order.order_number product_id=order.product.id %}">
+                                    Ship
+                                    </a>
+                                </li>
                                 {% endif %}
-                            </td>
-                            {% if condition_value == 4 %}
-                            {% else %}
-                            <td>
-                                <button 
-                                    class="btn btn-sm btn-outline-danger no-btn"
-                                    data-product-id="{{ order.product.id }}" 
-                                    data-order-no="{{ order.order.order_number }}" 
-                                    data-bs-toggle="modal" 
-                                    data-bs-target="#confirmCancelModal"> Cancel order
-                                </button>
-                            </td>
-                            {% endif %}
-                        </tr>
-                </tbody>
-            </table>
-        </form>
-        <div>
-            
-        </div>
-    </div>
-    
+                                <li><a class="dropdown-item" href="#">Deliver</a></li>
+                                <li><a class="dropdown-item" href="#">Delivery Failed</a></li>
+                                <li>
+                                    <button 
+                                        type="button"
+                                        class="dropdown-item no-btn"
+                                        data-product-id="{{ order.product.id }}" 
+                                        data-order-no="{{ order.order.order_number }}" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#confirmCancelModal"> Cancel order
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                    {% endif %}
+                </tr>
+            </tbody>
+        </table>
+    </form>
 </div>
 
 <!-- Modal -->
@@ -116,8 +118,9 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        // Handle click event on Cancel button in modal
-        $('#confirmCancelBtn').on('click', function() {
+        // Prevent default action and handle cancellation with JavaScript
+        $('#confirmCancelBtn').on('click', function(event) {
+            event.preventDefault();
             // Show confirmation dialog
             $('#confirmCancelModal').modal('hide'); // Hide the confirmation modal
             var orderNo = $(this).data('order-no'); // Get the order number from data attribute
@@ -127,7 +130,8 @@
         });
 
         // Show confirmation modal when the No button is clicked
-        $('.no-btn').on('click', function() {
+        $('.no-btn').on('click', function(event) {
+            event.preventDefault();
             var productId = $(this).data('product-id'); // Get the product ID from data attribute
             var orderNo = $(this).data('order-no'); // Get the order number from data attribute
             $('#confirmCancelModal').modal('show'); // Show the confirmation modal
@@ -136,7 +140,4 @@
         });
     });
 </script>
-    
-    
 {% endblock %}
- 

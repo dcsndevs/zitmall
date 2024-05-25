@@ -31,12 +31,5 @@ class VendorOrder(models.Model):
             self.fulfilment = 0  # Assuming 0 corresponds to "Cancelled"
             self.status = 5
         
-        if self.status > 1:  # Assuming 2 corresponds to "Delivered"
-            # Disable other status options
-            self._meta.get_field('status').choices = ((0, 'Pending'),)
-            
-        if self.pk and self.status > 2:
-            original = VendorOrder.objects.get(pk=self.pk)
-            if original.status > 2 and self.status != original.status:
-                self.status = original.status  # Revert status change if it's attempted to be modified
+       
         super().save(*args, **kwargs)

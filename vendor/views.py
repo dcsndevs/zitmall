@@ -418,28 +418,24 @@ def ship_order(request, order_number, product_id):
             item__order__order_number=order_number, 
             item__product__id=product_id
             )
+    
+    order_line_item = get_object_or_404(
+        OrderLineItem, 
+        order__order_number=order_number, 
+        product__id=product_id
+        )
+    
     vendor_order_item.status = 1
     vendor_order_item.save()
 
-    order_line_item = get_object_or_404(
-    OrderLineItem, 
-    order__order_number=order_number, 
-    product__id=product_id
-    )
     order_line_item.status = 2
     order_line_item.save()
-    messages.success(request, 'Your have set the order as shipped!')
     
-    return redirect('vendor_order_view')
+    if vendor_order_item.status == 1:
+            messages.success(request, 'Your have set the order as shipped!')
+            return redirect('vendor_order_view', order_no=order_number, orderline_id=order_line_item.id)
 
-    messages.error(request, f'Failed to ship order.'
-                    ' Kindly refresh the page.')
-        
-    context = {
-        'vendor_order_item': vendor_order_item,
-    }
-
-    return render(request, 'vendor/orders.html', context)
+    return redirect('vendor_order_view', order_no=order_number, orderline_id=order_line_item.id)
 
 
 @staff_required
@@ -458,11 +454,9 @@ def deliver_order(request, order_number, product_id):
         order__order_number=order_number, 
         product__id=product_id
         )
-    
-    
+     
     vendor_order_item.status = 2
     vendor_order_item.save()
-
 
     order_line_item.status = 3
     order_line_item.save()
@@ -471,5 +465,33 @@ def deliver_order(request, order_number, product_id):
         messages.success(request, 'Your have set the order to Delivered!')
         return redirect('vendor_order_view', order_no=order_number, orderline_id=order_line_item.id)
 
+    return render(request, 'vendor_order_view')
+
+@staff_required
+# Vendors delivery failed order
+def delivery_failed_order(request, order_number, product_id):
+    """ Vendor decision to fail the ongoing delivery orders """
+    
+    vendor_order_item = get_object_or_404(
+            VendorOrder, 
+            item__order__order_number=order_number, 
+            item__product__id=product_id
+            )
+    
+    order_line_item = get_object_or_404(
+        OrderLineItem, 
+        order__order_number=order_number, 
+        product__id=product_id
+        )
+     
+    vendor_order_item.status = 3
+    vendor_order_item.save()
+
+    order_line_item.status = 4
+    order_line_item.save()
+    
+    if vendor_order_item.status == 3:
+        messages.success(request, 'Your have set the order to Delivery failed!')
+        return redirect('vendor_order_view', order_no=order_number, orderline_id=order_line_item.id)
 
     return render(request, 'vendor_order_view')

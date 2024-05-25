@@ -63,7 +63,7 @@
                     {% if condition_value == 0 or condition_value == 1 %}
                     <td>
                         <div class="dropdown">
-                            <button class="btn btn-sm btn-secondary dropdown-toggle" type="button" id="actionDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button class="btn btn-sm btn-primary dropdown-toggle" type="button" id="actionDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                                 Update
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="actionDropdown">
@@ -75,13 +75,14 @@
                                     </a>
                                 </li>
                                 {% endif %}
-                                <li><a class="dropdown-item" 
-                                    href="{% url 'deliver_order' order_number=order.order.order_number product_id=order.product.id %}">Deliver</a></li>
-                                <li><a class="dropdown-item" href="#">Delivery Failed</a></li>
+                                <li><a class="dropdown-item text-success" 
+                                    href="{% url 'deliver_order' order_number=order.order.order_number product_id=order.product.id %}">Set to Delivered</a></li>
+                                <li><a class="dropdown-item text-warning" 
+                                    href="{% url 'delivery_failed_order' order_number=order.order.order_number product_id=order.product.id %}">Delivery Failed</a></li>
                                 <li>
                                     <button 
                                         type="button"
-                                        class="dropdown-item no-btn"
+                                        class="dropdown-item text-danger no-btn"
                                         data-product-id="{{ order.product.id }}" 
                                         data-order-no="{{ order.order.order_number }}" 
                                         data-bs-toggle="modal" 

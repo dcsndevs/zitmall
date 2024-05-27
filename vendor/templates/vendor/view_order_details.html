@@ -85,7 +85,7 @@
 </style>
 
 <section class="container-fluid">
-    <div class="row">
+    <div class="row bg-light">
         <!-- History Column -->
         <div class="col-md-4 bg-color-history section-column">
             <div class="row">
@@ -115,7 +115,7 @@
             <div class="table-responsive">
                 <form method="POST">
                     {% csrf_token %}
-                    <table class="table table-bordered table-hover">
+                    <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th scope="col" colspan="2">Order Details</th>
@@ -127,10 +127,16 @@
                                 <td>{{ order.order.order_number }}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Product/Address</th>
+                                <th scope="row">Product</th>
+                                <td>{{ order.product }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Full name</th>
+                                <td>{{ order.order.full_name }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Address</th>
                                 <td>
-                                    {{ order.product }}<br>
-                                    {{ order.order.full_name }}<br>
                                     {{ order.order.street_address1 }}<br>
                                     {{ order.order.street_address2 }}<br>
                                     {{ order.order.town_or_city }}<br>
@@ -139,7 +145,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <th scope="row">Qty</th>
+                                <th scope="row">Quantity</th>
                                 <td>{{ order.quantity }}</td>
                             </tr>
                             <tr>

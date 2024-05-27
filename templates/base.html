@@ -57,7 +57,7 @@
                 <div class="col-12 col-sm-4 my-auto py-1 py-lg-0 text-center text-lg-left">
                     <a class="navbar-brand" href="{% url 'home' %}"><img class="h1" src="https://res.cloudinary.com/djhi60enx/image/upload/v1714657570/zitmall-shopping-logo_j6yges.png" style="width: 200px;" alt="zitmall-logo"></a>
                 </div>
-                <div class="col-12 col-sm-4 my-auto py-1 py-lg-0">
+                <div class="col-12 col-sm-4 my-auto py-1 py-lg-0 search-input">
                     <form method="GET" action="{% url 'products' %}" role="search">
                         <input class="form-control" type="search" name="q" placeholder="What are you looking for?" aria-label="Search">
                     </form>
@@ -193,7 +193,7 @@
                 <div id="msg" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
                   <div class="toast-header">
                     <i class="btn btn-sm bi bi-envelope"></i> <strong class="me-auto text-capitalize text-{{ message.tags }}"> {{ message.tags }} Notification!</strong>
-                    <small>close</small>
+                    <small type=button data-bs-dismiss="toast" aria-label="Close">close</small>
                     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                   </div>
                   <div class="toast-body">

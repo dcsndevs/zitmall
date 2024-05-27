@@ -200,8 +200,7 @@ def status_products(request, product_id, product_status):
 def vendor_order_view(request, order_no, orderline_id):
     order_line_item = get_object_or_404(OrderLineItem, order__order_number=order_no, id=orderline_id)
     vendor_order, created = VendorOrder.objects.get_or_create(item=order_line_item)
-    print(vendor_order)
-    print(order_line_item)
+
     condition_value = vendor_order.status
     if request.method == 'POST':
         form = VendorOrderForm(request.POST, instance=vendor_order)
@@ -378,9 +377,9 @@ def active_vendor_orders(request):
 
 @staff_required
 # Vendors cancel order
-def cancel_order(request, order_number, product_id, reason_value):
+def cancel_order(request, order_number, product_id):
     """ Vendor decision to cancel orders """
-    
+    reason_value = request.POST.get('cancel_reason')
     vendor_order_item = get_object_or_404(
             VendorOrder, 
             item__order__order_number=order_number, 
@@ -392,7 +391,7 @@ def cancel_order(request, order_number, product_id, reason_value):
         order__order_number=order_number, 
         product__id=product_id
         )
-    
+    print(f'the reason is {reason_value}')
     vendor_order_item.status = 4
     vendor_order_item.reason = reason_value
     vendor_order_item.save()

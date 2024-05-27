@@ -18,7 +18,6 @@
     </div>
 </div>
 
-
 <!-- History Section -->
 <style>
 .history-heading {
@@ -207,7 +206,6 @@
     </div>
 </section>
 
-
 <!-- Modal -->
 <div class="modal fade" id="confirmCancelModal" tabindex="-1" role="dialog" aria-labelledby="confirmCancelModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -223,10 +221,10 @@
                         <label for="cancelReason">Select Reason for Cancellation</label>
                         <select class="form-control" id="cancelReason" name="cancel_reason">
                             <option value="">Choose...</option>
-                            <option value="1">Customer Request</option>
-                            <option value="2">Out of Stock</option>
-                            <option value="3">Price Issue</option>
-                            <option value="4">Other</option>
+                            <option value="0">Out of Stock</option>
+                            <option value="1">Price Difference</option>
+                            <option value="2">Customer request</option>
+                            <option value="3">Other</option>
                         </select>
                     </div>
                 </form>
@@ -263,11 +261,9 @@
                 return;
             }
             
-            var cancelUrl = "{% url 'cancel_order' order_number=1 product_id=0 reason_value=2 %}"
-                .replace('0', productId)
-                .replace('1', orderNo)
-                .replace('2', cancelReason); // Generate cancel URL with reason
-            window.location.href = cancelUrl; // Redirect to cancel URL
+            var form = $('#cancelOrderForm');
+            form.attr('action', "{% url 'cancel_order' order_number=1 product_id=0 %}".replace('0', productId).replace('1', orderNo));
+            form.submit();
         });
     });
 </script>

@@ -149,7 +149,7 @@ def delete_product(request, product_id):
 @staff_required
 def vendor_orders(request):
     """ A view to show all vendor orders, including sorting and search queries """
-    orders = OrderLineItem.objects.filter(product__vendor=request.user)
+    orders = OrderLineItem.objects.filter(product__vendor=request.user).exclude(status=0)
     orders = orders.order_by('-id')
     
     context = {
@@ -391,13 +391,17 @@ def cancel_order(request, order_number, product_id):
         order__order_number=order_number, 
         product__id=product_id
         )
-    print(f'the reason is {reason_value}')
-    vendor_order_item.status = 4
-    vendor_order_item.reason = reason_value
-    vendor_order_item.save()
-    
-    order_line_item.status = 5
-    order_line_item.save()
+    if vendor_order_item.accept == 0:
+        messages.error(request, 'You are yet to accept/reject this shipment.'
+                       ' You can only cancel orders that you have accepted.'
+                       ' Go to the new orders pageto reject it!')
+    else:
+        vendor_order_item.status = 4
+        vendor_order_item.reason = reason_value
+        vendor_order_item.save()
+        
+        order_line_item.status = 5
+        order_line_item.save()
 
     if vendor_order_item.status == 4:
             messages.success(request, 'Your have set the order as canceled')
@@ -424,11 +428,14 @@ def ship_order(request, order_number, product_id):
         product__id=product_id
         )
     
-    vendor_order_item.status = 1
-    vendor_order_item.save()
+    if vendor_order_item.accept == 0:
+        messages.error(request, "You are yet to accept this shipment. Go to the new order sction and accept it first!")
+    else:
+        vendor_order_item.status = 1
+        vendor_order_item.save()
 
-    order_line_item.status = 2
-    order_line_item.save()
+        order_line_item.status = 2
+        order_line_item.save()
     
     if vendor_order_item.status == 1:
             messages.success(request, 'Your have set the order as shipped!')
@@ -453,12 +460,14 @@ def deliver_order(request, order_number, product_id):
         order__order_number=order_number, 
         product__id=product_id
         )
-     
-    vendor_order_item.status = 2
-    vendor_order_item.save()
+    if vendor_order_item.accept == 0:
+        messages.error(request, "You are yet to accept this shipment. Go to the new order sction and accept it first!")
+    else:
+        vendor_order_item.status = 2
+        vendor_order_item.save()
 
-    order_line_item.status = 3
-    order_line_item.save()
+        order_line_item.status = 3
+        order_line_item.save()
     
     if vendor_order_item.status == 2:
         messages.success(request, 'Your have set the order to Delivered!')
@@ -482,12 +491,15 @@ def delivery_failed_order(request, order_number, product_id):
         order__order_number=order_number, 
         product__id=product_id
         )
-     
-    vendor_order_item.status = 3
-    vendor_order_item.save()
+    
+    if vendor_order_item.accept == 0:
+        messages.error(request, "You are yet to accept this shipment. Go to the new order sction and accept it first!")
+    else:
+        vendor_order_item.status = 3
+        vendor_order_item.save()
 
-    order_line_item.status = 4
-    order_line_item.save()
+        order_line_item.status = 4
+        order_line_item.save()
     
     if vendor_order_item.status == 3:
         messages.success(request, 'Your have set the order to Delivery failed!')

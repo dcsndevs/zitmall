@@ -81,21 +81,21 @@
                         <div class="col-12">
                             <p class="mt-3"><strong>Quantity:</strong></p>
                             <div class="form-group w-50">
-                                <div class="input-group">
+                                <div class="input-group input-group-{{ product.id }}">
                                     <div class="input-group-prepend">
-                                        <button class="decrement-qty btn btn-black rounded-0" 
+                                        <button class="decrement-qty btn btn-black rounded-0 decrement-qty_{{ product.id }}" 
                                             data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
                                             <span class="icon">
                                                 <i class="fas fa-minus"></i>
                                             </span>
                                         </button>
                                     </div>
-                                    <input class="form-control qty_input" type="number"
-                                        name="quantity" value="1" min="1" max="99"
+                                    <input class="form-control qty_input id_qty_{{ product.id }}" type="number"
+                                        name="quantity" value="1" min="1" max="{{ product.quantity }}"
                                         data-item_id="{{ product.id }}"
                                         id="id_qty_{{ product.id }}">
                                     <div class="input-group-append">
-                                        <button class="increment-qty btn btn-black rounded-0"
+                                        <button class="increment-qty btn btn-black rounded-0 increment-qty_{{ product.id }}"
                                             data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
                                             <span class="icon">
                                                 <i class="fas fa-plus"></i>
@@ -167,7 +167,7 @@
                             {% if product.old_price %}
                                 <del class="text-danger small">${{ product.old_price }} </del>
                             {% endif %}
-                            <span class="fs-5">${{ product.price }}</span>
+                            <span class="fs-5" id="stock" data-remaining_stock="{{ product.quantity }}">${{ product.price }}</span>
                         </p>
                         <p class="card-text text-center my-0" style="height: 40px; overflow: hidden; text-overflow: ellipsis;">
                             <button type="button" class="btn btn-sm btn-dark text-decoration-none add-to-cart-btn" id="addCartBtn" data-product-id="{{ product.id }}" data-product-price="{{ product.price }}">Add to <i class="bi-cart4"></i></button>
@@ -202,11 +202,13 @@
         $('#imageModal').modal('show');
     }
 
-    // Disable +/- buttons outside 1-99 range
+    // Disable +/- buttons outside 1-available stock range
     function handleEnableDisable(itemId) {
         var currentValue = parseInt($(`#id_qty_${itemId}`).val());
+        var $stock = $('#stock');
+        var remaining_stock = parseInt($stock.data('remaining_stock'), 10);
         var minusDisabled = currentValue < 2;
-        var plusDisabled = currentValue > 98;
+        var plusDisabled = currentValue > remaining_stock - 1;
         $(`#decrement-qty_${itemId}`).prop('disabled', minusDisabled);
         $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled);
     }

@@ -23,8 +23,11 @@ class VendorOrder(models.Model):
 
     def save(self, *args, **kwargs):
         #Disables status option when acceptance is still pending
-        if self.accept == 0:
-            self._meta.get_field('status').choices
+        if self.pk is not None:
+            # This is an update operation
+            previous = VendorOrder.objects.get(pk=self.pk)
+            if previous.accept == 0 and self.accept == 0:
+                self.status = previous.status
             
         # Check if accept is set to "No"
         if self.accept == 2:  # Assuming 2 corresponds to "No"

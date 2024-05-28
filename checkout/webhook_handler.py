@@ -20,7 +20,6 @@ class StripeWH_Handler:
 
     def _send_confirmation_email(self, order):
         """Send the user a confirmation email"""
-        print("Print1")
         cust_email = order.email
         subject = render_to_string(
             'checkout/confirmation_emails/confirmation_email_subject.txt',
@@ -58,9 +57,11 @@ class StripeWH_Handler:
             intent.latest_charge
         )
 
-        billing_details = intent.charges.data[0].billing_details
+        # billing_details = intent.charges.data[0].billing_details #old
+        billing_details = stripe_charge.billing_detail #updated
         shipping_details = intent.shipping
-        grand_total = round(intent.charges.data[0].amount / 100, 2)
+        # grand_total = round(intent.charges.data[0].amount / 100, 2) #old 
+        grand_total = round(stripe_charge.amount / 100, 2) # updated
 
         # Clean data in the shipping details
         for field, value in shipping_details.address.items():

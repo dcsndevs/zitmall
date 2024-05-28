@@ -64,7 +64,7 @@ def add_to_cart(request, item_id):
     
     # Check stock availability before adding to cart
     if not check_stock_availability(product, size, quantity, cart):
-        messages.error(request, f'Sorry, you cannot add more items. The maximum available stock has been reached.')
+        messages.error(request, f'Sorry, you cannot add more items. The maximum available stock is ${product.quantity}.')
         return redirect(redirect_url)
 
     if size:

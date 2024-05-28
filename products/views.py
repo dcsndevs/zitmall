@@ -90,7 +90,7 @@ def product_detail_by_slug(request, product_slug):
     similar_products = Product.objects.filter(category_id=product.category).exclude(status=0).order_by('?')[:4]
 
     if product.status == 0:
-        messages.info(request, "That product is currently unaavailable. We have populated some similar products for you!")
+        messages.info(request, "That product is currently unavailable.")
         similar_products = Product.objects.filter(category_id=product.category).exclude(status=0).order_by('?')[:12]
 
         context = {'products': similar_products,}

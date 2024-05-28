@@ -58,7 +58,7 @@ class StripeWH_Handler:
         )
 
         # billing_details = intent.charges.data[0].billing_details #old
-        billing_details = stripe_charge.billing_detail #updated
+        billing_details = stripe_charge.billing_details #updated
         shipping_details = intent.shipping
         # grand_total = round(intent.charges.data[0].amount / 100, 2) #old 
         grand_total = round(stripe_charge.amount / 100, 2) # updated

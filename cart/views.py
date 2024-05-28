@@ -100,7 +100,7 @@ def adjust_cart(request, item_id):
         size = request.POST['product_size']
     cart = request.session.get('cart', {})
     
-        # Check stock availability before adding to cart
+    # Check stock availability before adding to cart
     if not check_stock_availability(product, size, quantity, cart):
         messages.error(request, f'Sorry, you cannot add more items. The maximum available stock has been reached.')
         return redirect(reverse('view_cart'))
@@ -154,7 +154,7 @@ def remove_from_cart(request, item_id):
 
 def quick_add_to_cart(request, item_id):
     """ Add a single quantity of the specified product to the shopping cart """
-
+        
     # Get the product instance
     product = get_object_or_404(Product, pk=item_id)
     
@@ -166,6 +166,14 @@ def quick_add_to_cart(request, item_id):
 
     # Get the session cart
     cart = request.session.get('cart', {})
+
+    # Check the current quantity in the cart
+    current_quantity_in_cart = cart.get(item_id, 0)
+    
+    # Check if adding one more exceeds the available stock
+    if current_quantity_in_cart + quantity > product.quantity:
+        message = f'Sorry, {product.title} is out of stock.'
+        return JsonResponse({'message': message, 'status': 'error'})
 
     # Check if the product is already in the cart
     if item_id in cart:
@@ -180,7 +188,7 @@ def quick_add_to_cart(request, item_id):
     # Update the session cart
     request.session['cart'] = cart
     
-    return JsonResponse({'message': message})
+    return JsonResponse({'message': message, 'status': 'success'})
 
 
 def empty_cart(request):

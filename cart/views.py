@@ -14,7 +14,6 @@ def view_cart(request):
     cart = request.session.get('cart', {})
     current_cart = cart_contents(request)
     total = current_cart['discount']
-    print(f'this is the {total}')
     
     return render(request, 'cart/cart.html')
 

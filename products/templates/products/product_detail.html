@@ -93,7 +93,7 @@
                                     <input class="form-control qty_input id_qty_{{ product.id }}" type="number"
                                         name="quantity" value="1" min="1" max="{{ product.quantity }}"
                                         data-item_id="{{ product.id }}"
-                                        id="id_qty_{{ product.id }}">
+                                        id="id_qty_{{ product.id }}" data-stock="{{ product.quantity }}">
                                     <div class="input-group-append">
                                         <button class="increment-qty btn btn-black rounded-0 increment-qty_{{ product.id }}"
                                             data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
@@ -186,7 +186,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="imageModalLabel">Image Preview</h5>
+                <h5 class="modal-title" id="imageModalLabel">Product image preview</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -195,57 +195,15 @@
         </div>
     </div>
 </div>
+{% endblock %}
 
+{% block postloadjs %}
+{{ block.super }}
+{% include 'includes/quantity_input_script.html' %}
 <script type="text/javascript">
     function showModal(imageUrl) {
         document.getElementById('modalImage').src = imageUrl;
         $('#imageModal').modal('show');
     }
-
-    // Disable +/- buttons outside 1-available stock range
-    function handleEnableDisable(itemId) {
-        var currentValue = parseInt($(`#id_qty_${itemId}`).val());
-        var $stock = $('#stock');
-        var remaining_stock = parseInt($stock.data('remaining_stock'), 10);
-        var minusDisabled = currentValue < 2;
-        var plusDisabled = currentValue > remaining_stock - 1;
-        $(`#decrement-qty_${itemId}`).prop('disabled', minusDisabled);
-        $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled);
-    }
-
-    // Ensure proper enabling/disabling of all inputs on page load
-    var allQtyInputs = $('.qty_input');
-    for(var i = 0; i < allQtyInputs.length; i++){
-        var itemId = $(allQtyInputs[i]).data('item_id');
-        handleEnableDisable(itemId);
-    }
-
-    // Check enable/disable every time the input is changed
-    $('.qty_input').change(function() {
-        var itemId = $(this).data('item_id');
-        handleEnableDisable(itemId);
-    });
-
-    // Increment quantity
-    $('.increment-qty').click(function(e) {
-       e.preventDefault();
-       var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
-       var currentValue = parseInt($(closestInput).val());
-       $(closestInput).val(currentValue + 1);
-       var itemId = $(this).data('item_id');
-       handleEnableDisable(itemId);
-    });
-
-    // Decrement quantity
-    $('.decrement-qty').click(function(e) {
-       e.preventDefault();
-       var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
-       var currentValue = parseInt($(closestInput).val());
-       $(closestInput).val(currentValue - 1);
-       var itemId = $(this).data('item_id');
-       handleEnableDisable(itemId);
-    });
-
-
 </script>
 {% endblock %}

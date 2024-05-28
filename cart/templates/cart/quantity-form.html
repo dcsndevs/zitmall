@@ -13,8 +13,8 @@
             </div>
             <input class="form-control form-control-sm qty_input id_qty_{{ item.item_id }} 
                 {% if item.size %}size_{{ item.item_id }}_{{ item.size }}{% endif %}" type="number"
-                name="quantity" value="{{ item.quantity }}" min="1" max="{{ product.quantity }}" data-stock="{{ product.quantity }}"
-                data-item_id="{{ item.item_id }}" data-size="{{ item.size }}">
+                name="quantity" value="{{ item.quantity }}" min="1" max="{{ item.product.quantity }}"
+                data-item_id="{{ item.item_id }}" data-size="{{ item.size }}" data-stock="{{ item.product.quantity }}">
             <div class="input-group-append">
                 <button class="increment-qty btn btn-sm btn-black rounded-0 increment-qty_{{ item.item_id }} 
                     {% if item.size %}increment-size_{{ item.item_id }}_{{ item.size }}{% endif %}"

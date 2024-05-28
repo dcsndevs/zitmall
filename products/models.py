@@ -76,3 +76,8 @@ class Product(models.Model):
 
     def __str__(self):
         return self.title
+    
+    def save(self, *args, **kwargs):
+        if self.status == 0:  # If the status is "Draft"
+            self.quantity = 0  # Set the quantity to zero
+        super(Product, self).save(*args, **kwargs)

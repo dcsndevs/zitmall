@@ -14,7 +14,7 @@ class ProductAdmin(admin.ModelAdmin):
         'category',
         'price',
         'vendor',
-        'product_brand',
+        'quantity',
         'status',
     )
     summernote_fields = ('description')

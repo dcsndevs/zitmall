@@ -91,11 +91,7 @@ def product_detail_by_slug(request, product_slug):
 
     if product.status == 0:
         messages.info(request, "That product is currently unavailable.")
-        similar_products = Product.objects.filter(category_id=product.category).exclude(status=0).order_by('?')[:12]
-
-        context = {'products': similar_products,}
-
-        return render(request, 'products/products.html', context)
+        return redirect('products')
 
     context = {
         'product': product,

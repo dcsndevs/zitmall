@@ -1,3 +1,9 @@
 <p class="my-0"><strong><a class="text-decoration-none" href="{% url 'product_detail_by_slug' product_slug=item.product.slug %}">{{ item.product.title }}</a></strong></p>
-<p class="my-0"><strong>Size: </strong>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</p>
+{% if item.product.has_sizes %}
+<p class="my-0"><strong>Size: </strong>{{ item.size|upper }}</p>
+{% endif %}
 <p class="my-0 small text-muted">SKU: {{ item.product.sku|upper }}</p>
+{% if item.product.quantity <= 5 %}
+<br>
+<b class="bg-light"><small class="text-muted">Item is low on stock. <span class="text-danger">Only {{ item.product.quantity }} left!</span></small></b>
+{% endif %}

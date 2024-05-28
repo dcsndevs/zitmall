@@ -7,6 +7,7 @@
     function handleEnableDisable(itemId, size) {
         if (size) {
             var currentValue = parseInt($(`.size_${itemId}_${size}`).val());
+            stock = parseInt($(`.id_qty_${itemId}`).data('stock'), 10);
         } else {
             var currentValue = parseInt($(`.id_qty_${itemId}`).val());
             stock = parseInt($(`.id_qty_${itemId}`).data('stock'), 10);
@@ -18,7 +19,7 @@
             const toastLive = document.getElementById('liveToast');
             const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLive);
             let successMessage = document.getElementById('toastcc');
-            successMessage.textContent = "Sorry you cannot add more items: Maximum stock unit has been reached.";
+            successMessage.textContent = "Sorry, you cannot add more items. The maximum available stock has been reached.";
             toastBootstrap.show();
         }
         if (size) {

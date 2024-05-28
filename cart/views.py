@@ -61,6 +61,11 @@ def add_to_cart(request, item_id):
     if 'product_size' in request.POST:
         size = request.POST['product_size']
     cart = request.session.get('cart', {})
+    
+    # Check stock availability before adding to cart
+    if not check_stock_availability(product, size, quantity, cart):
+        messages.error(request, f'Sorry, you cannot add more items. The maximum available stock has been reached.')
+        return redirect(redirect_url)
 
     if size:
         if item_id in list(cart.keys()):
@@ -94,6 +99,11 @@ def adjust_cart(request, item_id):
     if 'product_size' in request.POST:
         size = request.POST['product_size']
     cart = request.session.get('cart', {})
+    
+        # Check stock availability before adding to cart
+    if not check_stock_availability(product, size, quantity, cart):
+        messages.error(request, f'Sorry, you cannot add more items. The maximum available stock has been reached.')
+        return redirect(reverse('view_cart'))
 
     if size:
         if quantity > 0:
@@ -184,3 +194,36 @@ def empty_cart(request):
     request.session['cart'] = cart
     
     return redirect(reverse('view_cart'))    
+
+def check_stock_availability(product, size, quantity, cart):
+    """
+    Check if the requested quantity of the product is available.
+    
+    Args:
+        product (Product): The product object.
+        size (str): The size of the product, if applicable.
+        quantity (int): The requested quantity.
+        cart (dict): The current shopping cart.
+
+    Returns:
+        bool: True if the requested quantity is available, False otherwise.
+    """
+    available_stock = product.quantity
+
+    if size:
+        # Adjust available stock if size-based inventory is used
+        if product.has_sizes:
+            size_stock = product.sizes.get(size=size)
+            if size_stock:
+                available_stock = size_stock.quantity
+            else:
+                return False
+
+    current_quantity = 0
+    if product.pk in cart:
+        if size:
+            current_quantity = cart[product.pk]['items_by_size'].get(size, 0)
+        else:
+            current_quantity = cart[product.pk]
+
+    return (current_quantity + quantity) <= available_stock

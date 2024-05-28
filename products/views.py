@@ -87,9 +87,15 @@ def product_detail_by_slug(request, product_slug):
     """ A view to show individual product details """
 
     product = get_object_or_404(Product, slug=product_slug)
-    print('shgdvujhsuyj')
-    print(product.category_id)
-    similar_products = Product.objects.filter(category_id=product.category).order_by('?')[:4]
+    similar_products = Product.objects.filter(category_id=product.category).exclude(status=0).order_by('?')[:4]
+
+    if product.status == 0:
+        messages.info(request, "That product is currently unaavailable. We have populated some similar products for you!")
+        similar_products = Product.objects.filter(category_id=product.category).exclude(status=0).order_by('?')[:12]
+
+        context = {'products': similar_products,}
+
+        return render(request, 'products/products.html', context)
 
     context = {
         'product': product,

@@ -1,6 +1,6 @@
 User-agent: *
 Disallow: /accounts/
-Disallow: /bag/
+Disallow: /cart/
 Disallow: /cart/
 Disallow: /vendor/
 Disallow: /profiles/

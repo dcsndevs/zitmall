@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
-from django.contrib.auth.models import User
+from .forms import VendorRegistrationForm
 
 from products.models import Product, Category
 
@@ -58,3 +58,23 @@ def index(request):
 def privacy_policy(request):
     
     return render(request, 'home/privacy-policy.html')
+
+def vendor_signup(request):
+    
+    
+    text = "Your registration is completed! We would get back to you within 2 business working days."
+    vendor_form = VendorRegistrationForm()
+    
+    if request.method == 'POST':
+        vendor_form = VendorRegistrationForm(request.POST)
+
+        if vendor_form.is_valid():
+            vendor_form.save()
+            messages.add_message(request, messages.SUCCESS, text)
+            return redirect('home')
+
+    else:
+        vendor_form = VendorRegistrationForm()
+    return render(request, 'home/register.html', {
+        'vendor_form': vendor_form,
+    })

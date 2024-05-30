@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<style>
+    .form-control,
+    select,
+    select option, 
+    select:invalid,
+    select option[value=""] {
+    border-radius: 0 !important;
+    color: #000;
+    border: 1px solid #000;
+    }
+</style>
+{% endblock %}
+
+{% block page_header %}
+    <!-- Add any header content here if needed -->
+{% endblock %}
+
+{% block content %}
+
+<section class="custom-slide-container">
+    
+    <!-- Contact Form -->
+    <section>
+        <div class="col-12 col-lg-6 mt-3">
+            <p class="text-muted">Please fill out the form to register and become a vendor</p>
+            <form method="POST"></form>
+                {% csrf_token %}
+                <fieldset class="rounded-0 px-3 mb-5">
+                    <legend class="fieldset-label small text-black px-2 w-auto">Store details</legend>
+                    {{ vendor_form.full_name | as_crispy_field }}
+                    {{ vendor_form.email | as_crispy_field }}
+                    {{ vendor_form.store_name | as_crispy_field }}
+                    {{ vendor_form.current_website | as_crispy_field }}
+                </fieldset>
+                <fieldset class="rounded-0 px-3 mb-5">
+                    <legend class="fieldset-label small text-black px-2 w-auto">Contact details</legend>
+                    {{ vendor_form.phone_number | as_crispy_field }}
+                    {{ vendor_form.street_address1 | as_crispy_field }}
+                    {{ vendor_form.street_address2 | as_crispy_field }}
+                    {{ vendor_form.town_or_city | as_crispy_field }}
+                    {{ vendor_form.county | as_crispy_field }}
+                    {{ vendor_form.postcode | as_crispy_field }}
+                    {{ vendor_form.country | as_crispy_field }}
+                    <div class="submit-button text-right">                    
+                        <button class="btn btn-black rounded-0">
+                            <span class="font-weight-bold">Register</span>
+                            <span class="icon">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </button>
+                    </div>
+                </form>
+                </fieldset>
+
+
+        </div>
+    </section>
+  
+</section>
+{% endblock %}
+{% block postloadjs %}
+    {{ block.super }}
+    
+{% endblock %}

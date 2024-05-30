@@ -53,9 +53,15 @@
     <body class="">
         <header class="mx-0 px-0">
             <!-- Large and medium screen navbar -->
-            <div id="topnav" class=" row navbar-light bg-light pt-lg-2 d-none d-sm-flex topnavmargin">
+            <div id="topnav" class=" row navbar-light bg-light pt-lg-2 d-none d-sm-flex topnavmargin ms-0">
                 <div class="col-12 col-sm-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-                    <a class="navbar-brand" href="{% url 'home' %}"><img class="h1" src="https://res.cloudinary.com/djhi60enx/image/upload/v1714657570/zitmall-shopping-logo_j6yges.png" style="width: 200px;" alt="zitmall-logo"></a>
+                    <a class="navbar-brand" href="{% url 'home' %}">
+                        {% if user.is_staff %}
+                        <img class="h1" src="https://res.cloudinary.com/djhi60enx/image/upload/v1717102841/zit-vendorarea-logo.png" style="width: 200px;" alt="zitmall-logo">
+                        {% else %}
+                        <img class="h1" src="https://res.cloudinary.com/djhi60enx/image/upload/v1714657570/zitmall-shopping-logo_j6yges.png" style="width: 200px;" alt="zitmall-logo">
+                        {% endif %}
+                    </a>
                 </div>
                 <div class="col-12 col-sm-4 my-auto py-1 py-lg-0 search-input">
                     <form method="GET" action="{% url 'products' %}" role="search">
@@ -143,7 +149,7 @@
                                 </li>
                                 {% else %} 
                                 <li class="dropdown-item">
-                                    <em class="nav-link text-sm text-info">Not signed in</em>
+                                    <em class="nav-link text-sm text-primary">Not signed in</em>
                                 </li>
                                 <li class="dropdown-item">
                                     <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'view_cart' %}" aria-label="view_cart">
@@ -164,7 +170,11 @@
                     
                     <div class="col mx-0 px-0">
                         <a class="navbar-brand" href="{% url 'home' %}">
+                            {% if user.is_staff %}
+                            <img class="h1" src="https://res.cloudinary.com/djhi60enx/image/upload/v1717102841/zit-vendorarea-logo.png" style="width: 150px;" alt="zitmall-logo">
+                            {% else %}
                             <img class="h1" src="https://res.cloudinary.com/djhi60enx/image/upload/v1714657570/zitmall-shopping-logo_j6yges.png" style="width: 150px;" alt="zitmall-logo">
+                            {% endif %}
                         </a>
                     </div>
                     <div class="col mx-0 px-2 text-center">
@@ -174,7 +184,7 @@
                     </div>            
                 </div>
             </div>
-            <div class="navbar navmar bg-light col-12 d-block d-sm-none">
+            <div class="navbar navmar bg-light col-12 d-block d-sm-none px-4">
                 <form method="GET" action="{% url 'products' %}" role="search">
                     <input class="form-control" type="search" name="q" placeholder="What are you looking for?" aria-label="Search">
                 </form>

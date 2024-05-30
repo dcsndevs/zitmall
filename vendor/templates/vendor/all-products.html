@@ -42,31 +42,29 @@
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th scope="col">SKU</th>
+                    <th scope="col" class="d-none d-md-table-cell">SKU</th>
                     <th scope="col">Title</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Published</th>
-                    {% if request.user.is_staff %}
+                    <th scope="col" class="d-none d-md-table-cell">Price</th>
+                    <th scope="col" class="d-none d-md-table-cell">Published</th>
                     <th scope="col">Actions</th>
-                    {% endif %}
                 </tr>
             </thead>
             <tbody>
                 {% for product in products reversed %}
                     {% if product.slug %}
                     <tr>
-                        <td>{{ product.sku }}</td>
+                        <td class="d-none d-md-table-cell">{{ product.sku }}</td>
                         <td><a href="{% url 'product_detail_by_slug' product_slug=product.slug %}" class="text-dark" target="_blank">{{ product.title }}</a></td>
-                        <td>{{ product.price }}</td>
-                        <td>
+                        <td class="d-none d-md-table-cell">{{ product.price }}</td>
+                        <td class="d-none d-md-table-cell">
                             <div class="form-check form-switch">
                                 <input class="form-check-input status-toggle" type="checkbox" id="statusToggle{{ product.id }}" {% if product.status == 1 %} checked {% endif %} data-product-id="{{ product.id }}">
                             </div>
                         </td>
                         {% if request.user.is_staff %}
-                        <td class="d-flex">
-                            <a href="{% url 'edit_product' product.id %}" class="btn btn-sm btn-primary me-2">Edit</a>
-                            <button class="btn btn-sm btn-outline-danger delete-btn" data-product-id="{{ product.id }}" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">Delete</button>
+                        <td class="d-flex flex-column flex-md-row">
+                            <a href="{% url 'edit_product' product.id %}" class="btn btn-sm btn-primary  mb-2 mb-md-0 me-md-2">Edit</a>
+                            <button class="btn btn-sm btn-outline-danger delete-btn" data-product-id="{{ product.id }}" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">Del</button>
                         </td>
                         {% endif %}
                     </tr>
@@ -75,7 +73,7 @@
             </tbody>
         </table>
         {% else %}
-        <p>No Products here!. You have not created any products.</p>
+        <p>No Products here! You have not created any products.</p>
         <p>Click <a href="{% url 'add_product' %}">here</a> to start adding products to your store.</p>
         {% endif %}
     

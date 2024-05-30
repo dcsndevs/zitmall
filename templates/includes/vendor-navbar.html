@@ -6,11 +6,10 @@
 {% url 'new_vendor_orders' as new_vendor_orders_url %}
 {% url 'delivered_vendor_orders' as delivered_vendor_orders_url %}
 {% url 'delivery_failed_vendor_orders' as delivery_failed_vendor_orders_url %}
-
-
+{% block extra_css %}
 <style>
     .nav-item {
-        margin: 0.2rem;
+        padding: 0.2rem;
     }
     .nav-item button {
         width: 100%;
@@ -29,12 +28,17 @@
         display: inline-block;
     }
 </style>
+{% endblock %}
+
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand text-mute" href="#">Vendor Area</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <div class="d-flex">
+            <button class="navbar-toggler mx-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <span>Kindly use a large screen device in other to effectively use the vendor area.</span>
+        </div>
         <div class="collapse navbar-collapse" id="navbarNav">
             <div class="navbar-nav mx-auto text-center">
                 <div class="nav-item">

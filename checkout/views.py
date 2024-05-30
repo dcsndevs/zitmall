@@ -3,6 +3,11 @@ from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
 
+from django.contrib.auth.models import User
+from django.utils.crypto import get_random_string
+from django.template.loader import render_to_string
+from django.core.mail import send_mail
+
 from .forms import OrderForm
 from vendor.forms import VendorOrderForm
 from vendor.models import VendorOrder
@@ -23,6 +28,7 @@ def cache_checkout_data(request):
         stripe.PaymentIntent.modify(pid, metadata={
             'cart': json.dumps(request.session.get('cart', {})),
             'save_info': request.POST.get('save_info'),
+            'create_info': request.POST.get('create_info'),
             'username': request.user,
         })
         return HttpResponse(status=200)
@@ -98,6 +104,7 @@ def checkout(request):
                     return redirect(reverse('view_cart'))
 
             request.session['save_info'] = 'save-info' in request.POST
+            request.session['create_info'] = 'create-info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
@@ -159,6 +166,7 @@ def checkout_success(request, order_number):
     Handle successful checkouts
     """
     save_info = request.session.get('save_info')
+    create_info = request.session.get('create_info')
     order = get_object_or_404(Order, order_number=order_number)
 
     if request.user.is_authenticated:
@@ -181,6 +189,60 @@ def checkout_success(request, order_number):
             user_profile_form = UserProfileForm(profile_data, instance=profile)
             if user_profile_form.is_valid():
                 user_profile_form.save()
+    if create_info:
+        print('yes ------ yes')
+        user_email = order.email
+        if not User.objects.filter(email=user_email).exists():
+            full_name = order.full_name.strip()
+            name_parts = full_name.split(' ', 1)
+            first_name = name_parts[0]
+            last_name = name_parts[1] if len(name_parts) > 1 else ''
+            random_password = get_random_string(length=7)
+            
+            newuser = User.objects.create_user(
+                username=user_email,
+                email=user_email,
+                first_name=first_name,
+                last_name=last_name,
+                password=random_password
+            )
+            newuser.is_staff = False
+            newuser.save()
+            subject = f'Hey {order.full_name}: your Zitmall user login details'
+            body = render_to_string(
+                'checkout/confirmation_emails/newuser_email_body.txt',
+                {'order': order,
+                'contact_email': settings.DEFAULT_FROM_EMAIL,
+                'random_password': random_password})
+            
+            send_mail(
+                subject,
+                body,
+                settings.DEFAULT_FROM_EMAIL,
+                [user_email]
+            )   
+            
+            user_profile, created = UserProfile.objects.get_or_create(
+                    user=newuser)
+            
+            user_profile.default_phone_number = order.phone_number
+            user_profile.default_country = order.country
+            user_profile.default_postcode = order.postcode
+            user_profile.default_town_or_city = order.town_or_city
+            user_profile.default_street_address1 = order.street_address1
+            user_profile.default_street_address2 = order.street_address2
+            user_profile.default_county = order.county
+            user_profile.save()
+
+            order.user_profile = user_profile
+            order.save()
+            
+        elif User.objects.filter(email=user_email).exists():
+            user = User.objects.get(email=user_email)
+            user_profile = UserProfile.objects.get(user=user)
+            order.user_profile = user_profile
+            order.save()
+
 
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \

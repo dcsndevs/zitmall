@@ -9,7 +9,7 @@ from products.models import Product, Category
 def index(request):
     """ A view to return the index page """
 
-    products = Product.objects.all().order_by('?')[:10]
+    products = Product.objects.all().order_by('?')[:12]
     query = None
     categories = None
     sort = None

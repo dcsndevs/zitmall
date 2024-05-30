@@ -19,34 +19,37 @@
         <div class="row">
             <div class="col">
                 <hr>
-                <h2 class="h2 mb-4">Profile | {{ profile.user.first_name }} {{ profile.user.last_name }} </h2>
+                <h2 class="h2 mb-4 text-capitalize">Profile<span> {% if profile.user.last_name%} | {{ profile.user.first_name }} {{ profile.user.last_name }}{% endif %}</span></h2>
                 <hr>
             </div>
         </div>
         <div class="row">
             <div class="col-12 col-lg-6">
                 <p class="text-muted">Default Delivery Information for</p>
-                <p>{{ profile.user.first_name }} {{ profile.user.last_name }}</p>
+                <p class= "text-capitalize">User: {% if profile.user.last_name%}{{ profile.user.first_name }} {{ profile.user.last_name}}{% else %}<a class="text-primary" href="{% url 'persona' %}">Add</a>{% endif %}</p>
                 <p><hr></p>
-                <p>Email: {{ profile.user.email }}</p>
-                <p>Phone number: {{ profile.default_phone_number }}</p>
+                <p class= "text-capitalize">Email: {% if profile.user.email%}{{ profile.user.email }}{% else %}<a class="text-primary" href="{% url 'persona' %}">Add</a>{% endif %}</p>
+                <p>Phone number: {% if profile.default_phone_number %}{{ profile.default_phone_number }}{% else %}<a class="text-primary" href="{% url 'profile_address' %}">Add</a>{% endif %}</p>
                 <p><hr></p>
-                <p class="h4">Address</p>
-                <p>{{ profile.default_street_address1 }}<br>
-                {{ profile.default_street_address2 }}<br>
-                {{ profile.default_town_or_city }}<br>
-                {{ profile.default_county }}<br>
-                {{ profile.default_postcode }}<br>
-                {{ profile.default_country }}<br></p>
+                <p class="h4">ddress</p>
+                <p class= "text-capitalize">
+                    {% if profile.default_street_address1 %}{{ profile.default_street_address1 }}{% else %}<a class="text-primary" href="{% url 'profile_address' %}">Add</a><br>{% endif %}
+                    {% if profile.default_street_address2 %}{{ profile.default_street_address2 }}<br>{% endif %}
+                    {% if profile.default_town_or_city %}{{ profile.default_town_or_city }}<br>{% endif %}
+                    {% if profile.default_county %}{{ profile.default_county }}<br>{% endif %}
+                    {% if profile.default_postcode %}{{ profile.default_postcode }}<br>{% endif %}
+                    {% if profile.default_country %}{{ profile.default_country }}<br>{% endif %}
+                </p>
             </div>
+            
             <div class="row">
                 <div class="col-md-12">
                     <div class="card bg-light mb-3">
                         <div class="card-body">
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><a class="text-info" href="{% url 'persona' %}">Update your Persona</a></li>
-                                <li class="list-group-item"><a class="text-info" href="{% url 'profile_address' %}">Update your Address</a></li>
-                                <li class="list-group-item"><a class="text-info" href="{% url 'password_change' %}">Change Password</a></li>
+                                <li class="list-group-item"><a class="text-primary" href="{% url 'persona' %}">Update your Persona</a></li>
+                                <li class="list-group-item"><a class="text-primary" href="{% url 'profile_address' %}">Update your Address</a></li>
+                                <li class="list-group-item"><a class="text-primary" href="{% url 'password_change' %}">Change Password</a></li>
                             </ul>
                         </div>
                     </div>

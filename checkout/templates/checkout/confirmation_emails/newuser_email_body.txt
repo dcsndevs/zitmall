@@ -6,8 +6,8 @@ Note that a profile was automatically created for you on checkout. This would en
 
 You can use this randomly generated password and can change it to something else.
 
-Username: ${{ order.email }}
-Password: ${{ random_password}}
+Username: {{ order.email }}
+Password: {{ random_password}}
 
 Login: https://zitmall-1f03b915b742.herokuapp.com/accounts/login/
 

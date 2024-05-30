@@ -15,9 +15,9 @@
     <div class="col-12 order-md-first">
         <p class="text-muted mt-3 text-center text-md-left">
             {% if orders|length == 1 %}
-                Order History: {{ orders|length }} Order
+                {{ orders|length }} New Order
             {% else %}
-                Order History: {{ orders|length }} Orders
+                {{ orders|length }} New Orders
             {% endif %}
         </p>
     </div>
@@ -28,12 +28,12 @@
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
-                    <th scope="col">Order No</th>
+                    <th scope="col" class="d-none d-md-table-cell">Order No</th>
                     <th scope="col">Product/Address</th>
-                    <th scope="col">Qty</th>
-                    <th scope="col">Amount</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Status</th>
+                    <th scope="col" class="d-none d-md-table-cell">Qty</th>
+                    <th scope="col" class="d-none d-md-table-cell">Amount</th>
+                    <th scope="col" class="d-none d-md-table-cell">Date</th>
+                    <th scope="col" class="d-none d-md-table-cell">Status</th>
                     <th scope="col">Fulfillment</th>
                     <th scope="col">Accept?</th>
                 </tr>
@@ -41,7 +41,7 @@
             <tbody>
                 {% for item in orders %}
                     <tr>
-                        <td>{{ item.item.order }}</td>
+                        <td class="d-none d-md-table-cell">{{ item.item.order }}</td>
                         <td>{{ item.item.product }}
                             | {{ item.item.order.full_name }}
                             {{ item.item.order.street_address1 }},
@@ -50,10 +50,10 @@
                             {{ item.item.order.county }},
                             {{ item.item.order.country }}.
                         </td>
-                        <td>{{ item.item.quantity }}</td>
-                        <td>{{ item.item.lineitem_total }}</td>
-                        <td>{{ item.item.order.date }}</td>
-                        <td>
+                        <td class="d-none d-md-table-cell">{{ item.item.quantity }}</td>
+                        <td class="d-none d-md-table-cell">{{ item.item.lineitem_total }}</td>
+                        <td class="d-none d-md-table-cell">{{ item.item.order.date }}</td>
+                        <td class="d-none d-md-table-cell">
                             {% if item.status == 0 %}
                                 Pending
                             {% elif item.status == 1 %}
@@ -83,8 +83,8 @@
                             </div>
                         </td>
                         <td>
-                            <div class="d-flex">
-                                <a href="{% url 'accept_order' order_number=item.item.order.order_number  product_id=item.item.product.id  %}" class="btn btn-sm btn-primary me-2">Yes</a>
+                            <div class="d-flex flex-column flex-md-row">
+                                <a href="{% url 'accept_order' order_number=item.item.order.order_number  product_id=item.item.product.id  %}" class="btn btn-sm btn-primary  mb-2 mb-md-0 me-md-2">Yes</a>
                                 <button 
                                     class="btn btn-sm btn-outline-danger no-btn"
                                     data-product-id="{{ item.item.product.id }}" 

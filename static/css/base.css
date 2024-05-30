@@ -377,3 +377,66 @@ input[name='q']::placeholder {
 .brand-logos img {
     max-width: 100%;
 }
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.side-boxes {
+    display: none;
+}
+
+@media (min-width: 992px) { /* Large screens */
+
+
+    .side-boxes {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 0 15px;
+    }
+
+    .side-box {
+        position: relative;
+        width: 150px; /* Adjust width as needed */
+        padding-top: 110px; /* This creates a square aspect ratio */
+        margin-bottom: 5px;
+    }
+
+    .side-box img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .side-box:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.carousel-item img {
+    width: 100%;
+}
+
+.custom-slide-container {
+    max-width: 992px; /* Custom max-width to match 992-1200px container */
+    margin: 0 auto; /* Center align the container */
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Define the flash animation */
+@keyframes flash {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Apply the animation to the side-box element */
+.side-box:hover {
+    animation: flash 0.5s; /* Flash animation on hover */
+}

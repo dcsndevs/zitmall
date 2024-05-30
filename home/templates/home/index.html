@@ -7,16 +7,81 @@
 
 {% block content %}
 
-</div>
+<section class="custom-slide-container">
+    
+    <div class="carousel-container">
+        <div class="side-boxes">
+            <div class="side-box">
+                <a href="products/?q=gadgets">
+                <img class="h-100 img-thumbnail object-fit-scale" src="https://res.cloudinary.com/djhi60enx/image/upload/v1717070684/it5wxwslkpul51d72qbu.png" alt="side box image">
+                </a>
+            </div>
+            <div class="side-box">
+                <a href="products/?q=kettles">
+                <img class="h-100 img-thumbnail object-fit-scale" src="https://res.cloudinary.com/djhi60enx/image/upload/v1717070684/ntcqyldhpaoyp0odpczp.png" alt="side box image">
+                </a>
+            </div>
+            
+            <div class="side-box">
+                <a href="products/?q=watches">
+                <img class="h-100 img-thumbnail object-fit-scale" src="https://res.cloudinary.com/djhi60enx/image/upload/v1717070684/zgmcycux4spytra07udt.png" alt="side box image">
+                </a>
+            </div>
+            
+        </div>
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <a href="products/?q=gadgets">
+                    <img src="https://res.cloudinary.com/djhi60enx/image/upload/v1717062312/tv-screens-sale-advert.png" class="d-block w-100" alt="...">
+                </a>
+              </div>
+              <div class="carousel-item">
+                <a href="products/?q=gadgets">
+                    <img src="https://res.cloudinary.com/djhi60enx/image/upload/v1717062312/shoping-challenge-summer-advert.png" class="d-block w-100" alt="...">
+                </a>
+              </div>
+              <div class="carousel-item">
+                <a href="products/?q=gadgets">
+                    <img src="https://res.cloudinary.com/djhi60enx/image/upload/v1717062312/living-room-furniture-sales.png" class="d-block w-100" alt="...">
+                </a>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+        </div>
+        
+        <div class="side-boxes">
+            <div class="side-box">
+                <a href="products/?q=blender">
+                    <img class="h-100 img-thumbnail object-fit-scale" src="https://res.cloudinary.com/djhi60enx/image/upload/v1717070684/wrtgxjowk73irzsxdiwk.png" alt="side box image">
+                </a>
+            </div>
+            <div class="side-box">
+                <a href="products/?q=laptop">
+                <img class="h-100 img-thumbnail object-fit-scale" src="https://res.cloudinary.com/djhi60enx/image/upload/v1717070684/s9c2toql17d5trvinbio.png" alt="side box image">
+            </a>
+            </div>
+            <div class="side-box">
+                <a href="products/?q=washing machine"> <img class="h-100 img-thumbnail object-fit-scale" src="https://res.cloudinary.com/djhi60enx/image/upload/v1717070683/vvnflftk3bkusmejjv4y.png" alt="side box image">
+                </a>
+                </div>
+        </div>
+    </div>
+
     <div class="col-12">
         <p class="text-muted mt-3 text-center">
             {{ products|length }} Today's top Picks
         </p>
     </div>
-</div>
-
-<section class="container">
-    <div class="row row-cols-2 row-cols-lg-5 g-4 py-5 ">
+    
+    <div class="row row-cols-2 row-cols-lg-5 g-4 py-2 ">
         {% for product in products %}
         <div class="col-lg-3 mb-2">
             <div class="card h-100 overflow-hidden rounded-4 rounded-top-0 border-0 shadow-lg position-relative">

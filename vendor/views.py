@@ -4,8 +4,10 @@ from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
 from django.contrib.auth.models import User
+from django.template.loader import render_to_string
 from django.utils.text import slugify
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
+from xhtml2pdf import pisa
 from .models import VendorOrder, VendorOrderStatusHistory
 from .forms import VendorOrderForm
 from products.models import Product, Category
@@ -531,3 +533,29 @@ def delivery_failed_vendor_orders(request):
     }
 
     return render(request, 'vendor/delivery_failed_orders.html', context)
+
+def print_order_receipt(request, order_no, orderline_id):
+    
+    order_line_item = get_object_or_404(OrderLineItem, order__order_number=order_no, id=orderline_id)    
+    template_name = 'vendor/order-receipt.html'
+    context = {'order': order_line_item}
+    
+    html = render_to_string(template_name, context)
+
+    # Create a PDF response
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = f'attachment; filename="order_{order_no}_receipt.pdf"'
+
+    # Convert HTML to PDF
+    pisa_status = pisa.CreatePDF(html, dest=response)
+
+    if pisa_status.err:
+        return HttpResponse('We had some errors <pre>' + html + '</pre>')
+    else:
+        messages.success(request, 'The receipt was generated successfully. Find the downloaded pdf attachement on your device.')
+        
+    # JavaScript to refresh the page after a delay
+    refresh_script = '<script>setTimeout(function() { window.location.reload(); }, 3000);</script>'
+    response.write(refresh_script)
+    return response
+    

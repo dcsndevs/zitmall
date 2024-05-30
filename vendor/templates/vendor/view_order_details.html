@@ -207,7 +207,11 @@
                     </table>
                 </form>
                 <div class="mt-5">
-                    <a class="print-button text-center" onclick="window.print()">Print Order Receipt</a>
+                    <a class="print-button text-center" 
+                        href="{% url 'print_order_receipt' order_no=order.order.order_number  orderline_id=order.id %}"
+                        onclick="startDownload(event)">
+                        Download Order Receipt
+                    </a>
                 </div>
             </div>
         </div>
@@ -275,5 +279,16 @@
             form.submit();
         });
     });
+    function startDownload(event) {
+        // Inform the user that the download has started
+        
+        // Refresh the page after a delay
+        setTimeout(function() {
+            window.location.reload();
+        }, 3000); // Refresh after 3 seconds (adjust as needed)
+        
+        // Prevent the default action of the link (page navigation)
+
+    }
 </script>
 {% endblock %}

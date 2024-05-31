@@ -8,6 +8,8 @@ from django.utils.crypto import get_random_string
 from django.template.loader import render_to_string
 from django.core.mail import send_mail
 
+from django.db.models import F
+
 from .forms import OrderForm
 from vendor.forms import VendorOrderForm
 from vendor.models import VendorOrder
@@ -76,6 +78,9 @@ def checkout(request):
                             quantity=item_data,
                         )
                         order_line_item.save()
+                        
+                        #Update product stock in database
+                        Product.objects.filter(id=product.id).update(quantity=F('quantity') - item_data)
                         #create vendor line item
                         vendor_order_line_item = VendorOrder(
                             item=order_line_item,
@@ -90,6 +95,9 @@ def checkout(request):
                                 product_size=size,
                             )
                             order_line_item.save()
+                            
+                            #Update product stock in database
+                            Product.objects.filter(id=product.id).update(quantity=F('quantity') - item_data)
                             #create vendor line item
                             vendor_order_line_item = VendorOrder(
                             item=order_line_item,

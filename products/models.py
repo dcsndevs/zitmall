@@ -72,7 +72,7 @@ class Product(models.Model):
     product_brand = models.CharField(max_length=50, null=True, blank=True)
     vendor = models.ForeignKey(
         User,
-        n_delete=models.CASCADE,
+        on_delete=models.CASCADE,
         related_name="seller",
         default=1, null=False
     )

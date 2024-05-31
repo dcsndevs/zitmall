@@ -12,7 +12,6 @@ from django.core.mail import send_mail
 from django.db.models import F
 
 from .forms import OrderForm
-from vendor.forms import VendorOrderForm
 from vendor.models import VendorOrder
 from .models import Order, OrderLineItem
 from products.models import Product
@@ -97,9 +96,7 @@ def checkout(request):
                         )
                         vendor_order_line_item.save()
                     else:
-                        for size,
-                        quantity in
-                        item_data["items_by_size"].items():
+                        for size, quantity in item_data["items_by_size"].items():
                             order_line_item = OrderLineItem(
                                 order=order,
                                 product=product,
@@ -228,7 +225,6 @@ def checkout_success(request, order_number):
             if user_profile_form.is_valid():
                 user_profile_form.save()
     if create_info:
-        print("yes ------ yes")
         user_email = order.email
         if not User.objects.filter(email=user_email).exists():
             full_name = order.full_name.strip()
@@ -258,8 +254,7 @@ def checkout_success(request, order_number):
 
             send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [user_email])
 
-            user_profile, created =
-            UserProfile.objects.get_or_create(user=newuser)
+            user_profile, created = UserProfile.objects.get_or_create(user=newuser)
 
             user_profile.default_phone_number = order.phone_number
             user_profile.default_country = order.country

@@ -7,7 +7,7 @@ from django.contrib.auth.forms import PasswordChangeForm
 from django.urls import reverse_lazy
 from django.views import generic
 
-from .models import UserProfile, UserFullnameEmail
+from .models import UserProfile
 from .forms import UserProfileForm, UserFullnameEmailForm
 
 from checkout.models import Order

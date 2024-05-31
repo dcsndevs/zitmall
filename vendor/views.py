@@ -3,7 +3,6 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
-from django.contrib.auth.models import User
 from django.template.loader import render_to_string
 from django.utils.text import slugify
 from django.http import JsonResponse, HttpResponse
@@ -12,7 +11,7 @@ from .models import VendorOrder, VendorOrderStatusHistory
 from .forms import VendorOrderForm
 from products.models import Product, Category
 from products.forms import ProductForm
-from checkout.models import Order, OrderLineItem
+from checkout.models import OrderLineItem
 
 
 def staff_required(view_func):

@@ -12,7 +12,6 @@ from django.core.exceptions import ValidationError
 
 from products.models import Product
 from profiles.models import UserProfile
-from cart import contexts
 
 STATUS = (
     (0, "Pending"),
@@ -91,10 +90,11 @@ class Order(models.Model):
                 )
         else:
             self.delivery_cost = 0
-            self.grand_total =
-            self.order_total +
-            self.delivery_cost -
-            self.discount
+            self.grand_total = (
+                self.order_total 
+                + self.delivery_cost 
+                - self.discount
+            )
 
         self.save()
 

@@ -3,7 +3,6 @@ from django.dispatch import receiver
 
 
 from .models import OrderLineItem
-from profiles.models import UserProfile
 
 
 @receiver(post_save, sender=OrderLineItem)

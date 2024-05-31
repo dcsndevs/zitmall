@@ -8,11 +8,17 @@ from .models import Product, Category
 class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        exclude = ['slug', 'vendor']  # Exclude the slug and vendor fields from the form's fields
+        exclude = ['slug', 'vendor']
 
-    image_1 = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
-    image_2 = forms.ImageField(label='Image2', required=False, widget=CustomClearableFileInput)
-    image_3 = forms.ImageField(label='Image3', required=False, widget=CustomClearableFileInput)
+    image_1 = forms.ImageField(label='Image',
+                               required=False,
+                               widget=CustomClearableFileInput)
+    image_2 = forms.ImageField(label='Image2',
+                               required=False,
+                               widget=CustomClearableFileInput)
+    image_3 = forms.ImageField(label='Image3',
+                               required=False,
+                               widget=CustomClearableFileInput)
 
     def __init__(self, *args, **kwargs):
         user = kwargs.pop('user', None)  # Get the currently logged-in user
@@ -25,7 +31,8 @@ class ProductForm(forms.ModelForm):
             field.widget.attrs['class'] = 'border-black rounded-0'
 
         if user:
-            self.instance.vendor = user  # Set the vendor field to the currently logged-in user
+            self.instance.vendor = user
+            # Set the vendor field to the currently logged-in user
 
     def clean(self):
         cleaned_data = super().clean()

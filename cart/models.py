@@ -1,9 +1,10 @@
 from django.db import models
 
+
 class Coupon(models.Model):
     class Meta:
         verbose_name_plural = 'Coupon Codes'
-        
+
     code = models.CharField(max_length=50, unique=True)
     discount = models.PositiveIntegerField(default=0)
     valid_from = models.DateField()

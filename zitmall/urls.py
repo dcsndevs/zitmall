@@ -21,4 +21,4 @@ handler500 = handler500
 
 admin.site.site_header = "Admin | Zit Technology v1.0"
 admin.site.site_title = "Admin | Zit Technology v1.0"
-admin.site.index_title =""
+admin.site.index_title = ""

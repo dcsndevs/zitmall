@@ -33,17 +33,22 @@
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <a href="{% url 'products' %}">
-                    <img src="https://res.cloudinary.com/djhi60enx/image/upload/v1717149452/summer-sales-zit-advert.webp" class="d-block w-100" alt="summer products">
+                    <!-- Original image for larger screens -->
+                    <img src="https://res.cloudinary.com/djhi60enx/image/upload/v1717149452/summer-sales-zit-advert.webp" class="img-fluid d-none d-md-block" alt="summer products">
+                    <!-- Smaller image for smaller screens -->
+                    <img src="https://res.cloudinary.com/djhi60enx/image/upload/v1717186372/summer-shopping-advert_aespak.webp" class="img-fluid d-md-none" alt="summer products">
                 </a>
-              </div>
+            </div>
               <div class="carousel-item">
                 <a href="products/?q=tv">
-                    <img src="https://res.cloudinary.com/djhi60enx/image/upload/v1717149452/tv-screens-clearance.webp" class="d-block w-100" alt="tv products" loading="lazy">
+                    <img src="https://res.cloudinary.com/djhi60enx/image/upload/v1717149452/tv-screens-clearance.webp" class="img-fluid d-none d-md-block" alt="summer products">
+                    <img src="https://res.cloudinary.com/djhi60enx/image/upload/v1717186372/tv-screens-advert_nicxg7.webp" class="img-fluid d-md-none" alt="summer products">
                 </a>
               </div>
               <div class="carousel-item">
                 <a href="products/?q=gadgets">
-                    <img src="https://res.cloudinary.com/djhi60enx/image/upload/v1717149452/living-room-sale.webp" class="d-block w-100" alt="furniture products" loading="lazy">
+                    <img src="https://res.cloudinary.com/djhi60enx/image/upload/v1717149452/living-room-sale.webp" class="img-fluid d-none d-md-block" alt="summer products">
+                    <img src="https://res.cloudinary.com/djhi60enx/image/upload/v1717186372/living-room-advert_xijurs.webp" class="img-fluid d-md-none" alt="summer products">
                 </a>
               </div>
             </div>

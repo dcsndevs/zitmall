@@ -1,0 +1,1892 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/accounts/login/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/accounts/signup/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/cart/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=air_conditioner</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=airpod</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=apple_ipad</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=dvd_player</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=electric_hotplate</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=electric_jug</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=generator</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=home_theater</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=home_theatre</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=iphone</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=iphone_6s_plus</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=iphone_xs</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=iphone_xs_max</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=laptop</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=mobile_phone</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=smart_tv</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=smart_watch</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=solar_panel</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=sound_bar</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=sound_speaker</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=sound_system</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=television</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=wallpaper_tv</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=installation_kit</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?sort=price&amp;direction=asc</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?sort=category&amp;direction=asc</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=blender</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=cooker</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=food_processor</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=kettle</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=microwave</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=microwave_oven</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=oven</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=pressure_cooker</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=rice_cooker</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=toaster</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=yam_pounder</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=air_cooler</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=chest_freezer</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=cooler</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=dispenser</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=fan</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=freezer</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=fridge</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=gas_cooker</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=refrigerator</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=rechargeable_fan</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=stove</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=tower_fan</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=top_mount_refrigerators</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=washing_machine</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=water_dispenser</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=water_heater</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=water_kettle</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=ceiling_fan</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=electric_fan</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=standing_fan</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=wall_fan</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=extension</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=inverter</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=inverter_battery</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=iron</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=regulator</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=stabilizer</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=voltage_protector</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?q=gadgets</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?q=kettles</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?q=laptops</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?q=tv</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?q=washing%20machine</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?q=blender</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?q=watches</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/ovens-kelvinator-23l-microwave-oven/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/tvs-samsung-43smart-uhd-4k-tv-43nu7100-new-2019-model/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/generators-honda-8kva-em10000-key-starting-generator-battery/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/washers-nexus-7kg-semi-automatic-twin-tub-washing-machine-blue-cv/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/ovens-scanfrost-20-litre-microwave-oven/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/washer-maxi-10-kg-twin-tub-washing-machine/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?q=home+appliances</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?q=electronics</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?q=generators</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?q=smart+phone</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?q=kitchen+appliances</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/privacy-policy</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/vendor/signup</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/accounts/password/reset/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/air-conditioners-haier-thermocool-package-air-conditioner-10hp-hpu-90ca03t3-white/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/air-conditioners-split-ac-units-hisense-fs-10hp-standing-air-conditioner/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/air-conditioner-haier-thermocool-floor-standing-air-conditioner-hpc-18cywc/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/air-conditioners-haier-thermocool-package-air-conditioner-2hp-hpu-18co3-hbf-1-white/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/air-conditioners-haier-thermocool-package-air-conditioner-5hp-hpu-48cj03/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/air-conditioners-split-ac-units-polystar-standing-air-conditioner-2ton/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/air-conditioners-lg-spl-2-5hp-gencool-b-air-conditioner/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/air-conditioners-haier-thermocool-package-air-conditioner-3hp-hpu-24co3-hb1-white/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/air-conditioners-polystar-floor-standing-led-air-conditioner-2-tons-pvf-202c/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/air-conditioners-haier-thermocool-2hp-split-air-conditioner-supercool-hsu-18spw1-white/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/air-conditioners-split-unit-air-conditioner-kc12nkh-1-5hp/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/air-conditioners-split-ac-units-polystar-1-5hp-split-inverter-air-conditioner/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/air-conditioners-panasonic-1hp-split-air-conditioner-yc9mkf/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/air-conditioners-haier-thermocool-1-0hp-split-air-conditioner-supercool-hsu-09slgi/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/air-conditioners-lg-spl-1-5hp-gencool-b-air-conditioner-split/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/air-conditioners-split-ac-units-skyrun-2hp-split-a-c-3m-copper-connecting-pipe-for-free/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/air-conditioners-split-ac-units-skyrun-1hp-split-a-c-kf-25gwc/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/air-conditioners-split-ac-units-polystar-polystar-1hp-inverter-split-airconditioner/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/air-conditioners-split-ac-units-skyrun-1-5-hp-split-a-c-kf-35gwc/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/air-conditioners-split-ac-units-hisense-1-hp-copper-inv-dk-split-air-conditioner/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?page=2</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?page=3</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-systems-lg-dvd-player/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-system-dvd-lg-dvd-player-dp-132/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/kitchen-appliances-electric-kettles-binatone-cej-1780-electric-jug-black/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/kitchen-appliances-electric-kettles-binatone-electric-jug-2-litres-cej-2005-black/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/generators-honda-5-5kva-eg6500cxs-key-starting-generator/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/generators-lutian-super-silent-diesel-generator-6kva/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/generators-sumec-firman-sdg7000se-diesel-generator/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/generators-sumec-firman-eco-10990es-7-6kva-generator/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/generators-sumec-9kva-key-start-remote-controlled-generator-eco12990esr-with-remote/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/generators-lutian-10kva-electric-starting-professional-gasoline-generator/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/generator-sumec-firman-9-kva-key-start-generator-eco12990es/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/generators-elepaq-generator-10kva-sv-22000-e2-constant-100-copper/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/generator-sumec-firman-7-6kva-generator-with-key-starter-eco-10990es/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/generators-maxigen-ek80-8-0kw-10kva-100-copper-generator-with-wheel/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/generators-maxigen-ek50-5kw-6-2kva-wheel-handle-generator-100-copper/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/generator-sumec-firman-6-7kva-with-key-starter-and-remote-control-eco-8990esr/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/generator-sumec-firman-6-7kva-key-starter-generator-eco-8990es/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/generators-sumec-firman-genarator-spg-8800/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/generator-maxmech-key-starter-generator-5kva/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/generators-lutian-3-5kva-ecological-series-generator-lt3990e-key-start-new-model/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/generator-navigator-7-2kva-key-start-petrol-generator-with-timer-switch-ng8990/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/generators-firman-eco4990es-3-4kva-generator-key-starter-100-copper/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/generator-elepaq-4-5kva-constant-key-starter-generator-sv6800e2/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-systems-sony-mhc-v90dw-home-audio-system/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-system-lg-5000w-xboom-home-theater-wahala/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-system-lg-aud-10-arx-2300w-home-theater/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-system-lg-audio-sound-bar-system-300-watt-aud3sj/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-systems-sony-mhc-v42d-high-power-music-system-with-360-degrees-light/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-systems-2-1ch-soundbar-with-powerful-wireless-subwoofer-and-bluetooth-ht-s350/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/lg-1800w-xboom-rms-home-theater-aud-9on-baba/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-systems-sony-mhc-v72d-high-power-music-system-with-360-degrees-light/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-system-lg-1250-4-2-ch-av-receiver-home-theater-aud-8-arx/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-systems-sony-mhc-v82d-high-power-portable-party-music-system/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-systems-lg-dvd-home-theatre-system-aud-675-lhd-5-1-ch/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-system-lg-1000w-rms-4-2-ch-home-theater-aud-arx-5/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/lg-aud-550-watts-xboom-home-theatre-hifi-system-aud-5on-pikin/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-systems-lg-hifi-audio-system/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-system-mini-home-theatre-lg-aud-44-cj-hifi-system/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-system-home-theatre-lg-60w-home-theater-aud-1d-rk/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-system-lg-130-watts-home-theater-aud-3rl/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-systems-djack-bluetooth-home-theatre-dj-6082-black/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-systems-djack-home-theater-djack-5050m/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-systems-lg480-w-hifi-audio-system/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-systems-sony-shakex10-high-power-home-audio-system-with-bluetooth/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-systems-sony-dav-dz950-5-1ch-bluetooth-dvd-home-theatre-system/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-systems-sony-dav-dz650-5-1ch-dvd-home-theatre-system/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/electronics-sony-dav-dz650-5-1ch-dvd-home-theatre-system/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-systems-sony-dav-dz350-5-1ch-dvd-home-theatre-system/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-systems-lg-xboom-bluetooth-home-audio-speaker-system/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/tvs-tcl-50uhd-4k-smart-tv/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/inverters-binatone-tempered-glass-waterproof-solar-panel-15w-sop-150/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-system-lg-500w-sound-bar-aud-9-y-sl/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-systems-sony-wireless-sound-bar-ht-ct390/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-systems-hisense-aud-hs212-bluetooth-2-1-channel-sound-bar-system/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-systems-hisense-aud-hs201c1-home-theater-sound-bar/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-systems-sony-shake-x70-dvd-bluetooth-usb-with-hdmi/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-systems-high-power-home-audio-system-with-dvd-shake-x10d/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-systems-5-1ch-home-cinema-soundbar-system-with-bluetooth-technology-ht-s700rf/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-systems-sony-mhc-v21d-high-power-one-box-music-system-with-lighting-effects/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-system-lg-aud-5pk-meridian-portable-bluetooth-speaker/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-systems-exlg-bluetooth-wireless-boom-box-home-theater-sound-system/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/lg-400-watts-sound-bar-aud-5-y-sn/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/television-20-lg-led-tv-lb455a/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/television-lg-98ub980t-4k-ultra-hd-tv/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/tvs-hisense100-4k-uhd-subwoofer-110w-screen-projector-pure/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/tvs-tv-100-laser-100-4-k-uhd-subwoofer-110w-screen-projector/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/tvs-samsung-82-class-nu7100-smart-4k-uhd-tv/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/tvs-samsung-65-class-nu7300-curved-smart-4k-uhd-tv/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/tvs-samsung-65-class-q6fn-qled-smart-4k-uhd-tv/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/television-lg-86-super-ultra-hd-4-k-tv/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/television-above-60-inch-tv-lg-65-oled-4k-smart-thinq-ai-tv-tv-65-c9/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/tvs-55-oled-tv-with-art-frame-lg-gallery-oled-tv/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/television-lg-55lb7200-class-54-6-diagonal-1080p-smart-w-webos-3d-led-tv/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/television-lg-65-inch-smart-tv-tv-65-sm8600/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/tvs-hisense-65-4k-uhd-free-bracket-wifi/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/tvs-hisense-49full-hd-led-tv-2019-2020-model-wall-bracket-49b5100/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/tvs-sony-4k-smart-led-tv-55x7000/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/television-hisense-65-inch-uled-tv-4k/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/television-lg-55-inch-nullo-cell-tv-tv-55-sm8600/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/tvs-55-smart-led-tv-pv-glhd5515dvbt/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/television-samsung-55-smart-curve-tv-55ru7300/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/television-lg-43smart-satellite-full-hd-tv-43lm6300-new-model/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/air-conditioner-standing-kit-for-standing-acs/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/electronics-saisho-coil-electric-single-hotplate-white/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/kitchen-appliances-cookers-hotplates-saisho-hp-11-coil-electric-hot-plate-single-steel/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/cookers-hot-plate-saisho-electric-hotplate-hp-3/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/electronic-accessories-wall-mounts-lg-tv-bracket-60/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/household-appliance-nexus-electric-steam-iron/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/kitchen-appliance-saisho-electric-jug-s-402-12/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/kitchen-appliances-electric-kettles-saisho-electric-jug-s-401-6-yellow/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/deals-saisho-electric-jug-s-402/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/cookers-hot-plate-saisho-2000w-double-electric-hotplate-hp5/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/stablizers-polystar-avs30a-voltage-protection/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/kitchen-appliances-toasters-sandwich-makers-saisho-sandwich-maker-s-604/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/electronic-accessories-wall-mounts-dry-iron-cel-7210g/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/cooker-table-top-amaze-single-burner-gas-cooker/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/stablizers-polystar-automatic-voltage-switcher-avs15a/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/irons-binatone-di-1255-dry-iron-white-black/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/kitchen-appliances-blenders-sonik-sonik-rechargeable-mini-juicer-blender/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/cookers-hot-plate-saisho-coil-electric-hotplate-white-double-hp-10/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/electronic-accessories-wall-mounts-universal-bracket-42-to-50/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/kitchen-appliances-electric-kettles-saisho-electric-jug-s-403/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/kitchen-appliances-cookers-hotplates-saisho-electric-hot-plate-hp-11/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?page=38</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/electronic-accessories-wall-mounts-lg-ac-bracket/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-side-by-side-nexus-420-ltr-multi-door-side-by-side-fridge-dark-red/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/kitchen-appliances-semi-automatic-paste-dividing-rolling-machine-model-lrk-30/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/kitchen-appliances-baking-jg-bone-saw-model-jg300/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/kitchen-appliances-baking-bread-moulder-machine-cg-38/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-side-by-side-lg-refrigerator-24-fwch/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/kitchen-appliances-blenders-binatone-blender-grinder-with-stirring-stick-blg-595-mk2-silver/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/blenders-binatone-blender-grinder-with-stick-blg-452-black/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/blenders-binatone-unbreakeable-jar-blender-grinder-with-stick-blg-699-mk2-black/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/household-appliance-century-blender/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/cookers-lg-stove-3163st-touch-controls-5-elements/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/ovens-binatone-mwo-2520-25-litre-microwave-oven-black/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/ovens-lg-25-litres-inverter-glass-touch-microwave-oven-mwo-2535-black/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/hisense-microwave-oven-36-l-silver-mirror-mwo-36mommi/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/ovens-lg-lg-smart-microwave/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/ovens-lg-25-litres-inverter-glass-touch-microwave-oven/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/kitchen-appliance-nexus-microwave-with-grill-20l-nx-804/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/kitchen-appliances-baking-nexus-digital-electric-oven-nx-2100/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/kitchen-appliances-toasters-sandwich-makers-binatone-sandwich-toaster-st-801/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/cookers-qasa-the-new-generation-qlink-yam-pounder-cooks-and-pounds/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/haier-thermocool-429-liters-large-inverter-chest-freezer-htf-429is-r6-slv/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-freezers-haier-thermocool-freezer-htf-219h/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/nexus-300-liters-chest-freezer-silver-nx-400/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-freezers-double-door-hisense-520l-double-door-chest-fast-freezer-frz-fc-68dd-silver/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-freezers-chest-freezers-lg-chest-freezer-253liters/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-freezers-chest-freezers-nexus-chest-freezer-nx-160h/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerator-hisense-chest-freezer-100-liters-silver/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-chillers-haier-thermocool-beverage-cooler-bc-110fg/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/kdk-16-inches-standing-fan-p40w/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/fans-binatone-16-inch-standing-fan-a1692/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-freezers-chest-freezers-haier-thermocool-ice-cream-freezer-sd-332/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-freezers-standing-freezer-haier-thermocool-upright-freezer-small-hsf-140s/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/cookers-scanfrost-gas-cooker-4-gas-2-electric/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerator-lg-ref-247-csav-668l-door-in-door-refrigerator/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerator-lg-red-247-sllvj-side-by-side-refrigerator/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-side-by-side-hisense-rc-67ws-side-by-side-516-liters-refrigerator/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/haier-thermocool-240-liters-double-door-refrigerator-hrf-250blux-slv/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-single-door-haier-thermocool-single-door-refrigerator-hr-195cs/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/fans-binatone-tower-fan-tf-5000m-black/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/washers-nexus-6kg-automatic-top-load-washing-machine-free-dry-iron/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/washer-nexus-12kg-automatic-top-load-washing-machine/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/washers-lg-presenting-worlds-first-6-motion-direct-drive-17-kg-t1232afds5/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/washers-lg-washing-machine-front-loader-automatic/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?page=4</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/dispensers-binatone-water-dispenser-with-fridge-freezer-blue-wtd-1900b/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/dispensers-nexus-water-dispenser-nx-016pi-with-fridge-purple/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/electronics-maxi-wh-15-20ve-15ltr-2000w-water-heater/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/fans-qasa-60-ceiling-fan/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/fans-binatone-industrial-fan-hdf-2620/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/fans-binatone-stand-fan-elite-series-18-inches-es-1800-brass/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/fans-binatone-18-inch-standing-fan-vs-1656-black/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/irons-binatone-dry-iron-di-1255-blue/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/irons-binatone-di-108-dry-iron-white-grey/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/stabilizers-tec-2000a-2000va-analogue-stabiliser/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/stabilizers-century-century-automatic-voltage-stabilizer-1000va/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/tvs-maxi-tv-55-d1240s-led-high-definition-smart-television/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/kitchen-appliances-blenders-panasonic-blender-mixer-mx-1521/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/tvs-lg-led-tv-49lf551v/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/generator-okayama-3800/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/generators-key-start-gasoline-generator-2-8kva/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-double-door-hisense-165l-double-door-refrigerator-ref-222/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/tvs-hisense-43-b5100-led-hd-tv/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?page=15</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/generator-navigator-3-2kva-electric-starter-generator-ng3990e/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/cookers-polystar-4-gas-burner-1-hot-plate-pvwd-960g1/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/cookers-maxi-6060-t-840-gas-cooker-black/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/air-conditioners-lg-spl-1hp-gencool-b-inverter-split-unit-air-conditioner/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/air-conditioners-split-ac-units-polystar-1hp-split-unit-air-conditioner/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/generators-sumec-firman-generator-set-spg-1800/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/generators-sumec-firman-spg-2900-2-5-kva-generator-manual/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/generators-senwei-manual-gasoline-generator-2-2kva/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/generators-sumec-firman-generator-set-spg-3000e2/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/generator-sumec-fireman-navigator-ng3500e2/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-systems-djack-bluetooth-woofer-and-speaker-dj-13/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-systems-djack-dj-m3l-home-theatre/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-systems-djack-powerful-x-bass-bluetooth-home-theatre-dj-23/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-systems-djack-dj-m3l-woofer-and-speakers-system/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-systems-djack-3-1-heavy-duty-bluetooth-sub-woofer-system-dj-e3l/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/tvs-50-inch-pv-jp50sdu2100bd-curved-smart-4k-uhd-tv/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/tvs-maxi-43-led-hd-tv-d1240-2hdmi-2usb-2av/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/tvs-polystar-55-inch-android-smart-full-hd-led-tv-pvglh5515dvbt/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/tvs-polystar-32-led-tv-pv-hd32d15dvbt-black/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/tvs-polystar-22-inch-led-tv-pv-hd22d15e/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/tvs-samsung-49-m5000-full-hd-tv/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/tvs-polystar-43-inch-smart-television-pv-glhd4315dvbt/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/fans-panasonic-ceiling-fan-56mz2/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/kitchen-appliances-toasters-sandwich-makers-rashnik-4-slices-sandwich-maker/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/cooker-standing-cooker-60-by-90-cm-maxi-60-by-90-cm-4-gas-2-electrical-wood-gas-oven/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-chest-freezers-skyrun-bd200a-chest-freezer-200litres/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/cookers-polystar-pv-g2hp1-table-gas-with-glass/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/kitchen-appliances-electric-kettles-qasa-qasa-1-8l-plastic-electric-jug/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/inverters-top-light-12v-200ah-deep-cycle-gel-inverter-battery/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/cookers-maxi-505031-inox-3-gas-burner-oven-burner/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/dispensers-eurosonic-water-dispenser-with-three-nozzles-fridge-red/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/cookers-binatone-pressure-cooker-pc-7001/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/inverters-mercury-mercury-battery-inverter-battery-150mah-12v/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-freezers-hisense-fc260sh-chest-freezer-grey/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/irons-phillips-dry-iron-hd-1172/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/air-conditioners-skyrun-1-5hp-portable-mobile-air-conditional/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/air-conditioner-window-air-conditioners-restpoint-2-0-hp-window-unit-air-conditioner/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/inverters-3-5kva-48v-safe-power-inverter/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/electronics-sony-playstation-4-console/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/cookers-polystar-5-burners-in-built-gas-hob/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-freezers-chest-freezers-haier-thermocool-small-chest-freezer-htf-98h/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-nexus-nx-65-65-litres-fridge-with-bar-brown/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerator-single-door-single-door-refrigerator-with-dispenser/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerator-lg-257l-top-freezer-with-direct-cooling-ref-262-sv/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerator-haier-thermocool-180l-top-mount-refrigerator-hrf-180ex-r6/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/washers-polystar-washing-machine-pv-wd4-5k/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/washer-hisense-5kg-top-loader-washing-machine/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/washers-lg-washing-machine-1400r-manual/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/tvs-lg-lg-43-inch-led-tv/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/tvs-samsung-55smart-uhd-4k-flat-tv-55mu7000-series-7/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-freezers-chest-freezers-polystar-chest-freezer-pv-cf530lgr/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/cookers-skyrun-3-gas-cooker-burner-one-electric-gcs-3g1e-m/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-lg-refrigerator-1/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/tvs-65-andriod-smart-4k-tv-pv-jp-656sb4kbd-with-built-in-demo/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/inverters-luminous-3-5kva-24v-zelio-inverter-disblay/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/air-conditioners-split-ac-units-hisense-spl-2-hp-copper-de-air-conditioner/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-freezers-chest-freezers-haier-thermocool-deep-freezer-htf-203h/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-freezers-chest-freezers-polystar-chest-freezer-pvcf-165lgr/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-freezers-polystar-chest-freezer-pvcf-360l/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/household-appliances-vacuum-air-cleaner-lg-vacuum-cleaner-vac-7320/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/inverters-batteries-luminous-1kva-12v-inverter/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-lg-ref-201-sh-with-190-litres-lgref201sh-blue/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-freezers-chest-freezers-polystar-chest-freezer-pv-cf190lgr/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/household-appliance-nexus-nx-018-water-dispenser/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/kitchen-appliances-baking-electric-bain-marie-model-bv-64/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-double-door-nexus-nx-340d-litre-fridge-water-dispenser/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/inverters-mercury-inverter-battery-26mah-12v/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/cookers-cooker-hood-polystar-60cm-digital-cookerhood-pv-hfd60/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-lg-ref-201-sq-with-190-litres-white/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-lg-refrigerator/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-double-door-bottom-mount-lg-bottom-mount-refrigerator/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/?category=standing_gas_cooker</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/maxi-60-90-4-2-gas-cooker-plus-inox/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/stabilizers-nexus-stabilizer-avr-3000va/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/television-smart-tvs-samsung-43-uhd-4k-smart-tv-nu7100-series-7/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/air-conditioners-skyrun-1-3-hp-mobile-air-conditional/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-freezers-chest-freezers-hisense-250-litres-chest-freezer-frz-fc-340sh/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/irons-qasa-steam-spray-iron/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-freezers-nexus-nx-255-chest-freezer-wood-vcm/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-systems-lg-lg-portable-bluetooth-speaker-music/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-double-door-nexus-nx-225-185-ltrs-silver/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/cookers-maxi-2-burner-table-top-gas-cooker/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-freezers-chest-freezers-midea-hs-377c-chest-freezer/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-freezers-chest-freezers-scanfrost-freezer/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/cookers-maxi60-90-5b-inox-gas-cooker-5-burner-oven-lamp/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/household-appliances-vacuum-air-cleaner-lg-vac-8622-2200-watts-21l-vacuum-cleaner/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-freezers-chest-freezers-polystar-chest-freezer-pvcf-251l/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/sound-system-lg-aud-7pk-meridian-portable-bluetooth-speaker/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/inverters-batteries-sinergy-1kva-12v-pure-sine-wave-inverter/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-freezers-chest-freezers-navigator-100-litres-chest-freezer-nf-150/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/freezers-chest-freezers-nexus-nx-150c-chest-freezer-light-blue/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/kitchen-appliances-blenders-s-1871-6-1-5l-saisho-blender-2-in-1/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.21</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/cookers-polystar-pvwd-960g5g-5-gas-burner-with-auto-ignition/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.21</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-freezers-skyrun-chest-freezer-bd-270c-gold-270-liters/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.21</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/kitchen-appliances-baking-saisho-electric-oven-40-litres-s-936/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.21</priority>
+</url>
+<url>
+  <loc>https://zitmall-1f03b915b742.herokuapp.com/products/refrigerators-freezers-chest-freezers-370l-chest-freezer-pv-cf370lgr/</loc>
+  <lastmod>2024-05-31T11:32:00+00:00</lastmod>
+  <priority>0.17</priority>
+</url>
+
+
+</urlset>

@@ -55,9 +55,9 @@
                 <div class="col-12 col-sm-4 my-auto py-1 py-lg-0 text-center text-lg-left">
                     <a class="navbar-brand" href="{% url 'home' %}">
                         {% if user.is_staff %}
-                        <img class="h1" src="https://res.cloudinary.com/djhi60enx/image/upload/v1717102841/zit-vendorarea-logo.png" style="width: 200px; height:72;" alt="zitmall-vendorarea-logo">
+                        <img class="h1" src="https://res.cloudinary.com/djhi60enx/image/upload/v1717102841/zit-vendorarea-logo.png" style="width: 200px; height:72px;" alt="zitmall-vendorarea-logo">
                         {% else %}
-                        <img class="h1" src="https://res.cloudinary.com/djhi60enx/image/upload/v1717151315/zit-market-logo.webp" style="width: 200px; height:72;" alt="zitmall-logo">
+                        <img class="h1" src="https://res.cloudinary.com/djhi60enx/image/upload/v1717151315/zit-market-logo.webp" style="width: 200px; height:72px;" alt="zitmall-logo">
                         {% endif %}
                     </a>
                 </div>
@@ -75,7 +75,6 @@
                                     class="nav-link mx-0 px-0 dropdown-toggle"
                                     data-bs-toggle="dropdown"
                                     data-bs-target="#navprofilemenu"
-                                    role="button"
                                     aria-label="user-menu"
                                     aria-expanded="false">
                                     <i class="bi bi-person-circle text-black"></i>
@@ -89,20 +88,19 @@
                                         <li class="dropdown-item">
                                             <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'view_cart' %}" aria-label="view_cart">
                                                 <i class="bi-cart4"></i>
-                                                <span> View Cart</span></a>
+                                                <span> View Cart</span>
+                                            </a>
                                         </li>
                                         <li class="dropdown-item">
                                             <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'account_logout' %}" aria-label="logout"><i class="bi-key"></i> Logout</a>
                                         </li>
                                         {% else %} 
-                                        <p class="d-flex align-items-center mb-0">
                                             <li class="dropdown-item">
                                                 <a href="{% url 'account_login' %}" class="text-dark text-decoration-none me-1">Sign in</a>
                                             </li>
                                             <li class="dropdown-item">
                                                 <a href="{% url 'account_signup' %}" class="text-dark text-decoration-none">Register</a>
                                             </li>
-                                        </p>
                                         {% endif %}
                                     </ul>
                                     
@@ -114,7 +112,8 @@
                         <li class="nav-item list-inline-item">
                             <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'view_cart' %}" aria-label="view_cart">
                                 <i class="bi-cart4 text-black"><sup class="small text-primary" id="prod">{% if product_count == 0 %}{% else %}{{ product_count }}{% endif %}</sup></i>
-                                <span id="ccsd">$</span><small id="grand">{% if grand_total %}{{ grand_total|floatformat:2 }}{% else %}0.00{% endif %}</small></a>
+                                <span id="ccsd">$</span><small id="grand">{% if grand_total %}{{ grand_total|floatformat:2 }}{% else %}0.00{% endif %}</small>
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -126,13 +125,12 @@
                         <button
                             class="nav-link mx-0 px-0 dropdown-toggle"
                             data-bs-toggle="dropdown"
-                            data-bs-target="#navprofilemenu"
-                            role="button"
+                            data-bs-target="#navprofilemenu2"
                             aria-label="user-menu"
                             aria-expanded="false">
                             <i class="fs-5 bi bi-person-circle text-black"></i>
                         </button>
-                        <div class="dropdown-menu" id="navprofilemenu">
+                        <div class="dropdown-menu" id="navprofilemenu2">
                             <ul class="navbar-nav">
                                 
                                 {% if request.user.is_authenticated %}                            
@@ -144,6 +142,7 @@
                                     <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'view_cart' %}" aria-label="view_cart">
                                         <i class="bi-cart4"></i>
                                         <span>View Cart</span>
+                                    </a>
                                 </li>
                                 
                                 <li class="dropdown-item">
@@ -156,6 +155,7 @@
                                 <li class="dropdown-item">
                                     <a class="nav-link {% if request.path == login_url %}active" aria-current="page{% endif %}" href="{% url 'view_cart' %}" aria-label="view_cart">
                                         <i class="bi-cart4"></i><span>View Cart</span>
+                                    </a>
                                 </li>
                                 <li class="dropdown-item">
                                     <a class="nav-link {% if request.path == registration_url %}active" aria-current="page{% endif %}" href="{% url 'account_signup' %}" aria-label="signup">Register</a>
@@ -205,7 +205,7 @@
                 <div id="msg" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
                   <div class="toast-header">
                     <i class="btn btn-sm bi bi-envelope"></i> <strong class="me-auto text-capitalize text-{{ message.tags }}"> {{ message.tags }} Notification!</strong>
-                    <small type=button data-bs-dismiss="toast" aria-label="Close">close</small>
+                    <a role="button" data-bs-dismiss="toast" aria-label="Close this Notification">close</a
                     <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                   </div>
                   <div class="toast-body">
@@ -219,8 +219,8 @@
                 <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
                   <div class="toast-header">
                     <i class="btn btn-sm bi bi-envelope"></i> <strong class="me-auto text-capitalize text-info">Notification!</strong>
-                    <small type=button data-bs-dismiss="toast" aria-label="Close">close</small>
-                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                    <a role="button" data-bs-dismiss="toast" aria-label="Close this Notification">close</a>
+                    <button class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                   </div>
                   <div class="toast-body">
                     <b><em id="toastcc"></em></b>
@@ -237,7 +237,6 @@
 
         {% block footer %}
             <footer class="footer mt-auto text-center">
-                <footer class="pt-2">
                     {% block subscription %}
                     {% endblock %}
                     {% include 'includes/footer.html' %}

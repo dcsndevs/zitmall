@@ -44,15 +44,15 @@
                 <!-- Product Image -->
                 {% if product.image_1 %}
                 <div style="height: 150px;">
-                    <img src="{{ product.image_1.url }}" class="card-img-top border-0 h-100 img-thumbnail object-fit-scale" alt="image_1_alt" style="object-fit: cover;">
+                    <img src="{{ product.image_1.url }}" class="card-img-top border-0 h-100 img-thumbnail object-fit-scale" alt="image_1_alt" style="object-fit: cover;" loading="lazy">
                 </div>
                 {% elif product.image_url %}
                 <div style="height: 150px;">
-                    <img src="{{ product.image_url }}" class="card-img-top border-0 h-100 img-thumbnail object-fit-scale" alt="image_url_alt" style="object-fit: cover;">
+                    <img src="{{ product.image_url }}" class="card-img-top border-0 h-100 img-thumbnail object-fit-scale" alt="image_url_alt" style="object-fit: cover;" loading="lazy">
                 </div>
                 {% else %}
                 <div style="height: 150px;">
-                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="no-image">
+                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="no-image" loading="lazy">
                 </div>
                 {% endif %}
                 

@@ -1,16 +1,15 @@
 <nav class="navbar">
 
     <div class="container col-12 row text-center smaller-font offset-lg-2 offset-md-2 align-items-center">
-        <span class="nav-item dropdown-center col">
+        <div class="nav-item dropdown-center col">
             <button class="nav-link dropdown-toggle" 
                 data-bs-toggle="modal" 
                 data-bs-target="#categoryModal"
-                role="button">
-                <span>Menu</span>
+                >Menu
             </button>
-        </span>
+        </div>
         
-        <span class="dropdown-center nav-item col">
+        <div class="dropdown-center nav-item col">
             <a class="nav-link dropdown-toggle dropdown-bs-toggle dropdown-center" href="#" id="electronicsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Electronics
             </a>
@@ -39,8 +38,8 @@
                 <a class="dropdown-item" href="{% url 'products' %}?category=television">Television</a>
                 <a class="dropdown-item" href="{% url 'products' %}?category=wallpaper_tv">Wallpaper TV</a>
             </div>
-        </span>
-        <span class="nav-item dropdown-center col px-0 mx-0">
+        </div>
+        <div class="nav-item dropdown-center col px-0 mx-0">
             <a class="nav-link dropdown-toggle dropdown-bs-toggle" href="#" id="GadgetsDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Gadgets
             </a>
@@ -55,8 +54,8 @@
                 <a class="dropdown-item" href="{% url 'products' %}?category=mobile_phone">Mobile Phone</a>
                 <a class="dropdown-item" href="{% url 'products' %}?category=smart_watch">Smart Watch</a>
             </div>
-        </span>
-        <span class="nav-item dropdown dropdown-menu-start col px-0 mx-0">
+        </div>
+        <div class="nav-item dropdown dropdown-menu-start col px-0 mx-0">
             <a class="nav-link dropdown-toggle dropdown-bs-toggle" href="#" id="PowerDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Power
             </a>
@@ -66,7 +65,7 @@
                 <a class="dropdown-item" href="{% url 'products' %}?category=installation_kit">Installation Kit</a>
                 <a class="dropdown-item" href="{% url 'products' %}?category=solar_panel">Solar Panel</a>
             </div>
-        </span>
+        </div>
         
     </div>
     <div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="categoryModalLabel" aria-hidden="true">
@@ -82,7 +81,7 @@
                     <a class="nav-link dropdown-toggle dropdown-bs-toggle" href="#" id="allProductsMenu" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         All products
                     </a>
-                    <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+                    <div class="dropdown-menu border-0" aria-labelledby="allProductsMenu">
                         <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
                         <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
                         <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>

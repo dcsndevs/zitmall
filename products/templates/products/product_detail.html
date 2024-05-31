@@ -63,10 +63,10 @@
                 <small class="text-muted">Fufilled by: {{ product.vendor }}</small>
                 {% if product.quantity == 0 %}
                 <br>
-                    <b class="bg-light"><small class="text-muted"><span class="text-danger">Out of stock!</span></small></b>
+                    <b><small><span class="text-danger">Out of stock!</span></small></b>
                 {% elif product.quantity <= 5 %}
                 <br>
-                <b class="bg-light"><small class="text-muted">Item is low on stock. <span class="text-danger">Only {{ product.quantity }} left!</span></small></b>
+                <b><small class="text-muted">Item is low on stock. <span class="text-danger">Only {{ product.quantity }} left!</span></small></b>
                 {% endif %}
                 
                 <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">

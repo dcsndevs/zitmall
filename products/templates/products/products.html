@@ -7,7 +7,7 @@
 
 {% block content %}
 <div class="row mt-1 mb-2">
-    <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+    <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-md-end">
         <div class="sort-select-wrapper w-50">
             <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}body{% endif %}">
                 <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
@@ -86,11 +86,9 @@
     </div>
     <!-- Pagination Controls -->
     <div class="col-12 text-center">
-        <ul>  
-            <span>
-                Page {{ products.number }} of {{ products.paginator.num_pages }}
-            </span>
-        </ul>
+        <p>
+            Page {{ products.number }} of {{ products.paginator.num_pages }}
+        </p>
     </div>
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">

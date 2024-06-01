@@ -1,5 +1,6 @@
 from django import forms
 from django.utils.text import slugify
+from django_summernote.widgets import SummernoteWidget
 from .widgets import CustomClearableFileInput
 from .models import Product, Category
 
@@ -8,6 +9,9 @@ class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
         exclude = ['slug', 'vendor']
+        widgets = {
+            'description': SummernoteWidget(),
+        }
 
     image_1 = forms.ImageField(label='Image',
                                required=False,

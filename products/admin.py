@@ -1,11 +1,12 @@
 from django.contrib import admin
+from django_summernote.admin import SummernoteModelAdmin
 from .models import Product, Category
 
 
 # Register your models here.
 
 
-class ProductAdmin(admin.ModelAdmin):
+class ProductAdmin(SummernoteModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
     search_fields = ["title", "sku"]
     list_display = (

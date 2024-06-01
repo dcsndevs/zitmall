@@ -408,6 +408,6 @@ select option,
 select:invalid,
 select option[value=""] {
 border-radius: 0 !important;
-color: #000;
-border: 1px solid #000;
+color: #000 !important;
+border: 1px solid #000 !important;
 }

@@ -13,18 +13,18 @@
         <div class="side-boxes">
             <div class="side-box">
                 <a href="products/?q=gadgets">
-                <img class="h-100 img-thumbnail object-fit-scale" src="https://res.cloudinary.com/djhi60enx/image/upload/v1717149849/earbuds-category-adverts_ogar79.png" alt="earbuds-category">
+                <img class="h-100 img-thumbnail object-fit-scale rounded-0" src="https://res.cloudinary.com/djhi60enx/image/upload/v1717149849/earbuds-category-adverts_ogar79.png" alt="earbuds-category">
                 </a>
             </div>
             <div class="side-box">
                 <a href="products/?q=kettles">
-                <img class="h-100 img-thumbnail object-fit-scale" src="https://res.cloudinary.com/djhi60enx/image/upload/v1717149850/kettles-category-adverts_nmdbkh.png" alt="kettles-category">
+                <img class="h-100 img-thumbnail object-fit-scale rounded-0" src="https://res.cloudinary.com/djhi60enx/image/upload/v1717149850/kettles-category-adverts_nmdbkh.png" alt="kettles-category">
                 </a>
             </div>
             
             <div class="side-box">
                 <a href="products/?q=laptops">
-                <img class="h-100 img-thumbnail object-fit-scale" src="https://res.cloudinary.com/djhi60enx/image/upload/v1717149849/laptops-category-adverts_pctoos.png" alt="laptops-category">
+                <img class="h-100 img-thumbnail object-fit-scale rounded-0" src="https://res.cloudinary.com/djhi60enx/image/upload/v1717149849/laptops-category-adverts_pctoos.png" alt="laptops-category">
                 </a>
             </div>
             
@@ -65,16 +65,16 @@
         <div class="side-boxes">
             <div class="side-box">
                 <a href="products/?q=washing+machine">
-                    <img class="h-100 img-thumbnail object-fit-scale" src="https://res.cloudinary.com/djhi60enx/image/upload/v1717149849/washers-category-adverts_rbhynl.png" alt="washers-category">
+                    <img class="h-100 img-thumbnail object-fit-scale rounded-0" src="https://res.cloudinary.com/djhi60enx/image/upload/v1717149849/washers-category-adverts_rbhynl.png" alt="washers-category">
                 </a>
             </div>
             <div class="side-box">
                 <a href="products/?q=blender">
-                <img class="h-100 img-thumbnail object-fit-scale" src="https://res.cloudinary.com/djhi60enx/image/upload/v1717149849/bleders-category-adverts_ms1nvb.png" alt="blenders-category">
+                <img class="h-100 img-thumbnail object-fit-scale rounded-0" src="https://res.cloudinary.com/djhi60enx/image/upload/v1717149849/bleders-category-adverts_ms1nvb.png" alt="blenders-category">
             </a>
             </div>
             <div class="side-box">
-                <a href="products/?q=watches"> <img class="h-100 img-thumbnail object-fit-scale" src="https://res.cloudinary.com/djhi60enx/image/upload/v1717149849/watches-category-adverts_vn3ten.png" alt="watches-category">
+                <a href="products/?q=watches"> <img class="h-100 img-thumbnail object-fit-scale rounded-0" src="https://res.cloudinary.com/djhi60enx/image/upload/v1717149849/watches-category-adverts_vn3ten.png" alt="watches-category">
                 </a>
                 </div>
         </div>
@@ -89,10 +89,10 @@
     <div class="row row-cols-2 row-cols-lg-5 g-4 py-2 ">
         {% for product in products %}
         <div class="col-lg-3 mb-2">
-            <div class="card h-100 overflow-hidden rounded-4 rounded-top-0 border-0 shadow-lg position-relative">
+            <div class="card h-100 overflow-hidden rounded-0 rounded-top-0 border-0 shadow-lg position-relative">
                 <!-- Sales Badge -->
                 {% if product.old_price %}
-                <span class="badge bg-danger position-absolute top-0 end-0 m-2">Sale</span>
+                <span class="badge bg-danger position-absolute top-0 end-0 m-2 rounded-0">Sale</span>
                 {% endif %}
 
                 <!-- Product Image -->
@@ -124,7 +124,7 @@
                     {% if product.quantity == 0 %}
                     {% else %}
                     <p class="card-text text-center my-0" style="height: 40px; overflow: hidden; text-overflow: ellipsis;">
-                        <button type="button" class="btn btn-sm btn-dark text-decoration-none add-to-cart-btn" data-product-id="{{ product.id }}" data-product-price="{{ product.price }}">Add to <i class="bi-cart4"></i></button>
+                        <button type="button" class="btn btn-sm btn-dark text-decoration-none add-to-cart-btn rounded-0" data-product-id="{{ product.id }}" data-product-price="{{ product.price }}">Add to <i class="bi-cart4"></i></button>
                     </p>
                     {% endif %}
                     {% if product.quantity == 0 %}

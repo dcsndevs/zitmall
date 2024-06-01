@@ -14,7 +14,7 @@ html {
 body {
     color: #555;
     font-family: 'Jura';
-}
+    overflow-x: hidden;}
 
 /* from Bulma */
 .icon {
@@ -400,4 +400,14 @@ input[name='q']::placeholder {
     justify-content: center;
     align-items: center;
     height: 100%;
+}
+
+.form-control,
+select,
+select option, 
+select:invalid,
+select option[value=""] {
+border-radius: 0 !important;
+color: #000;
+border: 1px solid #000;
 }

@@ -18,21 +18,21 @@
                     </div>
                     {% elif product.image_1 %}
                     <div class="carousel-item active">
-                        <img src="{{ product.image_1.url }}" class="d-block card-img-top border-0 h-350 img-thumbnail object-fit-scale" alt="image_1_alt" style="object-fit: cover;">
+                        <img src="{{ product.image_1.url }}" onclick="showModal('{{ product.image_1.url }}')" style="object-fit: cover; cursor: pointer; height: 250px; width: 250px" class="d-block card-img-top border-0 h-350 img-thumbnail object-fit-cover" alt="image_1_alt">
                     </div>
                     {% else %}
                     <div class="carousel-item active">
-                        <img src="{{ MEDIA_URL }}noimage.png" class="d-block card-img-top border-0 h-350 img-thumbnail object-fit-scale" alt="no-image" style="object-fit: cover;">
+                        <img src="{{ MEDIA_URL }}noimage.png" onclick="showModal('{{ MEDIA_URL }}noimage.png')" style="object-fit: cover; cursor: pointer; height: 250px; width: 250px" class="d-block card-img-top border-0 h-350 img-thumbnail object-fit-cover" alt="no image">
                     </div>
                     {% endif %}
                     {% if product.image_2 %}
                     <div class="carousel-item">
-                        <img src="{{ product.image_2.url }}" class="d-block card-img-top border-0 h-350 img-thumbnail object-fit-scale" alt="image_2_alt" style="object-fit: cover;">
+                        <img src="{{ product.image_2.url }}" onclick="showModal('{{ product.image_2.url }}')" style="object-fit: cover; cursor: pointer; height: 250px; width: 250px" class="d-block card-img-top border-0 h-350 img-thumbnail object-fit-cover" alt="image_2_alt">
                     </div>
                     {% endif %}
                     {% if product.image_3 %}
                     <div class="carousel-item">
-                        <img src="{{ product.image_3.url }}" class="d-block card-img-top border-0 h-350 img-thumbnail object-fit-scale" alt="image_3_alt" style="object-fit: cover;">
+                        <img src="{{ product.image_3.url }}" onclick="showModal('{{ product.image_2.url }}')" style="object-fit: cover; cursor: pointer; height: 250px; width: 250px" class="d-block card-img-top border-0 h-350 img-thumbnail object-fit-cover" alt="image_3_alt">
                     </div>
                     {% endif %}
                 </div>

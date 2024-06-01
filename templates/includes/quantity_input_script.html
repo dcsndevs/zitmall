@@ -19,7 +19,7 @@
             const toastLive = document.getElementById('liveToast');
             const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLive);
             let successMessage = document.getElementById('toastcc');
-            successMessage.textContent = "Sorry, you cannot add more items. The maximum available stock has been reached.";
+            successMessage.textContent = "This product is now out of stock.";
             toastBootstrap.show();
         }
         if (size) {

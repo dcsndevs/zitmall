@@ -1,0 +1,199 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <!-- Add any header content here if needed -->
+{% endblock %}
+
+{% block content %}
+<div class="row mt-1 mb-2">
+    <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-md-end">
+        <div class="sort-select-wrapper w-50">
+            <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}body{% endif %}">
+                <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+                <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+                <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
+                <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category (A-Z)</option>
+                <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 order-md-first">
+        <p class="text-muted mt-3 text-center text-md-left">
+            {% if search_term or current_categories or current_sorting != 'None_None' %}
+            {{ search.count }} Products 
+            {% endif %}
+
+            {% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+        </p>
+    </div>
+
+</div>
+<section class="container">
+    <div class="row row-cols-2 row-cols-lg-5 g-4 py-5 ">
+        {% for product in search %}
+        <div class="col-lg-3 mb-2">
+            <div class="card h-100 overflow-hidden rounded-4 rounded-top-0 border-0 shadow-lg position-relative">
+                <!-- Sales Badge -->
+                {% if product.old_price %}
+                <span class="badge bg-danger position-absolute top-0 end-0 m-2">Sale</span>
+                {% endif %}
+
+                <!-- Product Image -->
+                {% if product.image_1 %}
+                <div style="height: 150px;">
+                    <img src="{{ product.image_1.url }}" class="card-img-top border-0 h-100 img-thumbnail object-fit-scale" alt="image_1_alt" style="object-fit: cover;" loading="lazy">
+                </div>
+                {% elif product.image_url %}
+                <div style="height: 150px;">
+                    <img src="{{ product.image_url }}" class="card-img-top border-0 h-100 img-thumbnail object-fit-scale" alt="image_url_alt" style="object-fit: cover;" loading="lazy">
+                </div>
+                {% else %}
+                <div style="height: 150px;">
+                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="no-image" loading="lazy">
+                </div>
+                {% endif %}
+                
+                <!-- Product Card Body -->
+                <div class="card-body mb-3 px-1" style="height: 160px;">
+                    <p class="card-title small px-0 mb-1 fs-10" style="height: 40px; overflow: hidden;">
+                        <a href="{% url 'product_detail_by_slug' product_slug=product.slug %}">{{ product.title }}</a>
+                    </p>
+                    <p class="card-text text-primary p-auto mb-0 text-center" style="height: 40px; overflow: hidden; text-overflow: ellipsis;">
+                        {% if product.old_price %}
+                            <del class="text-danger small">${{ product.old_price }} </del>
+                        {% endif %}
+                        <span class="fs-5">${{ product.price }}</span>
+                    </p>
+                    <p class="card-text text-center my-0" style="height: 40px; overflow: hidden; text-overflow: ellipsis;">
+                        <button type="button" class="btn btn-sm btn-dark text-decoration-none add-to-cart-btn" id="addCartBtn" data-product-id="{{ product.id }}" data-product-price="{{ product.price }}">Add to <i class="bi-cart4"></i></button>
+                    </p>
+
+                    {% if product.quantity == 0 %}
+                    <b class="bg-light"><small class="text-muted"><span class="text-danger">Out of stock!</span></small></b>
+                    {% elif product.quantity <= 5 %}
+                    <b class="bg-light"><small class="text-muted">Item is low on stock. <span class="text-danger">Only {{ product.quantity }} left!</span></small></b>
+                    {% endif %}
+                </div>
+            </div>
+            
+        </div>
+        {% empty %}
+            <p>No products found.</p>
+        {% endfor %}
+    </div>
+
+</section>
+
+
+<div class="top-down-button shadow-sm rounded-0 border border-body">
+<button class="top-down-link d-flex h-100" aria-label="click to go to top of page">
+        <i class="fas fa-arrow-up text-body mx-auto my-auto"></i>
+    </button>	
+</div>
+{% endblock %}
+{% block postloadjs %}
+    {{ block.super }}
+    <script type="text/javascript">
+        $(document).ready(function() {
+          $('.add-to-cart-btn').click(function() {
+              var productId = $(this).data('product-id');
+              var productPrice = $(this).data('product-price');
+              fetch(`/cart/quick_add/${productId}/`, {
+                  method: 'POST',
+                  headers: {
+                      'X-CSRFToken': getCookie('csrftoken'), // Include CSRF token
+                      'Content-Type': 'application/json',
+                      'Accept': 'application/json'
+                  },
+                  body: JSON.stringify({ product_id: productId })
+              })
+              .then(response => {
+                  if (!response.ok) {
+                      throw new Error('Failed to update product status');
+                  }
+                  return response.json();
+              })
+              .then(data => {
+                const toastLive = document.getElementById('liveToast');
+                const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLive);
+                let successMessage = document.getElementById('toastcc');
+                toastBootstrap.show()
+                // Show message info
+                successMessage.textContent = data.message;
+                // Increases product count
+                incrementProductCount();
+                var ccss1 = document.getElementById('grand');
+                ttd = parseInt(ccss1.textContent)
+                incrementTotal(productPrice);
+              })
+              .catch(error => {
+                  console.error('Error updating product status:', error);
+              });
+          });
+        });
+
+        // Function to get CSRF token from cookies
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        // Function to increment product count
+        function incrementProductCount() {
+            var productCountElement = document.getElementById('prod');
+            var currentCount = parseInt(productCountElement.textContent);
+            if (!isNaN(currentCount)) {
+                productCountElement.textContent = currentCount + 1;
+            } else {
+                productCountElement.textContent = 1;
+            }
+        }
+
+
+        // Function to increment grandTotal
+        function incrementTotal(productPrice) {
+
+            let grandTotal = document.getElementById('grand');
+            let ccss = document.getElementById('grand');
+            grandTotal = parseInt(grandTotal.textContent);
+            let currentGrandTotal = parseInt(grandTotal.textContent);
+            let productPrice2 = parseInt(productPrice);
+            grandTotal.textContent = currentGrandTotal + productPrice;
+            ccss.textContent = productPrice + ttd
+        }
+
+        $('#sort-selector').change(function() {
+            var selector = $(this);
+            var currentUrl = new URL(window.location);
+
+            var selectedVal = selector.val();
+            if(selectedVal != "reset"){
+                var sort = selectedVal.split("_")[0];
+                var direction = selectedVal.split("_")[1];
+
+                currentUrl.searchParams.set("sort", sort);
+                currentUrl.searchParams.set("direction", direction);
+
+                window.location.replace(currentUrl);
+            } else {
+                currentUrl.searchParams.delete("sort");
+                currentUrl.searchParams.delete("direction");
+
+                window.location.replace(currentUrl);
+            }
+        })
+    </script>
+{% endblock %}

@@ -31,7 +31,7 @@
                 <p class= "text-capitalize">Email: {% if profile.user.email%}{{ profile.user.email }}{% else %}<a class="text-primary" href="{% url 'persona' %}">Add</a>{% endif %}</p>
                 <p>Phone number: {% if profile.default_phone_number %}{{ profile.default_phone_number }}{% else %}<a class="text-primary" href="{% url 'profile_address' %}">Add</a>{% endif %}</p>
                 <p><hr></p>
-                <p class="h4">ddress</p>
+                <p class="h4">Address</p>
                 <p class= "text-capitalize">
                     {% if profile.default_street_address1 %}{{ profile.default_street_address1 }}{% else %}<a class="text-primary" href="{% url 'profile_address' %}">Add</a><br>{% endif %}
                     {% if profile.default_street_address2 %}{{ profile.default_street_address2 }}<br>{% endif %}
@@ -62,24 +62,24 @@
                     <table class="table table-sm table-borderless">
                         <thead>
                             <tr>
-                                <th>No.</th>
+                                <th class="d-none d-md-table-cell">No.</th>
                                 <th>Order Number</th>
-                                <th>Date</th>
+                                <th class="d-none d-md-table-cell">Date</th>
                                 <th>Items</th>
-                                <th>Order Total</th>
+                                <th class="d-none d-md-table-cell">Order Total</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for order in orders %}
                                 <tr>
-                                    <td>{{ forloop.counter }}</td>
+                                    <td class="d-none d-md-table-cell">{{ forloop.counter }}</td>
                                     <td>
                                         <a href="{% url 'order_history' order.order_number %}"
                                         title="{{ order.order_number }}">
                                             {{ order.order_number }}
                                         </a>
                                     </td>
-                                    <td>{{ order.date }}</td>
+                                    <td class="d-none d-md-table-cell">{{ order.date }}</td>
                                     <td>
                                         <ul class="list-unstyled">
                                             {% for item in order.lineitems.all %}
@@ -91,7 +91,7 @@
                                             {% endfor %}
                                         </ul>
                                     </td>
-                                    <td>${{ order.grand_total }}</td>
+                                    <td class="d-none d-md-table-cell">${{ order.grand_total }}</td>
                                 </tr>
                             {% endfor %}
                         </tbody>

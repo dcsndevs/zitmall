@@ -255,15 +255,6 @@ def empty_cart(request):
 def check_stock_availability(product, size, quantity, cart):
     """
     Check if the requested quantity of the product is available.
-
-    Args:
-        product (Product): The product object.
-        size (str): The size of the product, if applicable.
-        quantity (int): The requested quantity.
-        cart (dict): The current shopping cart.
-
-    Returns:
-        bool: True if the requested quantity is available, False otherwise.
     """
     available_stock = product.quantity
 

@@ -61,7 +61,7 @@
                 </p>
                 {% endif %}
                 <small class="text-muted">Fufilled by: {{ product.vendor }}</small>
-                {% if product.quantity == 0 %}
+                {% if product.quantity <= 0 %}
                 <br>
                     <b><small><span class="text-danger">Out of stock!</span></small></b>
                 {% elif product.quantity <= 5 %}
@@ -120,7 +120,7 @@
                                     <i class="fas fa-chevron-right"></i>
                                 </span>
                             </a>
-                            <input type="submit" class="btn btn-dark rounded-0 text-uppercase mt-5" value="Add to Cart">
+                            <input type="submit" class="btn btn-dark rounded-0 text-uppercase mt-5 {% if product.quantity <= 0 %}disabled{% endif %}" value="Add to Cart">
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         {% endwith %}

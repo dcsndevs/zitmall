@@ -50,6 +50,16 @@ def all_products(request):
                 | Q(description__icontains=query)
             )
             products = products.filter(queries)
+            
+            current_sorting = f"{sort}_{direction}"
+            context = {
+                "search": products,
+                "search_term": query,
+                "current_categories": categories,
+                "current_sorting": current_sorting,
+            }
+
+            return render(request, "products/products_search.html", context)
 
     current_sorting = f"{sort}_{direction}"
 

@@ -30,7 +30,6 @@ def apply_coupon(request):
     coupon_code = request.POST.get("coupon_code")
     coupon_code = coupon_code.upper()
     try:
-        print(f"Coupon code gotten is {coupon_code}")
         coupon = Coupon.objects.get(code=coupon_code)
         today = timezone.now().date()
         if (

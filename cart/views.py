@@ -2,12 +2,12 @@ from django.shortcuts import (
     render, redirect, reverse, HttpResponse, get_object_or_404)
 from django.contrib import messages
 from django.utils import timezone
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+
 from products.models import Product
 from .models import Coupon
 from cart.contexts import cart_contents
-from django.views.decorators.csrf import csrf_exempt
-from django.http import JsonResponse
-import json
 
 
 def view_cart(request):

@@ -207,7 +207,7 @@
 {% block postloadjs %}
 {{ block.super }}
 {% include 'includes/quantity_input_script.html' %}
-<script type="text/javascript">
+<script>
     function showModal(imageUrl) {
         document.getElementById('modalImage').src = imageUrl;
         $('#imageModal').modal('show');

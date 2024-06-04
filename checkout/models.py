@@ -91,8 +91,8 @@ class Order(models.Model):
         else:
             self.delivery_cost = 0
             self.grand_total = (
-                self.order_total 
-                + self.delivery_cost 
+                self.order_total
+                + self.delivery_cost
                 - self.discount
             )
 
@@ -154,6 +154,6 @@ class OrderLineItem(models.Model):
 
     def __str__(self):
         return (
-            f"{self.order.order_number} |"
-            " SKU {self.product.sku} @{self.product.vendor}"
+            f"{self.order.order_number} | SKU {self.product.sku} @"
+            f"{self.product.vendor}"
         )

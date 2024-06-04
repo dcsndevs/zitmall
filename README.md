@@ -1,6 +1,6 @@
 # ![Zit mall](documentation/index-page.png)
 
-## Welcome,
+## Intro
 Zit: Your Premier Online Marketplace for House Appliances
 
 Zit is an online marketplace specializing in house appliances. In addition to offering a beautifully crafted shopping site, Zit extends its platform to other sellers (vendors). This allows vendors to manage their products and orders efficiently through a robust vendor management area.
@@ -131,7 +131,7 @@ By following these steps, we ensured that Zitmall's homepage is optimized for se
 
 ## Features 
 
-## Cart and Checkout Features:
+### Cart and Checkout Features:
 - View Cart:
 Users can view the items they have added to their cart by navigating to the cart page. This page provides a summary of all items, quantities, and prices.
 
@@ -153,7 +153,7 @@ Users can apply coupon codes during checkout to avail of discounts. This feature
 - Empty Cart:
 Users can choose to empty their entire cart, removing all items at once. This is useful for users who wish to start their shopping over.
 
-## Checkout and Order Management:
+### Checkout and Order Management:
 - Checkout:
 The checkout process is streamlined to ensure users can complete their purchases efficiently. It includes steps for entering shipping information, applying coupons, and selecting payment methods.
 Use  Card number **4242 4242 4242 4242** on any future date and any CCV number to place test orders.
@@ -184,7 +184,7 @@ Users can view and edit their profiles, including personal information, addresse
 - Password Change:
 Users can change their passwords from their profile settings, ensuring account security.
 
-## Product Management for Vendors:
+### Product Management for Vendors:
 **Sample login for vendor:**
 Address: https://zitmall-1f03b915b742.herokuapp.com/accounts/login/
 user:palmridges@yahoo.com 
@@ -214,7 +214,7 @@ Order Management for Vendors:
 - Vendor Orders:
 Vendors can view all orders placed for their products, providing an overview of their sales.
 
-- [New Vendor Orders](documentation/vendor-area-new-order):
+- [New Vendor Orders](documentation/vendor-area-new-order.png):
 A dedicated section for new orders helps vendors prioritize recent sales for prompt processing.
 
 - Cancelled Vendor Orders:
@@ -253,32 +253,30 @@ For orders where delivery fails, vendors can update the status and take correcti
 - Print Order Receipt:
 Vendors can print order receipts for record-keeping and customer service purposes.
 
-## Additional Features:
 
-
-## Newsletter: 
+### Newsletter: 
 Users can sign up for newsletters directly from the home page. A Mailchimp form is embedded on the homepage, allowing users to input their email addresses. Upon successful submission, users receive a confirmation message, and their email addresses are added to the mailing list for future updates.
 
-## Coupon Codes:
+### Coupon Codes:
 During checkout, users can apply coupon codes to avail discounts on their purchases. Admin has the authority to create, manage, and customize coupon codes for specific discounts, expiry dates, and usage limits. For instance, there's a "Welcome12" code offering a 15% discount, which is provided to new users who sign up for the newsletter subscription.
 
-## Order History:
+### Order History:
 Vendors can access their order history through the vendor area portal. This feature provides a comprehensive list of all past orders, including order numbers, dates, statuses, and total amounts.
 Vendors can view detailed information for each order, such as itemized lists of products, quantities, prices, and shipping details. This helps vendors keep track of their orders.
 [Order history sample](documentation/order-history.png)
 
-## Vendor Registration form Contact: 
+### Vendor Registration form Contact: 
 
 Individuals interested in becoming vendors can register through the vendor signup page ([zit](https://zitmall-1f03b915b742.herokuapp.com/vendor/signup)). Upon submission, vendor registration requests are sent to the Admin for approval. Once approved, vendors are manually created by the Admin, granting them access to the vendor dashboard to manage their products and orders.
 
-## New user creation:
-An anonymous user can opt into creating a new account during checkout. If they check the button, a new account with an automatically created password would be created on their behalf and an email sent to that effect.
+### New user creation:
+An anonymous user can opt into creating a new account during checkout. If they check the button, a new account with an automatically created password will be created on their behalf and an email sent to that effect.
 
-## Sendmail:
+### Sendmail:
 At the end of each new order, an email is sent to the user to notify them of their order and also of the details of their order. -
 A new user creation email is also sent if an anonymous user placed an order and checked the button for new user creation
 
-## Out of Stock:
+### Out of Stock:
 This feature prevents users from ordering an item that is zero in quantity. An example of such a product is the [Saisho burner](https://zitmall-1f03b915b742.herokuapp.com/products/kitchen-appliances-cookers-hotplates-saisho-hp-11-coil-electric-hot-plate-single-steel). The product has a view configuration that prevents users from ordering it and also has different warning preventive methods on the front end. When a product quantity falls below 5, the user sees a notification beneath the product title. When the product equals zero, the add to cart button on the product list view disappears and the add to cart button on the product detail page becomes disabled. All these are relevant feedback that promotes positive user experience.
 
 
@@ -288,16 +286,16 @@ Rigorous manual testing was performed to ensure the app's functionality, includi
 ### JSHint
 All JavaScript files have been formatted using [jShint](https://jshint.com/) where notable errors about lines not ending properly with a semicolon. All the issues were promptly addressed. However, there were warnings regarding:
  -1- 	'template literal syntax' is only available in ES6 (use 'esversion: 6'). especially on the stripe.js file. These warnings were ignored as they did not pose a threat to our code
- -2- ["Undefined variables"](documentation/jshint-undefined-variables) These were variables that were not present in the same file but were already referenced in the corresponding HTML django template files. I therefore ignored these warnings as there was nothing wrong with the concept of having the variables in the host HTML files.
+ -2- ["Undefined variables"](documentation/jshint-undefined-variables.png) These were variables that were not present in the same file but were already referenced in the corresponding HTML django template files. I therefore ignored these warnings as there was nothing wrong with the concept of having the variables in the host HTML files.
 
 
 ### Google PageSpeed Insights:
 [PageSpeed Insights](https://pagespeed.web.dev/) was used to check for the Speed, performance, SEO, and Accessibility of the pages. 
 Google PageSpeed insights was used to test the speed of the website and various issues were highlighted which was followed by subsequent adjustments.
 A notable issue raised was about having too many scripts being loaded before the first image and test were loaded. I fixed that by making sure that javascript files are taken to the bottom of the page. I also reduced the size of my hero image and converted it to Webp format.
-- ![Index page Desktop](documentation/pageinsight-index-desktop)
-- [Index page mobile](documentation/pageinsight-index-mobile)
-- [Index page mobile](documentation/pageinsight-index-mobile)
+- ![Index page Desktop](documentation/pageinsight-index-desktop.png)
+- [Index page mobile](documentation/pageinsight-index-mobile.png)
+- [Index page mobile](documentation/pageinsight-index-mobile.png)
 - [Product page desktop](documentation/products-page-desktop.png)
 - [Products page mobile](documentation/products-page-mobile.png)
 - [Privacy Policy Mobile](documentation/pg-privacy-policy-mobile.png)
@@ -309,12 +307,12 @@ A notable issue raised was about having too many scripts being loaded before the
 
 ### W3 Validator:
 [W3 Validator](https://validator.w3.org/) was used to check for errors on the HTML pages. All highlighted errors were eliminated by correcting the codes, removing extra tags where necessary, adding aria attributes where missing, adding "href" or button as a role where necessary and generally following standard naming conventions/practice. 
-- [Home page validator screenshot](documentation/w3-validator-index-page)
+- [Home page validator screenshot](documentation/w3-validator-index-page.png)
 
-The W3 validator was used to check errors and all found errors were correct. There were however warnings concerning text with the "article" elements on the devotional pages and programmes page. The warning advised on the use of headings (h2-h6) to write the articles.
+The W3 validator was used to check errors and all found errors were correct. There were however warnings concerning text with the "article" elements on the index and product pages. The warning advised on the use of headings (h2-h6) to write the articles.
 
 ### CI Python Linter:
-All Python file was fully formatted with [Pep8Ci](https://pep8ci.herokuapp.com/) and all errors have been corrected, with the main errors being lines extending over 79 characters. However, there we errors regarding long lines exceeding 79 characters on the [settings file](documentation/settings-pep8-error) which were ignored. I ignored them because they were system files, many of which were auto-generated. They do not pose a threat to the workings of our code.
+All Python file was fully formatted with [Pep8Ci](https://pep8ci.herokuapp.com/) and all errors have been corrected, with the main errors being lines extending over 79 characters. However, there we errors regarding long lines exceeding 79 characters on the [settings file](documentation/settings-pep8-error.png) which were ignored. I ignored them because they were system files, many of which were auto-generated. They do not pose a threat to the workings of our code.
 
 
 ### Manual Testing: 
@@ -419,7 +417,7 @@ The output was similar on all these browsers except on firefox, where the fonts 
 |Horizontal scroll bar appearing on all pages|I set overflow-x as hidden on my body element in CSS|
 
 
-## Technologies used:
+## Technologies
 - [Django](https://docs.djangoproject.com/) is the web framework that was used to manage this project.
 - [Bootstrap5](https://getbootstrap.com/) is the web framework used for custom components and layouts.
 - [Python](https://python.org) is the main technology used in this application
@@ -432,7 +430,7 @@ The output was similar on all these browsers except on firefox, where the fonts 
 - [Code Institute Python Linter](https://pep8ci.herokuapp.com/) was used to check code for any issues
 - [Python Formatter](https://formatter.org/python-formatter) was used to check code for any issues
 
-### Languages Used
+### Languages Used:
 
 * [HTML5](https://en.wikipedia.org/wiki/HTML5)
 * [CSS3](https://en.wikipedia.org/wiki/CSS)
@@ -442,8 +440,7 @@ The output was similar on all these browsers except on firefox, where the fonts 
 
 ## Deployment
 
-The Heroku git URl is https://git.heroku.com/devotional.git
-
+The Heroku git URl is https://git.heroku.com/zitmall.git
 
 The app was then deployed on Heroku via Github:
 
@@ -505,14 +502,6 @@ To clone this project, you can do so using VsCode or any code editor that has an
 5. Select the Region and Data Center closest to you.
 6. Once created, click on the new database name, where you can view the database URL and Password.
 
-### Cloudinary
-
-1. For Primary interest, you can choose Programmable Media for image and video API.
-2. Optional: edit your assigned cloud name to something more memorable.
-3. On your Cloudinary Dashboard, you can copy your API Environment Variable.
-4. Be sure to remove the CLOUDINARY_URL= as part of the API value; this is the key.
-
-
 
 ### Heroku Deployment
 * Log into [Heroku](https://www.heroku.com/) account or create an account.
@@ -537,19 +526,16 @@ To clone this project, you can do so using VsCode or any code editor that has an
 #### Add the following Config Vars in Heroku:
 
 * SECRET_KEY - This can be any Django random secret key
-* AWS_ACCESS_KEY_ID - Insert your own AWS_ACCESS_KEY_ID
-* AWS_SECRET_ACCESS_KEY - Insert your own AWS_SECRET_ACCESS_KEY
-* STRIPE_PUBLIC_KEY - Insert your own STRIPE_PUBLIC_KEY
-* STRIPE_SECRET_KEY - Insert your own STRIPE_SECRET_KEY
-* STRIPE_WH_SECRET - Insert your own STRIPE_WH_SECRET
-* EMAIL_HOST_USER - Insert your own EMAIL_HOST_USER
-* EMAIL_HOST_PASS - Insert your own EMAIL_HOST_PASS
+* AWS_ACCESS_KEY_ID - Insert AWS_ACCESS_KEY_ID
+* AWS_SECRET_ACCESS_KEY - Insert AWS_SECRET_ACCESS_KEY
+* STRIPE_PUBLIC_KEY - Insert STRIPE_PUBLIC_KEY
+* STRIPE_SECRET_KEY - Insert STRIPE_SECRET_KEY
+* STRIPE_WH_SECRET - Insert STRIPE_WH_SECRET
+* EMAIL_HOST_USER - Insert EMAIL_HOST_USER
+* EMAIL_HOST_PASS - Insert EMAIL_HOST_PASS
 * PORT = 8000
 * DISABLE_COLLECTSTATIC = 1 - this is temporary and can be removed for the final deployment
-* DATABASE_URL - Insert your own ElephantSQL database URL here
-
-#### Heroku needs two additional files to deploy properly
-
+* DATABASE_URL - Insert ElephantSQL database URL here
 * requirements.txt
 * Procfile
 
@@ -586,9 +572,9 @@ Zitmall operates as a comprehensive online marketplace specializing in electroni
 Through this hybrid model, Zitmall aims to offer a diverse product selection, competitive prices, and a reliable shopping experience, while fostering a thriving ecosystem for vendors.
 
 
+### Facebook Marketing Strategy for Zitmall
 
-## Facebook Marketing Strategy for Zitmall
-### Introduction
+Introduction:
 This is a comprehensive outline of Facebook marketing strategy for Zitmall, aimed at increasing brand awareness, driving traffic to the website, and boosting sales. Facebook is a powerful platform with a large user base, making it an ideal channel for promoting Zitmall's wide range of electronics and kitchen products.
 
 Objectives
@@ -626,9 +612,9 @@ Content Calendar:
 - Friday: Special offers or promotions for the weekend.
 - Sunday: Customer testimonials or behind-the-scenes content.
 
-## Ad Strategy
+### Ad Strategy
 
-### Ad Formats:
+Ad Formats:
 
 - Carousel Ads: Showcase multiple products in a single ad.
 - Video Ads: Highlight product features and usage.
@@ -659,11 +645,12 @@ A/B Testing: Continuously test different ad creatives, copy, and targeting optio
 Adjust Strategy: Based on analytics, adjust the content and ad strategy to improve engagement and ROI.
 Monthly Reports: Create monthly reports to evaluate the success of the campaigns and make data-driven decisions.
 
-#### Conclusion
+Conclusion:
 By implementing this Facebook marketing strategy, Zitmall aims to enhance its online presence, drive more traffic to its website, and increase sales. Consistent engagement, targeted advertising, and continuous optimization will help Zitmall achieve its marketing objectives and establish itself as a leading online marketplace in Nigeria.
 
-## Project assessment criteria CHECKLIST for Portfolio 5: Project Submission
+## Project assessment criteria CHECKLIST
 
+### For Portfolio 5: Project Submission
 
 | Requirement    | Done           |  Comments    |
 |-------------|------------------------|------------------|

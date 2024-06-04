@@ -1,3 +1,4 @@
+{% load static %}
 {% url 'vendor_products' as vendor_products_url %}
 {% url 'add_product' as add_product_url %}
 {% url 'vendor_orders' as vendor_orders_url %}
@@ -7,39 +8,10 @@
 {% url 'delivered_vendor_orders' as delivered_vendor_orders_url %}
 {% url 'delivery_failed_vendor_orders' as delivery_failed_vendor_orders_url %}
 {% block extra_css %}
-
+    <link rel="stylesheet" href="{% static 'css/vendor.css' %}">
 {% endblock %}
-<style>
-    .nav-item {
-        padding: 0.2rem;
-    }
-    .nav-item button {
-        width: 100%;
-    }
 
-    .subscript {
-        position: absolute;
-        top: -10px;
-        right: -10px;
-        padding: 2px 6px;
-        border-radius: 50%;
-        font-size: 0.75rem;
-    }
-    .btn-with-subscript {
-        position: relative;
-        display: inline-block;
-    }
 
-    .small-screen-info{
-        display: none
-    }
-
-    @media (max-width: 770px) {
-        .small-screen-info{
-        display: block
-    }
-}
-</style>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">

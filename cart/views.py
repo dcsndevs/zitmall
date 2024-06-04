@@ -5,6 +5,7 @@ from django.utils import timezone
 from products.models import Product
 from .models import Coupon
 from cart.contexts import cart_contents
+from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 import json
 
@@ -198,7 +199,7 @@ def remove_from_cart(request, item_id):
         messages.error(request, f"Error removing item: {e}")
         return HttpResponse(status=500)
 
-
+@csrf_exempt
 def quick_add_to_cart(request, item_id):
     """Add a single quantity of the specified product to the shopping cart"""
 

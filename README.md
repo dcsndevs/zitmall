@@ -310,6 +310,8 @@ A notable issue raised was about having too many scripts being loaded before the
 - [Home page validator screenshot](documentation/w3-validator-index-page.png)
 - [Products page screenshot](documentation/html-validator-products-page.png)
 - [Privacy Policy page screenshot](documentation/html-validator-privacy-policy-page.png)
+- [Vendor Signup page screenshot](documentation/html-validator-vendor-signup-page.png)
+
 
 The W3 validator was used to check errors and all found errors were correct. There were however warnings concerning text with the "article" elements on the index and product pages. The warning advised on the use of headings (h2-h6) to write the articles.
 

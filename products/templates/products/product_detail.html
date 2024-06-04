@@ -174,7 +174,7 @@
                             {% if product.old_price %}
                                 <del class="text-danger small">${{ product.old_price }} </del>
                             {% endif %}
-                            <span class="fs-5" id="stock" data-remaining_stock="{{ product.quantity }}">${{ product.price }}</span>
+                            <span class="fs-5">${{ product.price }}</span>
                         </p>
                         <p class="card-text text-center my-0" style="height: 40px; overflow: hidden; text-overflow: ellipsis;">
                             <button type="button" class="btn btn-sm btn-dark text-decoration-none add-to-cart-btn" data-product-id="{{ product.id }}" data-product-price="{{ product.price }}">Add to <i class="bi-cart4"></i></button>

@@ -308,7 +308,8 @@ A notable issue raised was about having too many scripts being loaded before the
 ### W3 Validator:
 [W3 Validator](https://validator.w3.org/) was used to check for errors on the HTML pages. All highlighted errors were eliminated by correcting the codes, removing extra tags where necessary, adding aria attributes where missing, adding "href" or button as a role where necessary and generally following standard naming conventions/practice. 
 - [Home page validator screenshot](documentation/w3-validator-index-page.png)
-- [Home page validator screenshot](documentation/html-validator-products-page.png)
+- [Products page screenshot](documentation/html-validator-products-page.png)
+- [Privacy Policy page screenshot](documentation/html-validator-privacy-policy-page.png)
 
 The W3 validator was used to check errors and all found errors were correct. There were however warnings concerning text with the "article" elements on the index and product pages. The warning advised on the use of headings (h2-h6) to write the articles.
 
